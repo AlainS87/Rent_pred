@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "8b3befbcf20d",
+  "genome_hash": "8752d79dc95e0f7f",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "mean_rent_nearest_secondary",
+    "round": 1
+  },
+  "parent_run_id": "20261022T183022314474_ridge_fea0a337",
+  "run_id": "20261022T185555720506_ridge_8752d79d",
+  "search_rmse": 485.21002891659435,
+  "train_rmse": 482.63956272873344
+}

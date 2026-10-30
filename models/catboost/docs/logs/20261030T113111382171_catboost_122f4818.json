@@ -1,0 +1,76 @@
+{
+  "accepted": true,
+  "command": "train",
+  "confirm_months": [
+    "2025-01",
+    "2025-02",
+    "2025-03"
+  ],
+  "design_path": "models/catboost/docs/design.md",
+  "feature_hash": "170e95b30b54",
+  "fit_months": [
+    "2021-01",
+    "2024-09"
+  ],
+  "generation": null,
+  "genome": {
+    "architecture": {
+      "early_stopping_rounds": 20,
+      "learning_rate": 0.05,
+      "max_depth": 6,
+      "n_estimators": 200
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE"
+    ],
+    "preprocess": {
+      "categorical": "native",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "none"
+    }
+  },
+  "genome_hash": "122f4818f190de06",
+  "log_path": "models/catboost/docs/logs/20261030T113111382171_catboost_122f4818.json",
+  "max_rows": null,
+  "mutation": {
+    "axis": "train"
+  },
+  "parent_run_id": null,
+  "pool": [
+    "RENT_APPROVAL_DATE",
+    "TOWN",
+    "BLOCK",
+    "STREET",
+    "FLAT_TYPE",
+    "FLAT_MODEL",
+    "FLOOR_AREA_SQM",
+    "FURNISHED",
+    "LEASE_COMMENCE_DATE",
+    "FEE"
+  ],
+  "reason": "first saved best; there was no earlier snapshot",
+  "rows": {
+    "confirm": 8924,
+    "fit": 132802,
+    "search": 8274
+  },
+  "run_id": "20261030T113111382171_catboost_122f4818",
+  "search_months": [
+    "2024-10",
+    "2024-11",
+    "2024-12"
+  ],
+  "search_rmse": 460.0982735906584,
+  "train_rmse": 465.38390544622473,
+  "val_months": 3
+}

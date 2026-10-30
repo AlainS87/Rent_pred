@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "4fed35fb6804",
+  "genome_hash": "0240308320c2c16a",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "n_planned_mrt_within_1km",
+    "round": 1
+  },
+  "parent_run_id": "20261022T214026587580_xgb_332e97f1",
+  "run_id": "20261022T215046036390_xgb_02403083",
+  "search_rmse": 459.8918288280104,
+  "train_rmse": 442.41217119538055
+}

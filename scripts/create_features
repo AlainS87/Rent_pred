@@ -1,0 +1,7 @@
+python -m src.features.build_features
+python -m src.viz.plot_blocks
+python -m src.viz.plot_mrt
+python -m src.viz.plot_amenities
+python -m src.viz.plot_market
+python -m src.viz.plot_group_means
+python -m src.viz.plot_group_mean_maps

@@ -1,0 +1,13 @@
+# feature_hash: 21c7244e6748
+# sha256 prefix of the sorted column names, joined by newlines
+BLOCK
+FEE
+FLAT_MODEL
+FLAT_TYPE
+FLOOR_AREA_SQM
+FURNISHED
+LEASE_COMMENCE_DATE
+RENT_APPROVAL_DATE
+STREET
+TOWN
+log_dist_nearest_open_mrt_km

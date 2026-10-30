@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T183022314474_ridge_fea0a337",
+  "base_search_rmse": 525.2676813533755,
+  "column": "mean_rent_nearest_primary",
+  "confirm_rmse": 508.4530582035935,
+  "promising": true,
+  "round": 1,
+  "run_id": "20261022T185538939560_ridge_ee9ceefe",
+  "search_rmse": 484.1997287763569,
+  "stage": "probe"
+}

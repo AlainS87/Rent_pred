@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "88b869c77fc2",
+  "genome_hash": "1fdb8d61852f09f7",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "coe_a_bids_per_quota_lag1",
+    "round": 1
+  },
+  "parent_run_id": "20261030T113111382171_catboost_122f4818",
+  "run_id": "20261030T121241701802_catboost_1fdb8d61",
+  "search_rmse": 460.8095428923017,
+  "train_rmse": 465.40927559063925
+}

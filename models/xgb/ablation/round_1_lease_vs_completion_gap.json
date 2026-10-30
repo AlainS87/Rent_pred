@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T214026587580_xgb_332e97f1",
+  "base_search_rmse": 459.89222042854817,
+  "column": "lease_vs_completion_gap",
+  "confirm_rmse": 466.34294799708846,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261022T214320237014_xgb_51a33218",
+  "search_rmse": 460.2539151110943,
+  "stage": "probe"
+}

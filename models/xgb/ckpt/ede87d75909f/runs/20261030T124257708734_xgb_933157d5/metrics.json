@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "feature_hash": "ede87d75909f",
+  "genome_hash": "933157d5623cc79d",
+  "mutation": {
+    "axis": "finalize"
+  },
+  "parent_run_id": "20261030T124013757421_xgb_824fde31",
+  "run_id": "20261030T124257708734_xgb_933157d5",
+  "search_rmse": 461.8405076494957,
+  "train_rmse": 422.2740531971972
+}

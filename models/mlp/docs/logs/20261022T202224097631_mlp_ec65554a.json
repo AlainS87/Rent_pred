@@ -1,0 +1,85 @@
+{
+  "accepted": true,
+  "command": "train",
+  "confirm_months": [
+    "2025-01",
+    "2025-02",
+    "2025-03"
+  ],
+  "design_path": "models/mlp/docs/design.md",
+  "feature_hash": "95bfdabe2d04",
+  "fit_months": [
+    "2021-01",
+    "2024-09"
+  ],
+  "generation": null,
+  "genome": {
+    "architecture": {
+      "batch_size": 1024,
+      "dropout": 0.1,
+      "epochs": 20,
+      "hidden_sizes": [
+        128,
+        64
+      ],
+      "learning_rate": 0.001
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE",
+      "n_hdb_blocks_within_500m"
+    ],
+    "preprocess": {
+      "categorical": "onehot",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "standard"
+    }
+  },
+  "genome_hash": "ec65554ab29837d3",
+  "log_path": "models/mlp/docs/logs/20261022T202224097631_mlp_ec65554a.json",
+  "max_rows": null,
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "n_hdb_blocks_within_500m",
+    "round": 1
+  },
+  "parent_run_id": "20261022T183131011278_mlp_9a5f1229",
+  "pool": [
+    "RENT_APPROVAL_DATE",
+    "TOWN",
+    "BLOCK",
+    "STREET",
+    "FLAT_TYPE",
+    "FLAT_MODEL",
+    "FLOOR_AREA_SQM",
+    "FURNISHED",
+    "LEASE_COMMENCE_DATE",
+    "FEE",
+    "n_hdb_blocks_within_500m"
+  ],
+  "reason": "promising because search RMSE 464.312813 is at least 1% below 650.418686 from 20261022T183131011278_mlp_9a5f1229 after adding n_hdb_blocks_within_500m",
+  "rows": {
+    "confirm": 8924,
+    "fit": 132802,
+    "search": 8274
+  },
+  "run_id": "20261022T202224097631_mlp_ec65554a",
+  "search_months": [
+    "2024-10",
+    "2024-11",
+    "2024-12"
+  ],
+  "search_rmse": 464.3128127163335,
+  "train_rmse": 516.2369266946142,
+  "val_months": 3
+}

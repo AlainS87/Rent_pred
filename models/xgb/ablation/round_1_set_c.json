@@ -1,0 +1,33 @@
+{
+  "base_run_id": "20261022T214026587580_xgb_332e97f1",
+  "base_search_rmse": 459.89222042854817,
+  "columns": [
+    "longitude",
+    "year_completed",
+    "subzone",
+    "building_age_years",
+    "flat_age_from_lease",
+    "nearest_open_mrt_code",
+    "nearest_open_mrt_name",
+    "nearest_mall_name",
+    "dist_nearest_dt_km",
+    "n_open_mrt_within_1km",
+    "n_planned_mrt_within_1km",
+    "n_secondary_within_1km",
+    "n_mall_within_1km",
+    "coe_e_premium_lag1",
+    "dist_nearest_future_line_open_km",
+    "dist_nearest_future_line_planned_km",
+    "dist_to_cbd_km",
+    "bank_basket_adj_close_lag1",
+    "mean_rent_postal_sector",
+    "mean_rent_postal_district"
+  ],
+  "confirm_rmse": 466.2792283326977,
+  "replaced": true,
+  "round": 1,
+  "rule": "any_drop",
+  "run_id": "20261030T124013757421_xgb_824fde31",
+  "search_rmse": 459.50690467841144,
+  "stage": "set_c"
+}

@@ -1,0 +1,26 @@
+{
+  "base_run_id": "20261022T183022314474_ridge_fea0a337",
+  "base_search_rmse": 525.2676813533755,
+  "columns": [
+    "coe_a_premium_lag1",
+    "coe_b_premium_lag1",
+    "coe_e_premium_lag1",
+    "coe_a_premium_roll3",
+    "coe_c_premium_lag1",
+    "bank_basket_adj_close_lag1",
+    "bank_basket_return_lag1",
+    "property_basket_adj_close_lag1",
+    "mean_rent_postal_sector",
+    "mean_rent_postal_district",
+    "mean_rent_nearest_mall",
+    "mean_rent_nearest_mrt",
+    "mean_rent_nearest_primary",
+    "mean_rent_nearest_secondary"
+  ],
+  "confirm_rmse": 491.2717373967663,
+  "replaced": true,
+  "round": 1,
+  "run_id": "20261022T185613865949_ridge_d97c6333",
+  "search_rmse": 462.06099977110114,
+  "stage": "set_c"
+}

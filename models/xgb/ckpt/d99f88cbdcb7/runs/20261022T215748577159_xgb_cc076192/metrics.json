@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "d99f88cbdcb7",
+  "genome_hash": "cc076192bb26ddbc",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "property_basket_return_lag1",
+    "round": 1
+  },
+  "parent_run_id": "20261022T214026587580_xgb_332e97f1",
+  "run_id": "20261022T215748577159_xgb_cc076192",
+  "search_rmse": 460.2275636721466,
+  "train_rmse": 441.17199239248174
+}

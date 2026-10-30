@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "95bfdabe2d04",
+  "genome_hash": "3c4c64ca07829eff",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "n_hdb_blocks_within_500m",
+    "round": 1
+  },
+  "parent_run_id": "20261022T183022314474_ridge_fea0a337",
+  "run_id": "20261022T185138054505_ridge_3c4c64ca",
+  "search_rmse": 525.2889841582886,
+  "train_rmse": 489.29224203548193
+}

@@ -1,0 +1,52 @@
+{
+  "accepted": null,
+  "command": "test",
+  "confirm_rmse": 489.05205276156806,
+  "design_path": "models/ridge/docs/design.md",
+  "feature_hash": "cbfea443ca7a",
+  "genome": {
+    "architecture": {
+      "alpha": 1.0
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE",
+      "coe_a_premium_lag1",
+      "coe_b_premium_lag1",
+      "coe_e_premium_lag1",
+      "coe_a_premium_roll3",
+      "coe_c_premium_lag1",
+      "bank_basket_adj_close_lag1",
+      "bank_basket_return_lag1",
+      "property_basket_adj_close_lag1",
+      "mean_rent_postal_sector",
+      "mean_rent_postal_district",
+      "mean_rent_nearest_mall",
+      "mean_rent_nearest_mrt",
+      "mean_rent_nearest_primary",
+      "mean_rent_nearest_secondary",
+      "property_basket_return_lag1"
+    ],
+    "preprocess": {
+      "categorical": "onehot",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "standard"
+    }
+  },
+  "genome_hash": "411f8909b71d56d1",
+  "log_path": "models/ridge/docs/logs/20261022T191257530045_ridge_411f8909.json",
+  "parent_run_id": "20261022T191257383856_ridge_411f8909",
+  "reason": "confirm RMSE is recorded once and is not an acceptance signal",
+  "run_id": "20261022T191257530045_ridge_411f8909",
+  "search_rmse": 461.22812068496916,
+  "train_rmse": 475.73627906733947
+}

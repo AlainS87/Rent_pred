@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T214026587580_xgb_332e97f1",
+  "base_search_rmse": 459.89222042854817,
+  "column": "n_secondary_within_1km",
+  "confirm_rmse": 465.96730724527424,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261022T215207575483_xgb_9fecdb63",
+  "search_rmse": 459.76265160103486,
+  "stage": "probe"
+}

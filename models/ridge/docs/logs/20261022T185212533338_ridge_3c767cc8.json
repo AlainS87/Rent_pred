@@ -1,0 +1,38 @@
+{
+  "accepted": null,
+  "command": "test",
+  "confirm_rmse": 576.6998214282555,
+  "design_path": "models/ridge/docs/design.md",
+  "feature_hash": "3a81f2034fb9",
+  "genome": {
+    "architecture": {
+      "alpha": 1.0
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE",
+      "dist_to_cbd_km"
+    ],
+    "preprocess": {
+      "categorical": "onehot",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "standard"
+    }
+  },
+  "genome_hash": "3c767cc880c1a5bc",
+  "log_path": "models/ridge/docs/logs/20261022T185212533338_ridge_3c767cc8.json",
+  "parent_run_id": "20261022T185212382479_ridge_3c767cc8",
+  "reason": "confirm RMSE is recorded once and is not an acceptance signal",
+  "run_id": "20261022T185212533338_ridge_3c767cc8",
+  "search_rmse": 525.2935435337595,
+  "train_rmse": 489.28946647704817
+}

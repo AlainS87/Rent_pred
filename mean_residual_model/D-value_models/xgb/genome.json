@@ -1,0 +1,45 @@
+{
+  "architecture": {
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "n_estimators": 200
+  },
+  "features": [
+    "RENT_APPROVAL_DATE",
+    "TOWN",
+    "BLOCK",
+    "STREET",
+    "FLAT_TYPE",
+    "FLAT_MODEL",
+    "FLOOR_AREA_SQM",
+    "FURNISHED",
+    "LEASE_COMMENCE_DATE",
+    "FEE",
+    "longitude",
+    "year_completed",
+    "subzone",
+    "building_age_years",
+    "flat_age_from_lease",
+    "nearest_open_mrt_code",
+    "nearest_open_mrt_name",
+    "nearest_mall_name",
+    "dist_nearest_dt_km",
+    "n_open_mrt_within_1km",
+    "n_planned_mrt_within_1km",
+    "n_secondary_within_1km",
+    "n_mall_within_1km",
+    "coe_e_premium_lag1",
+    "dist_nearest_future_line_open_km",
+    "dist_nearest_future_line_planned_km",
+    "dist_to_cbd_km",
+    "bank_basket_adj_close_lag1",
+    "mean_rent_postal_sector",
+    "mean_rent_postal_district"
+  ],
+  "preprocess": {
+    "categorical": "native",
+    "numeric_impute": "median",
+    "rare_min_count": 30,
+    "scale": "none"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "4d4cc5ffe4d6",
+  "genome_hash": "432e0f404bdafe44",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "mean_rent_postal_district",
+    "round": 1
+  },
+  "parent_run_id": "20261022T183131011278_mlp_9a5f1229",
+  "run_id": "20261022T202700190590_mlp_432e0f40",
+  "search_rmse": 465.437034677185,
+  "train_rmse": 489.4766667108892
+}

@@ -1,0 +1,12 @@
+{
+  "accepted": true,
+  "feature_hash": "646e8a84f218",
+  "genome_hash": "2926f89f185ac9fd",
+  "mutation": {
+    "axis": "use_all_features"
+  },
+  "parent_run_id": "20261022T185613865949_ridge_d97c6333",
+  "run_id": "20261030T110814701751_ridge_2926f89f",
+  "search_rmse": 459.7231279849211,
+  "train_rmse": 471.3193571356451
+}

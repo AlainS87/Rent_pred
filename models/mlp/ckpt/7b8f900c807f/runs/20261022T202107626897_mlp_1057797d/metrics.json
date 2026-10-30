@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "7b8f900c807f",
+  "genome_hash": "1057797dc3b9f8d2",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "coe_c_premium_lag1",
+    "round": 1
+  },
+  "parent_run_id": "20261022T183131011278_mlp_9a5f1229",
+  "run_id": "20261022T202107626897_mlp_1057797d",
+  "search_rmse": 458.8999013072474,
+  "train_rmse": 483.42274766200933
+}

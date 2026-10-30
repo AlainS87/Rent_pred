@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261030T113111382171_catboost_122f4818",
+  "base_search_rmse": 460.0982735906584,
+  "column": "coe_b_bids_per_quota_lag1",
+  "confirm_rmse": 467.0893196972484,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261030T121432250808_catboost_658bc817",
+  "search_rmse": 460.8182379785452,
+  "stage": "probe"
+}

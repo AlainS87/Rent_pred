@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "e47e0c0ed690",
+  "genome_hash": "45109f10e6217ef9",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "is_central_region",
+    "round": 1
+  },
+  "parent_run_id": "20261022T183131011278_mlp_9a5f1229",
+  "run_id": "20261022T202543846484_mlp_45109f10",
+  "search_rmse": 461.41735600782346,
+  "train_rmse": 514.8477281391433
+}

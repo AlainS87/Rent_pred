@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "4932501d7490",
+  "genome_hash": "fbc44832844c8071",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "nearest_secondary_name",
+    "round": 1
+  },
+  "parent_run_id": "20261030T113111382171_catboost_122f4818",
+  "run_id": "20261030T120704386182_catboost_fbc44832",
+  "search_rmse": 459.9571434494122,
+  "train_rmse": 465.26537254690095
+}

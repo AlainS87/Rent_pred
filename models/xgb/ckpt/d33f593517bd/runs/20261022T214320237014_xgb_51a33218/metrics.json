@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "d33f593517bd",
+  "genome_hash": "51a332189dcab27d",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "lease_vs_completion_gap",
+    "round": 1
+  },
+  "parent_run_id": "20261022T214026587580_xgb_332e97f1",
+  "run_id": "20261022T214320237014_xgb_51a33218",
+  "search_rmse": 460.2539151110943,
+  "train_rmse": 443.1387326356136
+}

@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "40ef8a2b790f",
+  "genome_hash": "2cd94291dc41ecc1",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "bank_basket_adj_close_lag1",
+    "round": 1
+  },
+  "parent_run_id": "20261030T113111382171_catboost_122f4818",
+  "run_id": "20261030T122123797017_catboost_2cd94291",
+  "search_rmse": 460.4426716471286,
+  "train_rmse": 465.32320468799116
+}

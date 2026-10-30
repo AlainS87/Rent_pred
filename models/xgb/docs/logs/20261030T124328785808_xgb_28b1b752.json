@@ -1,0 +1,62 @@
+{
+  "accepted": null,
+  "command": "submit",
+  "design_path": "models/xgb/docs/design.md",
+  "feature_hash": "ede87d75909f",
+  "genome": {
+    "architecture": {
+      "early_stopping_rounds": 0,
+      "learning_rate": 0.05,
+      "max_depth": 8,
+      "n_estimators": 84
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE",
+      "longitude",
+      "year_completed",
+      "subzone",
+      "building_age_years",
+      "flat_age_from_lease",
+      "nearest_open_mrt_code",
+      "nearest_open_mrt_name",
+      "nearest_mall_name",
+      "dist_nearest_dt_km",
+      "n_open_mrt_within_1km",
+      "n_planned_mrt_within_1km",
+      "n_secondary_within_1km",
+      "n_mall_within_1km",
+      "coe_e_premium_lag1",
+      "dist_nearest_future_line_open_km",
+      "dist_nearest_future_line_planned_km",
+      "dist_to_cbd_km",
+      "bank_basket_adj_close_lag1",
+      "mean_rent_postal_sector",
+      "mean_rent_postal_district"
+    ],
+    "preprocess": {
+      "categorical": "native",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "none"
+    }
+  },
+  "genome_hash": "28b1b752ef7f0af5",
+  "labeled_rows": 150000,
+  "log_path": "models/xgb/docs/logs/20261030T124328785808_xgb_28b1b752.json",
+  "mutation": {
+    "axis": "submit"
+  },
+  "parent_run_id": "20261030T124257708734_xgb_933157d5",
+  "reason": "refit of 20261030T124257708734_xgb_933157d5 on every labeled month; this stage does not select columns and was not scored on held-out MONTHLY_RENT",
+  "run_id": "20261030T124328785808_xgb_28b1b752",
+  "train_rmse": 423.5937024921242
+}

@@ -1,0 +1,13 @@
+---
+description: Keep the auxiliary feature catalogs in sync with the code
+alwaysApply: true
+---
+
+# Update auxiliary feature docs
+
+When a task adds, removes, renames, or changes an auxiliary feature, update both catalogs before finishing:
+
+- `Docs/auxiliary_new_features.md`: the Chinese column table, the count of columns, and a short spec for the new or changed column.
+- `Docs/auxiliary_features/`: the English family note (`blocks.md`, `spatial.md`, `coe.md`, `stocks.md`, `group_means.md`, or a new family file) and the index in `README.md`.
+
+The column name, filter, formula, and missing-value rule must match `src/features/`. Do not leave the change only in code or chat.

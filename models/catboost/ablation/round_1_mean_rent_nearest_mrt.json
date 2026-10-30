@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261030T113111382171_catboost_122f4818",
+  "base_search_rmse": 460.0982735906584,
+  "column": "mean_rent_nearest_mrt",
+  "confirm_rmse": 467.46008601483237,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261030T122840720382_catboost_e5f5a639",
+  "search_rmse": 460.32063489465656,
+  "stage": "probe"
+}

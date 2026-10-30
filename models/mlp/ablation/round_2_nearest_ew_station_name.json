@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T202913337555_mlp_3f1940b8",
+  "base_search_rmse": 467.2634669693686,
+  "column": "nearest_ew_station_name",
+  "confirm_rmse": 483.2551393672395,
+  "promising": false,
+  "round": 2,
+  "run_id": "20261022T203323866722_mlp_142596b7",
+  "search_rmse": 471.26075578876475,
+  "stage": "probe"
+}

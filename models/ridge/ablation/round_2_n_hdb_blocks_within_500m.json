@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T185613865949_ridge_d97c6333",
+  "base_search_rmse": 462.06099977110114,
+  "column": "n_hdb_blocks_within_500m",
+  "confirm_rmse": 491.2800859316045,
+  "promising": false,
+  "round": 2,
+  "run_id": "20261022T191214439797_ridge_0fd8db0b",
+  "search_rmse": 462.0781290347969,
+  "stage": "probe"
+}

@@ -1,0 +1,42 @@
+{
+  "champion_run_id": "20261030T123328062936_catboost_104b30bf",
+  "command": "predict",
+  "design_path": "models/catboost/docs/design.md",
+  "feature_hash": "170e95b30b54",
+  "genome": {
+    "architecture": {
+      "early_stopping_rounds": 0,
+      "learning_rate": 0.05,
+      "max_depth": 8,
+      "n_estimators": 367
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE"
+    ],
+    "preprocess": {
+      "categorical": "native",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "none"
+    }
+  },
+  "genome_hash": "104b30bf641c016c",
+  "log_path": "models/catboost/docs/logs/20261030T123328675492_catboost_predict0.json",
+  "n": 50000,
+  "output": "outputs/predictions/catboost_refit.csv",
+  "prediction_max": 5215.508066433514,
+  "prediction_mean": 3136.4495507830484,
+  "prediction_min": 1811.1422035067953,
+  "prediction_std": 464.3252338508159,
+  "refit_all": true,
+  "run_id": "20261030T123328675492_catboost_predict0"
+}

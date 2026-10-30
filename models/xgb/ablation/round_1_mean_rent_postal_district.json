@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T214026587580_xgb_332e97f1",
+  "base_search_rmse": 459.89222042854817,
+  "column": "mean_rent_postal_district",
+  "confirm_rmse": 466.09961354387224,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261022T215858353462_xgb_b518a6bb",
+  "search_rmse": 459.88650388806315,
+  "stage": "probe"
+}

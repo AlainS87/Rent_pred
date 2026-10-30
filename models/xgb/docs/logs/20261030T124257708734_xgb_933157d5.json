@@ -1,0 +1,116 @@
+{
+  "accepted": true,
+  "command": "train",
+  "confirm_months": [
+    "2025-01",
+    "2025-02",
+    "2025-03"
+  ],
+  "design_path": "models/xgb/docs/design.md",
+  "feature_hash": "ede87d75909f",
+  "fit_months": [
+    "2021-01",
+    "2024-09"
+  ],
+  "generation": null,
+  "genome": {
+    "architecture": {
+      "early_stopping_rounds": 50,
+      "learning_rate": 0.05,
+      "max_depth": 8,
+      "n_estimators": 2000
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE",
+      "longitude",
+      "year_completed",
+      "subzone",
+      "building_age_years",
+      "flat_age_from_lease",
+      "nearest_open_mrt_code",
+      "nearest_open_mrt_name",
+      "nearest_mall_name",
+      "dist_nearest_dt_km",
+      "n_open_mrt_within_1km",
+      "n_planned_mrt_within_1km",
+      "n_secondary_within_1km",
+      "n_mall_within_1km",
+      "coe_e_premium_lag1",
+      "dist_nearest_future_line_open_km",
+      "dist_nearest_future_line_planned_km",
+      "dist_to_cbd_km",
+      "bank_basket_adj_close_lag1",
+      "mean_rent_postal_sector",
+      "mean_rent_postal_district"
+    ],
+    "preprocess": {
+      "categorical": "native",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "none"
+    }
+  },
+  "genome_hash": "933157d5623cc79d",
+  "log_path": "models/xgb/docs/logs/20261030T124257708734_xgb_933157d5.json",
+  "max_rows": null,
+  "mutation": {
+    "axis": "finalize"
+  },
+  "parent_run_id": "20261030T124013757421_xgb_824fde31",
+  "pool": [
+    "RENT_APPROVAL_DATE",
+    "TOWN",
+    "BLOCK",
+    "STREET",
+    "FLAT_TYPE",
+    "FLAT_MODEL",
+    "FLOOR_AREA_SQM",
+    "FURNISHED",
+    "LEASE_COMMENCE_DATE",
+    "FEE",
+    "longitude",
+    "year_completed",
+    "subzone",
+    "building_age_years",
+    "flat_age_from_lease",
+    "nearest_open_mrt_code",
+    "nearest_open_mrt_name",
+    "nearest_mall_name",
+    "dist_nearest_dt_km",
+    "n_open_mrt_within_1km",
+    "n_planned_mrt_within_1km",
+    "n_secondary_within_1km",
+    "n_mall_within_1km",
+    "coe_e_premium_lag1",
+    "dist_nearest_future_line_open_km",
+    "dist_nearest_future_line_planned_km",
+    "dist_to_cbd_km",
+    "bank_basket_adj_close_lag1",
+    "mean_rent_postal_sector",
+    "mean_rent_postal_district"
+  ],
+  "reason": "final fit on the features of 20261030T124013757421_xgb_824fde31; this stage does not select columns",
+  "rows": {
+    "confirm": 8924,
+    "fit": 132802,
+    "search": 8274
+  },
+  "run_id": "20261030T124257708734_xgb_933157d5",
+  "search_months": [
+    "2024-10",
+    "2024-11",
+    "2024-12"
+  ],
+  "search_rmse": 461.8405076494957,
+  "train_rmse": 422.2740531971972,
+  "val_months": 3
+}

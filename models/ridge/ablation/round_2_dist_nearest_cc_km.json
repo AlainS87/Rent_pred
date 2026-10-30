@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T185613865949_ridge_d97c6333",
+  "base_search_rmse": 462.06099977110114,
+  "column": "dist_nearest_cc_km",
+  "confirm_rmse": 491.220559002147,
+  "promising": false,
+  "round": 2,
+  "run_id": "20261022T190436689846_ridge_0d5da7b9",
+  "search_rmse": 462.05532271491546,
+  "stage": "probe"
+}

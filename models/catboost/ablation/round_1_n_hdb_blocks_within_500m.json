@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261030T113111382171_catboost_122f4818",
+  "base_search_rmse": 460.0982735906584,
+  "column": "n_hdb_blocks_within_500m",
+  "confirm_rmse": 467.81611604084526,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261030T121932307092_catboost_cc21d214",
+  "search_rmse": 460.7385477310978,
+  "stage": "probe"
+}

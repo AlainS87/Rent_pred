@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T214026587580_xgb_332e97f1",
+  "base_search_rmse": 459.89222042854817,
+  "column": "coe_a_bids_per_quota_lag1",
+  "confirm_rmse": 466.42601740707084,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261022T215400949066_xgb_25c817bc",
+  "search_rmse": 460.0961504576866,
+  "stage": "probe"
+}

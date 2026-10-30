@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T183022314474_ridge_fea0a337",
+  "base_search_rmse": 525.2676813533755,
+  "column": "coe_a_premium_mom_change",
+  "confirm_rmse": 576.4644270279798,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261022T184816640019_ridge_bace7099",
+  "search_rmse": 526.3355090277589,
+  "stage": "probe"
+}

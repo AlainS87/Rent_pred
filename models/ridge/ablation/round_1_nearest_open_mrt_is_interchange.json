@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T183022314474_ridge_fea0a337",
+  "base_search_rmse": 525.2676813533755,
+  "column": "nearest_open_mrt_is_interchange",
+  "confirm_rmse": 576.7534521702694,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261022T184504340429_ridge_6ad5cf16",
+  "search_rmse": 525.2730360252365,
+  "stage": "probe"
+}

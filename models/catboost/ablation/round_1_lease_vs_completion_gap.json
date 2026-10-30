@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261030T113111382171_catboost_122f4818",
+  "base_search_rmse": 460.0982735906584,
+  "column": "lease_vs_completion_gap",
+  "confirm_rmse": 467.1159751042899,
+  "promising": false,
+  "round": 1,
+  "run_id": "20261030T113855136745_catboost_138a3006",
+  "search_rmse": 460.4618141289135,
+  "stage": "probe"
+}

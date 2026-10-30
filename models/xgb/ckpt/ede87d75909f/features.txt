@@ -1,0 +1,32 @@
+# feature_hash: ede87d75909f
+# sha256 prefix of the sorted column names, joined by newlines
+BLOCK
+FEE
+FLAT_MODEL
+FLAT_TYPE
+FLOOR_AREA_SQM
+FURNISHED
+LEASE_COMMENCE_DATE
+RENT_APPROVAL_DATE
+STREET
+TOWN
+bank_basket_adj_close_lag1
+building_age_years
+coe_e_premium_lag1
+dist_nearest_dt_km
+dist_nearest_future_line_open_km
+dist_nearest_future_line_planned_km
+dist_to_cbd_km
+flat_age_from_lease
+longitude
+mean_rent_postal_district
+mean_rent_postal_sector
+n_mall_within_1km
+n_open_mrt_within_1km
+n_planned_mrt_within_1km
+n_secondary_within_1km
+nearest_mall_name
+nearest_open_mrt_code
+nearest_open_mrt_name
+subzone
+year_completed

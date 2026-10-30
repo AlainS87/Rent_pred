@@ -1,0 +1,26 @@
+{
+  "architecture": {
+    "learning_rate": 0.05,
+    "max_depth": 6,
+    "n_estimators": 200
+  },
+  "features": [
+    "RENT_APPROVAL_DATE",
+    "TOWN",
+    "BLOCK",
+    "STREET",
+    "FLAT_TYPE",
+    "FLAT_MODEL",
+    "FLOOR_AREA_SQM",
+    "FURNISHED",
+    "LEASE_COMMENCE_DATE",
+    "FEE",
+    "log_dist_nearest_open_mrt_km"
+  ],
+  "preprocess": {
+    "categorical": "native",
+    "numeric_impute": "median",
+    "rare_min_count": 30,
+    "scale": "none"
+  }
+}

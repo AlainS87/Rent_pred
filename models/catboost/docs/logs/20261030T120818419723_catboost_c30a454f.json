@@ -1,0 +1,41 @@
+{
+  "accepted": null,
+  "command": "test",
+  "confirm_rmse": 467.5992707923075,
+  "design_path": "models/catboost/docs/design.md",
+  "feature_hash": "482ab5dda0e9",
+  "genome": {
+    "architecture": {
+      "early_stopping_rounds": 20,
+      "learning_rate": 0.05,
+      "max_depth": 6,
+      "n_estimators": 200
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE",
+      "dist_nearest_school_km"
+    ],
+    "preprocess": {
+      "categorical": "native",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "none"
+    }
+  },
+  "genome_hash": "c30a454f6e09c716",
+  "log_path": "models/catboost/docs/logs/20261030T120818419723_catboost_c30a454f.json",
+  "parent_run_id": "20261030T120818312057_catboost_c30a454f",
+  "reason": "confirm RMSE is recorded once and is not an acceptance signal",
+  "run_id": "20261030T120818419723_catboost_c30a454f",
+  "search_rmse": 460.9784289200048,
+  "train_rmse": 465.3348707061007
+}

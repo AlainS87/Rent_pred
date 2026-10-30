@@ -1,0 +1,106 @@
+{
+  "accepted": false,
+  "command": "train",
+  "confirm_months": [
+    "2025-01",
+    "2025-02",
+    "2025-03"
+  ],
+  "design_path": "models/ridge/docs/design.md",
+  "feature_hash": "92562c3fb51e",
+  "fit_months": [
+    "2021-01",
+    "2024-09"
+  ],
+  "generation": null,
+  "genome": {
+    "architecture": {
+      "alpha": 1.0
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE",
+      "coe_a_premium_lag1",
+      "coe_b_premium_lag1",
+      "coe_e_premium_lag1",
+      "coe_a_premium_roll3",
+      "coe_c_premium_lag1",
+      "bank_basket_adj_close_lag1",
+      "bank_basket_return_lag1",
+      "property_basket_adj_close_lag1",
+      "mean_rent_postal_sector",
+      "mean_rent_postal_district",
+      "mean_rent_nearest_mall",
+      "mean_rent_nearest_mrt",
+      "mean_rent_nearest_primary",
+      "mean_rent_nearest_secondary",
+      "nearest_open_mrt_is_interchange"
+    ],
+    "preprocess": {
+      "categorical": "onehot",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "standard"
+    }
+  },
+  "genome_hash": "d21a99143b7adb18",
+  "log_path": "models/ridge/docs/logs/20261022T190754932542_ridge_d21a9914.json",
+  "max_rows": null,
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "nearest_open_mrt_is_interchange",
+    "round": 2
+  },
+  "parent_run_id": "20261022T185613865949_ridge_d97c6333",
+  "pool": [
+    "RENT_APPROVAL_DATE",
+    "TOWN",
+    "BLOCK",
+    "STREET",
+    "FLAT_TYPE",
+    "FLAT_MODEL",
+    "FLOOR_AREA_SQM",
+    "FURNISHED",
+    "LEASE_COMMENCE_DATE",
+    "FEE",
+    "coe_a_premium_lag1",
+    "coe_b_premium_lag1",
+    "coe_e_premium_lag1",
+    "coe_a_premium_roll3",
+    "coe_c_premium_lag1",
+    "bank_basket_adj_close_lag1",
+    "bank_basket_return_lag1",
+    "property_basket_adj_close_lag1",
+    "mean_rent_postal_sector",
+    "mean_rent_postal_district",
+    "mean_rent_nearest_mall",
+    "mean_rent_nearest_mrt",
+    "mean_rent_nearest_primary",
+    "mean_rent_nearest_secondary",
+    "nearest_open_mrt_is_interchange"
+  ],
+  "reason": "not promising because search RMSE 462.068338 is not at least 1% below 462.061000 from 20261022T185613865949_ridge_d97c6333 after adding nearest_open_mrt_is_interchange",
+  "rows": {
+    "confirm": 8924,
+    "fit": 132802,
+    "search": 8274
+  },
+  "run_id": "20261022T190754932542_ridge_d21a9914",
+  "search_months": [
+    "2024-10",
+    "2024-11",
+    "2024-12"
+  ],
+  "search_rmse": 462.0683383514002,
+  "train_rmse": 475.7370530429219,
+  "val_months": 3
+}

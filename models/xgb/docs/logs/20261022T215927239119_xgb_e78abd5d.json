@@ -1,0 +1,40 @@
+{
+  "accepted": null,
+  "command": "test",
+  "confirm_rmse": 466.35849882483495,
+  "design_path": "models/xgb/docs/design.md",
+  "feature_hash": "c9dd7135f0c6",
+  "genome": {
+    "architecture": {
+      "learning_rate": 0.05,
+      "max_depth": 6,
+      "n_estimators": 200
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE",
+      "mean_rent_nearest_mrt"
+    ],
+    "preprocess": {
+      "categorical": "native",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "none"
+    }
+  },
+  "genome_hash": "e78abd5d722705b7",
+  "log_path": "models/xgb/docs/logs/20261022T215927239119_xgb_e78abd5d.json",
+  "parent_run_id": "20261022T215927106055_xgb_e78abd5d",
+  "reason": "confirm RMSE is recorded once and is not an acceptance signal",
+  "run_id": "20261022T215927239119_xgb_e78abd5d",
+  "search_rmse": 460.45358793273834,
+  "train_rmse": 442.27895396517164
+}

@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+models/**/ckpt/**/*.pt
+models/**/ckpt/**/*.joblib
+models/**/best/*.pt
+models/**/best/*.joblib
+models/**/final/*.pt
+models/**/final/*.joblib
+outputs/predictions/
+mean_residual_model/**/*.pt
+mean_residual_model/**/*.joblib
+models/**/use_all_features/*.pt
+models/**/use_all_features/*.joblib
+# Generated feature table exceeds GitHub's 100MB file limit. Rebuild with
+# python -m src.features.build_features
+Data/auxiliary_features/train_features.csv

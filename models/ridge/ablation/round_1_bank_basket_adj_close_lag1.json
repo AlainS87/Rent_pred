@@ -1,0 +1,11 @@
+{
+  "base_run_id": "20261022T183022314474_ridge_fea0a337",
+  "base_search_rmse": 525.2676813533755,
+  "column": "bank_basket_adj_close_lag1",
+  "confirm_rmse": 481.267638718851,
+  "promising": true,
+  "round": 1,
+  "run_id": "20261022T185229194394_ridge_5046f396",
+  "search_rmse": 475.4293785927888,
+  "stage": "probe"
+}

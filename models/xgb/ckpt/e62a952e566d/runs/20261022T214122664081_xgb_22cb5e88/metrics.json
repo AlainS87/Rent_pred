@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "e62a952e566d",
+  "genome_hash": "22cb5e8847cb60fe",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "postal_code",
+    "round": 1
+  },
+  "parent_run_id": "20261022T214026587580_xgb_332e97f1",
+  "run_id": "20261022T214122664081_xgb_22cb5e88",
+  "search_rmse": 467.2323814961147,
+  "train_rmse": 420.05773521483405
+}

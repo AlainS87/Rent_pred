@@ -1,0 +1,227 @@
+{
+  "confirm_rmse": 468.2633087696478,
+  "feature_hash": "e8f777332831",
+  "model": "catboost",
+  "rows": {
+    "confirm": 8924,
+    "search": 8274,
+    "train": 132802
+  },
+  "search_rmse": 450.49645302033974,
+  "source_genome": "models/catboost/best/genome.json",
+  "split": "one residual model per TOWN",
+  "stage1_only_confirm_rmse": 630.4496252994709,
+  "stage1_only_search_rmse": 612.9319238353135,
+  "stage1_only_train_rmse": 599.7834243478006,
+  "towns": [
+    {
+      "best_iteration": 37,
+      "confirm_rows": 472,
+      "fit_rows": 7332,
+      "search_rows": 479,
+      "test_rows": 2664,
+      "town": "ang mo kio"
+    },
+    {
+      "best_iteration": 138,
+      "confirm_rows": 508,
+      "fit_rows": 7927,
+      "search_rows": 472,
+      "test_rows": 2803,
+      "town": "bedok"
+    },
+    {
+      "best_iteration": 142,
+      "confirm_rows": 174,
+      "fit_rows": 2926,
+      "search_rows": 206,
+      "test_rows": 982,
+      "town": "bishan"
+    },
+    {
+      "best_iteration": 185,
+      "confirm_rows": 340,
+      "fit_rows": 4974,
+      "search_rows": 291,
+      "test_rows": 2057,
+      "town": "bukit batok"
+    },
+    {
+      "best_iteration": 86,
+      "confirm_rows": 530,
+      "fit_rows": 7284,
+      "search_rows": 456,
+      "test_rows": 2832,
+      "town": "bukit merah"
+    },
+    {
+      "best_iteration": 199,
+      "confirm_rows": 214,
+      "fit_rows": 3298,
+      "search_rows": 205,
+      "test_rows": 1228,
+      "town": "bukit panjang"
+    },
+    {
+      "best_iteration": 19,
+      "confirm_rows": 22,
+      "fit_rows": 393,
+      "search_rows": 23,
+      "test_rows": 156,
+      "town": "bukit timah"
+    },
+    {
+      "best_iteration": 149,
+      "confirm_rows": 144,
+      "fit_rows": 2006,
+      "search_rows": 128,
+      "test_rows": 831,
+      "town": "central"
+    },
+    {
+      "best_iteration": 166,
+      "confirm_rows": 333,
+      "fit_rows": 4655,
+      "search_rows": 312,
+      "test_rows": 1687,
+      "town": "choa chu kang"
+    },
+    {
+      "best_iteration": 84,
+      "confirm_rows": 308,
+      "fit_rows": 4865,
+      "search_rows": 256,
+      "test_rows": 1883,
+      "town": "clementi"
+    },
+    {
+      "best_iteration": 69,
+      "confirm_rows": 281,
+      "fit_rows": 3971,
+      "search_rows": 252,
+      "test_rows": 1445,
+      "town": "geylang"
+    },
+    {
+      "best_iteration": 187,
+      "confirm_rows": 449,
+      "fit_rows": 6294,
+      "search_rows": 372,
+      "test_rows": 2298,
+      "town": "hougang"
+    },
+    {
+      "best_iteration": 52,
+      "confirm_rows": 237,
+      "fit_rows": 3581,
+      "search_rows": 206,
+      "test_rows": 1371,
+      "town": "jurong east"
+    },
+    {
+      "best_iteration": 62,
+      "confirm_rows": 620,
+      "fit_rows": 9299,
+      "search_rows": 563,
+      "test_rows": 3663,
+      "town": "jurong west"
+    },
+    {
+      "best_iteration": 114,
+      "confirm_rows": 342,
+      "fit_rows": 5029,
+      "search_rows": 318,
+      "test_rows": 1916,
+      "town": "kallang/whampoa"
+    },
+    {
+      "best_iteration": 57,
+      "confirm_rows": 96,
+      "fit_rows": 1454,
+      "search_rows": 87,
+      "test_rows": 493,
+      "town": "marine parade"
+    },
+    {
+      "best_iteration": 75,
+      "confirm_rows": 234,
+      "fit_rows": 3655,
+      "search_rows": 200,
+      "test_rows": 1329,
+      "town": "pasir ris"
+    },
+    {
+      "best_iteration": 199,
+      "confirm_rows": 412,
+      "fit_rows": 5844,
+      "search_rows": 412,
+      "test_rows": 2286,
+      "town": "punggol"
+    },
+    {
+      "best_iteration": 197,
+      "confirm_rows": 334,
+      "fit_rows": 5458,
+      "search_rows": 323,
+      "test_rows": 2148,
+      "town": "queenstown"
+    },
+    {
+      "best_iteration": 68,
+      "confirm_rows": 239,
+      "fit_rows": 3110,
+      "search_rows": 204,
+      "test_rows": 1298,
+      "town": "sembawang"
+    },
+    {
+      "best_iteration": 199,
+      "confirm_rows": 575,
+      "fit_rows": 8584,
+      "search_rows": 614,
+      "test_rows": 3231,
+      "town": "sengkang"
+    },
+    {
+      "best_iteration": 112,
+      "confirm_rows": 214,
+      "fit_rows": 3009,
+      "search_rows": 175,
+      "test_rows": 1099,
+      "town": "serangoon"
+    },
+    {
+      "best_iteration": 172,
+      "confirm_rows": 576,
+      "fit_rows": 8845,
+      "search_rows": 521,
+      "test_rows": 3198,
+      "town": "tampines"
+    },
+    {
+      "best_iteration": 119,
+      "confirm_rows": 341,
+      "fit_rows": 5307,
+      "search_rows": 340,
+      "test_rows": 2055,
+      "town": "toa payoh"
+    },
+    {
+      "best_iteration": 137,
+      "confirm_rows": 452,
+      "fit_rows": 6676,
+      "search_rows": 449,
+      "test_rows": 2385,
+      "town": "woodlands"
+    },
+    {
+      "best_iteration": 112,
+      "confirm_rows": 477,
+      "fit_rows": 7026,
+      "search_rows": 410,
+      "test_rows": 2662,
+      "town": "yishun"
+    }
+  ],
+  "train_rmse": 458.2850923176066
+}

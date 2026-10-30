@@ -1,0 +1,11 @@
+{
+  "accepted": null,
+  "feature_hash": "8d04a6ec2a11",
+  "genome_hash": "969afd46c8a5cb31",
+  "mutation": {
+    "axis": "submit"
+  },
+  "parent_run_id": "20261030T103203158442_mlp_4afa8c53",
+  "run_id": "20261030T105128475560_mlp_969afd46",
+  "train_rmse": 478.99417131530015
+}

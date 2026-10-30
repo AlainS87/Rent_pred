@@ -1,0 +1,42 @@
+{
+  "champion_run_id": "20261030T103028155670_xgb_7ca41a9e",
+  "command": "predict",
+  "design_path": "models/xgb/docs/design.md",
+  "feature_hash": "170e95b30b54",
+  "genome": {
+    "architecture": {
+      "early_stopping_rounds": 50,
+      "learning_rate": 0.05,
+      "max_depth": 8,
+      "n_estimators": 2000
+    },
+    "features": [
+      "RENT_APPROVAL_DATE",
+      "TOWN",
+      "BLOCK",
+      "STREET",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "FLOOR_AREA_SQM",
+      "FURNISHED",
+      "LEASE_COMMENCE_DATE",
+      "FEE"
+    ],
+    "preprocess": {
+      "categorical": "native",
+      "numeric_impute": "median",
+      "rare_min_count": 30,
+      "scale": "none"
+    }
+  },
+  "genome_hash": "7ca41a9ee3cdf8c9",
+  "log_path": "models/xgb/docs/logs/20261030T103029132947_xgb_predict0.json",
+  "n": 50000,
+  "output": "outputs/predictions/xgb_final.csv",
+  "prediction_max": 5890.5927734375,
+  "prediction_mean": 3101.722121657715,
+  "prediction_min": 1578.940185546875,
+  "prediction_std": 472.5534024394027,
+  "refit_all": false,
+  "run_id": "20261030T103029132947_xgb_predict0"
+}

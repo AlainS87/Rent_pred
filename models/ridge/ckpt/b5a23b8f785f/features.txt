@@ -1,0 +1,27 @@
+# feature_hash: b5a23b8f785f
+# sha256 prefix of the sorted column names, joined by newlines
+BLOCK
+FEE
+FLAT_MODEL
+FLAT_TYPE
+FLOOR_AREA_SQM
+FURNISHED
+LEASE_COMMENCE_DATE
+RENT_APPROVAL_DATE
+STREET
+TOWN
+bank_basket_adj_close_lag1
+bank_basket_return_lag1
+coe_a_premium_lag1
+coe_a_premium_roll3
+coe_b_bids_per_quota_lag1
+coe_b_premium_lag1
+coe_c_premium_lag1
+coe_e_premium_lag1
+mean_rent_nearest_mall
+mean_rent_nearest_mrt
+mean_rent_nearest_primary
+mean_rent_nearest_secondary
+mean_rent_postal_district
+mean_rent_postal_sector
+property_basket_adj_close_lag1

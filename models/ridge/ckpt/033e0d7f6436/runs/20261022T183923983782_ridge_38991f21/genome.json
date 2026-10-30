@@ -1,0 +1,24 @@
+{
+  "architecture": {
+    "alpha": 1.0
+  },
+  "features": [
+    "RENT_APPROVAL_DATE",
+    "TOWN",
+    "BLOCK",
+    "STREET",
+    "FLAT_TYPE",
+    "FLAT_MODEL",
+    "FLOOR_AREA_SQM",
+    "FURNISHED",
+    "LEASE_COMMENCE_DATE",
+    "FEE",
+    "nearest_ew_station_code"
+  ],
+  "preprocess": {
+    "categorical": "onehot",
+    "numeric_impute": "median",
+    "rare_min_count": 30,
+    "scale": "standard"
+  }
+}

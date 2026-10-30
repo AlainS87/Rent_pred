@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "52ba4e34ccba",
+  "genome_hash": "dce3e970108bb678",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "flat_age_from_lease",
+    "round": 2
+  },
+  "parent_run_id": "20261022T185613865949_ridge_d97c6333",
+  "run_id": "20261022T185919901529_ridge_dce3e970",
+  "search_rmse": 460.1614240884081,
+  "train_rmse": 475.631767400957
+}

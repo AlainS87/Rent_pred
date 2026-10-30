@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "feature_hash": "c234d75ff5d3",
+  "genome_hash": "0083faa82b0f0dff",
+  "mutation": {
+    "axis": "features",
+    "change": "add",
+    "column": "building_age_years",
+    "round": 1
+  },
+  "parent_run_id": "20261022T183022314474_ridge_fea0a337",
+  "run_id": "20261022T183436869349_ridge_0083faa8",
+  "search_rmse": 524.8997680586043,
+  "train_rmse": 489.2879660475762
+}
