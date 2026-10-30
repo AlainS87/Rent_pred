@@ -1,0 +1,119 @@
+{
+  "mean_model": "rnn_h16_l3_per_sqm",
+  "target": "rent_per_sqm_minus_region_mean",
+  "town_components": [
+    {
+      "n_components": 11,
+      "town": "ang mo kio"
+    },
+    {
+      "n_components": 16,
+      "town": "bedok"
+    },
+    {
+      "n_components": 8,
+      "town": "bishan"
+    },
+    {
+      "n_components": 6,
+      "town": "bukit batok"
+    },
+    {
+      "n_components": 16,
+      "town": "bukit merah"
+    },
+    {
+      "n_components": 6,
+      "town": "bukit panjang"
+    },
+    {
+      "n_components": 3,
+      "town": "bukit timah"
+    },
+    {
+      "n_components": 6,
+      "town": "central"
+    },
+    {
+      "n_components": 13,
+      "town": "choa chu kang"
+    },
+    {
+      "n_components": 7,
+      "town": "clementi"
+    },
+    {
+      "n_components": 10,
+      "town": "geylang"
+    },
+    {
+      "n_components": 9,
+      "town": "hougang"
+    },
+    {
+      "n_components": 14,
+      "town": "jurong east"
+    },
+    {
+      "n_components": 19,
+      "town": "jurong west"
+    },
+    {
+      "n_components": 7,
+      "town": "kallang/whampoa"
+    },
+    {
+      "n_components": 3,
+      "town": "marine parade"
+    },
+    {
+      "n_components": 8,
+      "town": "pasir ris"
+    },
+    {
+      "n_components": 5,
+      "town": "punggol"
+    },
+    {
+      "n_components": 10,
+      "town": "queenstown"
+    },
+    {
+      "n_components": 7,
+      "town": "sembawang"
+    },
+    {
+      "n_components": 8,
+      "town": "sengkang"
+    },
+    {
+      "n_components": 6,
+      "town": "serangoon"
+    },
+    {
+      "n_components": 11,
+      "town": "tampines"
+    },
+    {
+      "n_components": 10,
+      "town": "toa payoh"
+    },
+    {
+      "n_components": 13,
+      "town": "woodlands"
+    },
+    {
+      "n_components": 8,
+      "town": "yishun"
+    }
+  ],
+  "mlp_retrained": false,
+  "catboost_search_unit_rmse": 5.381134125245988,
+  "catboost_search_rent_rmse": 455.0577162431999,
+  "gmm_search_unit_rmse": 5.770702608075712,
+  "gmm_search_rent_rmse": 490.0246823026856,
+  "catboost_confirm_unit_rmse": 5.4561833086680425,
+  "catboost_confirm_rent_rmse": 469.18979625645335,
+  "gmm_confirm_unit_rmse": 5.837987525471224,
+  "gmm_confirm_rent_rmse": 502.48144344743446
+}

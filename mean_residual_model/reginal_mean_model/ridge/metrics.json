@@ -1,0 +1,14 @@
+{
+  "alpha": 1.0,
+  "confirm_weighted_cell_rmse": 103.31438306463845,
+  "features": [
+    "TOWN",
+    "month_index",
+    "coe_c_premium_lag1",
+    "bank_basket_adj_close_lag1",
+    "property_basket_adj_close_lag1"
+  ],
+  "fit_cells": 1170,
+  "fit_end": "2024-09",
+  "search_weighted_cell_rmse": 93.35753474370192
+}

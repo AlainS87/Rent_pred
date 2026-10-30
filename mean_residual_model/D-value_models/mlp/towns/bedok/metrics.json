@@ -1,0 +1,11 @@
+{
+  "best_epoch": 60,
+  "confirm_rows": 508,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 7927,
+  "mean_model": "lstm_h16_l3",
+  "model": "mlp",
+  "search_rows": 472,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "bedok"
+}

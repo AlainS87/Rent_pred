@@ -1,6 +1,6 @@
 # Auxiliary feature specifications
 
-The constructed columns are documented in five files, matching the modules that build them. Column names and filters also match [../auxiliary_new_features.md](../auxiliary_new_features.md). Motivations and rejected options are summarised in [../design_tradeoffs.md](../design_tradeoffs.md).
+The constructed columns are documented in six files, matching the modules that build them. Column names and filters also match [../auxiliary_new_features.md](../auxiliary_new_features.md). Motivations and rejected options are summarised in [../design_tradeoffs.md](../design_tradeoffs.md).
 
 These notes were not used to screen columns by correlation with `MONTHLY_RENT`. A priority is a data-quality and mechanism choice, not an RMSE rank.
 
@@ -18,5 +18,6 @@ Shared rules, used by every family:
 | [coe.md](coe.md) | [src/features/coe.py](../../src/features/coe.py) | Lagged COE premiums, changes, bid ratios, and the category-A three-month mean |
 | [stocks.md](stocks.md) | [src/features/stocks.py](../../src/features/stocks.py) | Lagged bank and property baskets |
 | [group_means.md](group_means.md) | [src/features/group_means.py](../../src/features/group_means.py) | Smoothed mean rent by postal area and by nearest mall, station, and school |
+| [source_fields.md](source_fields.md) | [src/features/source_fields.py](../../src/features/source_fields.py) | Source columns preprocessed by their own kind |
 
 `src/features/build_features.py` writes the new columns, in source-row order, to `Data/auxiliary_features/train_features.csv` and `Data/auxiliary_features/test_features.csv`, and to the Parquet files with the same names. Pass `--keep-original` to store the source columns in front of them.

@@ -1,0 +1,11 @@
+{
+  "best_iteration": 49,
+  "confirm_rows": 334,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 5458,
+  "mean_model": "lstm_h16_l3",
+  "model": "xgb",
+  "search_rows": 323,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "queenstown"
+}

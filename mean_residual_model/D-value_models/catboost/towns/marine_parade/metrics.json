@@ -1,0 +1,11 @@
+{
+  "best_iteration": 236,
+  "confirm_rows": 96,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 1454,
+  "mean_model": "lstm_h16_l3",
+  "model": "catboost",
+  "search_rows": 87,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "marine parade"
+}

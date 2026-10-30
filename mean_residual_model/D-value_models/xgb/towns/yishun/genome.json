@@ -1,0 +1,38 @@
+{
+  "architecture": {
+    "early_stopping_rounds": 50,
+    "learning_rate": 0.05,
+    "max_depth": 8,
+    "n_estimators": 1000
+  },
+  "features": [
+    "FLAT_TYPE",
+    "FLAT_MODEL",
+    "FLOOR_AREA_SQM",
+    "LEASE_COMMENCE_DATE",
+    "FEE",
+    "BLOCK",
+    "max_floor",
+    "year_completed",
+    "building_age_years",
+    "flat_age_from_lease",
+    "latitude",
+    "longitude",
+    "nearest_open_mrt_code",
+    "dist_nearest_open_mrt_km",
+    "log_dist_nearest_open_mrt_km",
+    "nearest_mall_name",
+    "dist_nearest_mall_km",
+    "nearest_primary_name",
+    "dist_nearest_primary_km",
+    "nearest_secondary_name",
+    "dist_nearest_secondary_km",
+    "STREET"
+  ],
+  "preprocess": {
+    "categorical": "native",
+    "numeric_impute": "median",
+    "rare_min_count": 30,
+    "scale": "none"
+  }
+}

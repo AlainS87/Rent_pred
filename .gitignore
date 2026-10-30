@@ -7,7 +7,8 @@ models/**/best/*.pt
 models/**/best/*.joblib
 models/**/final/*.pt
 models/**/final/*.joblib
-outputs/predictions/
+outputs/predictions/*
+!outputs/predictions/mean_residual_multistage.csv
 mean_residual_model/**/*.pt
 mean_residual_model/**/*.joblib
 models/**/use_all_features/*.pt

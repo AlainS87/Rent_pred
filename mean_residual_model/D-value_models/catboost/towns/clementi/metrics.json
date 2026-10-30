@@ -1,0 +1,11 @@
+{
+  "best_iteration": 113,
+  "confirm_rows": 308,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 4865,
+  "mean_model": "lstm_h16_l3",
+  "model": "catboost",
+  "search_rows": 256,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "clementi"
+}

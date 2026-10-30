@@ -1,0 +1,11 @@
+{
+  "best_iteration": 81,
+  "confirm_rows": 174,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 2926,
+  "mean_model": "lstm_h16_l3",
+  "model": "catboost",
+  "search_rows": 206,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "bishan"
+}

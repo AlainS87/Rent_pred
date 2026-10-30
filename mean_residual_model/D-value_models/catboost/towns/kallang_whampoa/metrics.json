@@ -1,0 +1,11 @@
+{
+  "best_iteration": 93,
+  "confirm_rows": 342,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 5029,
+  "mean_model": "lstm_h16_l3",
+  "model": "catboost",
+  "search_rows": 318,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "kallang/whampoa"
+}

@@ -1,0 +1,11 @@
+{
+  "best_iteration": 40,
+  "confirm_rows": 239,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 3110,
+  "mean_model": "lstm_h16_l3",
+  "model": "xgb",
+  "search_rows": 204,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "sembawang"
+}

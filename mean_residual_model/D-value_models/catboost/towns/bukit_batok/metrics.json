@@ -1,0 +1,11 @@
+{
+  "best_iteration": 350,
+  "confirm_rows": 340,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 4974,
+  "mean_model": "lstm_h16_l3",
+  "model": "catboost",
+  "search_rows": 291,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "bukit batok"
+}

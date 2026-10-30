@@ -289,7 +289,7 @@ COE 字段：`YEAR`、`CATEGORY`、`MONTH`、`ROUND`、`QUOTA_PREMIUM`、`PREVAI
 | `mean_rent_nearest_primary` | P1 | 行 | `nearest_primary_name` | 之前三个月训练租金的收缩均值 | [组内平均租金](#spec-group-means) |
 | `mean_rent_nearest_secondary` | P1 | 行 | `nearest_secondary_name` | 之前三个月训练租金的收缩均值 | [组内平均租金](#spec-group-means) |
 
-P0 共 20 列，P1 共 50 列，P2 共 13 列，合计 83 列。其中 11 列是最近设施的名称：最近干线站、六条干线各自的最近站、最近小学、最近中学、最近任意学校、最近商场。另有 6 列是组内平均租金。
+P0 共 20 列，P1 共 50 列，P2 共 13 列，另有 11 列主表字段预处理，合计 94 列。其中 11 列是最近设施的名称：最近干线站、六条干线各自的最近站、最近小学、最近中学、最近任意学校、最近商场。另有 6 列是组内平均租金。主表预处理列是 `approval_month_index`、`town_key`、`block_key`、`street_key`、`flat_type_ord`、`flat_model_ord`、`flat_model_key`、`floor_area_sqm`、`fee_amount`、`furnished_bin`、`lease_commence_year`。这里的 `block_key` 只是规范化后的楼栋号，不是连接楼栋表用的 `BLOCK|STREET`。`flat_model_ord` 从便宜到贵取 0 到 19。`flat_model_key` 保留规范化后的户型名。这些列不读 `MONTHLY_RENT`。
 
 ---
 

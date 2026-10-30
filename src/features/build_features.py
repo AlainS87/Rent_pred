@@ -20,6 +20,7 @@ import pandas as pd
 from src.features.blocks import add_block_columns
 from src.features.coe import add_coe_columns
 from src.features.group_means import GROUP_MEAN_COLUMNS, add_group_mean_columns, assert_past_only
+from src.features.source_fields import SOURCE_FIELD_COLUMNS, add_source_fields
 from src.features.spatial import block_spatial_features
 from src.features.stocks import add_stock_columns
 
@@ -106,6 +107,7 @@ FEATURE_COLUMNS = [
     "is_central_region",
     "building_age_x_central",
     *GROUP_MEAN_COLUMNS,
+    *SOURCE_FIELD_COLUMNS,
 ]
 
 # Source predictors. MONTHLY_RENT is the target and is not a feature.
@@ -217,6 +219,7 @@ FAMILY_COLUMNS = {
     "coe": COE_COLUMNS,
     "stocks": STOCK_COLUMNS,
     "group_means": list(GROUP_MEAN_COLUMNS),
+    "source": list(SOURCE_FIELD_COLUMNS),
 }
 
 
@@ -228,6 +231,7 @@ def check_feature_catalog() -> None:
         + COE_COLUMNS
         + STOCK_COLUMNS
         + list(GROUP_MEAN_COLUMNS)
+        + list(SOURCE_FIELD_COLUMNS)
     )
     if len(grouped) != len(set(grouped)):
         raise AssertionError("feature families overlap")
@@ -299,6 +303,7 @@ def build_rental_features(
     """
     built = assemble_features(rentals, aux)
     built = add_group_mean_columns(built, built if history is None else history)
+    built = add_source_fields(built, rentals)
     return _select_columns(built, rentals, keep_original)
 
 
@@ -319,12 +324,14 @@ def main(keep_original: bool = False) -> None:
     train_base = add_group_mean_columns(train_base, train_base)
     test_base = add_group_mean_columns(test_base, train_base)
     assert_past_only(train_base, test_base)
+    train_base = add_source_fields(train_base, train_rows)
+    test_base = add_source_fields(test_base, test_rows)
     train = _select_columns(train_base, train_rows, keep_original)
     test = _select_columns(test_base, test_rows, keep_original)
     _check(train, "train", 150_000, 5_259, 159, 3_129, 28_466)
     _check(test, "test", 50_000, 1_739, 0, 0, 0)
-    if len(FEATURE_COLUMNS) != 83:
-        raise AssertionError(f"expected 83 feature columns, found {len(FEATURE_COLUMNS)}")
+    if len(FEATURE_COLUMNS) != 94:
+        raise AssertionError(f"expected 94 feature columns, found {len(FEATURE_COLUMNS)}")
     if not keep_original and list(train.columns) != FEATURE_COLUMNS:
         raise AssertionError("default output should contain only the new feature columns")
 

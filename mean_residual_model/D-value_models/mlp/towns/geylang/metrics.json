@@ -1,0 +1,11 @@
+{
+  "best_epoch": 72,
+  "confirm_rows": 281,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 3971,
+  "mean_model": "lstm_h16_l3",
+  "model": "mlp",
+  "search_rows": 252,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "geylang"
+}

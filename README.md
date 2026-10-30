@@ -26,7 +26,7 @@ python -m src.features.build_features
 
 This reads `Data/train.csv`, `Data/test.csv`, and the source tables under `Data/auxiliary/`. It writes `Data/auxiliary_features/train_features.csv` and `test_features.csv`, plus the parquet copies, in the same row order as the rental files. The auxiliary files stay unmerged on disk. Training joins them later by row order.
 
-The auxiliary table has 83 columns. `MONTHLY_RENT` is not one of them. The six group-mean columns use training rents from the previous three approval months only.
+The auxiliary table has 94 columns. `MONTHLY_RENT` is not one of them. The six group-mean columns use training rents from the previous three approval months only.
 
 ## 2. Initial models
 
@@ -54,7 +54,7 @@ The preprocessor is fit on the fit months only. Search RMSE replaces `best/` onl
 python -m src.pipeline.run ablate --model <model>
 ```
 
-Ablation starts from the columns already in `models/<model>/best`. It probes each auxiliary column that is missing from that snapshot. It does not start from all 83 columns.
+Ablation starts from the columns already in `models/<model>/best`. It probes each auxiliary column that is missing from that snapshot. It does not start from all 94 columns.
 
 Ridge and the MLP call a column promising only when its search RMSE is at least 1% below that round's set A. XGBoost and CatBoost call it promising when the search RMSE is strictly lower. Those probes do not change `best/`.
 
@@ -90,11 +90,15 @@ The header is `Id,Predicted`. Ids run from `0` through `49999`, and each file ha
 
 `evolve` and `use-all` are extra commands. They do not replace the train, ablate, finalize, submit sequence. `use-all` fits every original and auxiliary column into `models/<model>/use_all_features` and does not replace `best/` or `final/`.
 
-## Current progress: town-month mean plus residual
+## Current progress
+
+Dated records are [logs/progress_1029.md](logs/progress_1029.md) and [logs/progress_1031.md](logs/progress_1031.md). Search RMSE selects a stopped run. Confirm RMSE is recorded and does not choose it.
 
 [mean_residual_model](mean_residual_model/README.md) is a separate experiment. It does not replace `models/<model>/best` or `final/`.
 
-The rent of one flat is a town-month mean plus a residual. The mean is a ridge (`alpha` 1) of the average `MONTHLY_RENT` in each `TOWN` and approval month, fit on cells through 2024-09. Its inputs are the town, the month index since 2021-01, `coe_c_premium_lag1`, `bank_basket_adj_close_lag1`, and `property_basket_adj_close_lag1`. Weighted cell RMSE is 93.36 on the search quarter and 103.31 on the confirm quarter.
+The current test file is `outputs/predictions/mean_residual_multistage.csv`. It comes from a three-layer RNN town-month mean of rent per square metre, a per-town CatBoost gap and a per-town Gaussian mixture on that same unit gap, and a 128-64 MLP. The three per-square-metre terms are multiplied by floor area before the MLP. The MLP output is monthly rent. Search RMSE is 451.53 at epoch 8. Confirm RMSE is 468.74.
+
+An earlier experiment still writes `outputs/predictions/mean_residual_<model>.csv`. There, the rent of one flat is a town-month mean plus a residual. The mean is a ridge (`alpha` 1) of the average `MONTHLY_RENT` in each `TOWN` and approval month, fit on cells through 2024-09. Its inputs are the town, the month index since 2021-01, `coe_c_premium_lag1`, `bank_basket_adj_close_lag1`, and `property_basket_adj_close_lag1`. Weighted cell RMSE is 93.36 on the search quarter and 103.31 on the confirm quarter.
 
 Ridge, XGBoost, the MLP, and CatBoost each copy `models/<model>/best/genome.json` and fit `MONTHLY_RENT` minus that mean. The sum's search RMSE is 461.16, 454.49, 461.78, and 451.26. Test files are `outputs/predictions/mean_residual_<model>.csv`. Those weights are fit through 2024-09. Labeled months 2025-01 through 2025-03 are not refit into them.
 

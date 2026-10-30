@@ -26,7 +26,7 @@ python -m src.features.build_features
 
 这个命令读取 `Data/train.csv`、`Data/test.csv`，以及 `Data/auxiliary/` 里的来源表。它按租金表的行序写出 `Data/auxiliary_features/train_features.csv` 和 `test_features.csv`，并同时写出 parquet。辅助表不在磁盘上和租金表拼在一起。训练时再按行序拼接。
 
-辅助表有 83 列。`MONTHLY_RENT` 不在其中。六个组内平均租金只用批准月之前三个月的训练租金。
+辅助表有 94 列。`MONTHLY_RENT` 不在其中。六个组内平均租金只用批准月之前三个月的训练租金。
 
 ## 2. 初始模型
 
@@ -54,7 +54,7 @@ python -m src.pipeline.run train --model <model> --features original
 python -m src.pipeline.run ablate --model <model>
 ```
 
-消融从 `models/<model>/best` 里已经有的列开始。它逐个试探这份快照里还没有的辅助列，不从全部 83 列起步。
+消融从 `models/<model>/best` 里已经有的列开始。它逐个试探这份快照里还没有的辅助列，不从全部 94 列起步。
 
 Ridge 和 MLP 只在搜索期 RMSE 比该轮集合 A 至少低 1% 时，把这一列记为有希望。XGBoost 和 CatBoost 只要搜索期 RMSE 严格更低即可。这些试探不改 `best/`。
 
@@ -90,11 +90,15 @@ python -m src.pipeline.run submit --model <model>
 
 `evolve` 和 `use-all` 是额外命令，不代替 train、ablate、finalize、submit 这条顺序。`use-all` 把全部原始列和辅助列拟合到 `models/<model>/use_all_features`，不替换 `best/` 或 `final/`。
 
-## 当前进度：市镇月均加残差
+## 当前进度
+
+按日期写的记录是 [logs/progress_1029.md](logs/progress_1029.md) 和 [logs/progress_1031.md](logs/progress_1031.md)。搜索期 RMSE 用来停下一次训练。确认期 RMSE 只记录，不参与选择。
 
 [mean_residual_model](mean_residual_model/README.md) 是单独的实验。它不替换 `models/<model>/best` 或 `final/`。
 
-一套房子的预测租金是市镇月均加上残差。月均是岭回归（`alpha` 1），目标是每个 `TOWN`、每个批准月里 `MONTHLY_RENT` 的平均，拟合到 2024-09 为止的格子。输入是市镇、从 2021-01 起的月份序号、`coe_c_premium_lag1`、`bank_basket_adj_close_lag1` 和 `property_basket_adj_close_lag1`。加权格子 RMSE 在搜索期是 93.36，在确认期是 103.31。
+当前测试文件是 `outputs/predictions/mean_residual_multistage.csv`。它用三层 RNN 预测每平方米的市镇月均，再用每个市镇的 CatBoost 和高斯混合去拟合这个每平方米差值，然后把这三项乘以面积后送进 128-64 的 MLP。MLP 的输出就是月租。搜索期 RMSE 是 451.53，停在第 8 轮。确认期 RMSE 是 468.74。
+
+更早的实验仍然写出 `outputs/predictions/mean_residual_<model>.csv`。在那一组文件里，一套房子的预测租金是市镇月均加上残差。月均是岭回归（`alpha` 1），目标是每个 `TOWN`、每个批准月里 `MONTHLY_RENT` 的平均，拟合到 2024-09 为止的格子。输入是市镇、从 2021-01 起的月份序号、`coe_c_premium_lag1`、`bank_basket_adj_close_lag1` 和 `property_basket_adj_close_lag1`。加权格子 RMSE 在搜索期是 93.36，在确认期是 103.31。
 
 Ridge、XGBoost、MLP 和 CatBoost 各自复制 `models/<model>/best/genome.json`，拟合 `MONTHLY_RENT` 减去这个月均。两者相加后的搜索期 RMSE 是 461.16、454.49、461.78 和 451.26。测试文件是 `outputs/predictions/mean_residual_<model>.csv`。这些权重拟合到 2024-09。2025-01 到 2025-03 没有再拟合进这些文件。
 

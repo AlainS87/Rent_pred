@@ -1,0 +1,11 @@
+{
+  "best_epoch": 37,
+  "confirm_rows": 472,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 7332,
+  "mean_model": "lstm_h16_l3",
+  "model": "mlp",
+  "search_rows": 479,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "ang mo kio"
+}

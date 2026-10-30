@@ -1,0 +1,11 @@
+{
+  "best_iteration": 48,
+  "confirm_rows": 575,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 8584,
+  "mean_model": "lstm_h16_l3",
+  "model": "xgb",
+  "search_rows": 614,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "sengkang"
+}

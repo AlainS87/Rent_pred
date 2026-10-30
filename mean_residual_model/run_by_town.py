@@ -40,7 +40,7 @@ def main() -> None:
     frame = load_joined("train", columns)
     split = time_split(frame, 3, None)
     _check_months(split)
-    regional = load_regional(REGIONAL_DIR)
+    regional = load_regional(REGIONAL_DIR / "ridge")
     periods = {"train": split.fit, "search": split.search, "confirm": split.confirm}
     level = {name: regional.predict(part) for name, part in periods.items()}
     rents = {
@@ -155,7 +155,7 @@ def _towns(periods: dict[str, pd.DataFrame]) -> list[str]:
 
 
 def _town_dir(model: str, town: str) -> Path:
-    return ROOT / "mean_residual_model" / "D-value_models" / model / "towns" / _slug(town)
+    return ROOT / "mean_residual_model" / "D-value_models" / model / "ridge" / "towns" / _slug(town)
 
 
 def _slug(town: str) -> str:
@@ -170,7 +170,7 @@ def _dump_preprocessor(preparer, folder: Path) -> None:
 
 
 def _save_summary(model: str, genome: dict, metrics: dict) -> None:
-    folder = ROOT / "mean_residual_model" / "D-value_models" / model / "towns"
+    folder = ROOT / "mean_residual_model" / "D-value_models" / model / "ridge" / "towns"
     folder.mkdir(parents=True, exist_ok=True)
     payload = {
         "feature_hash": feature_hash(list(genome["features"])),
@@ -186,7 +186,7 @@ def _save_summary(model: str, genome: dict, metrics: dict) -> None:
 
 
 def _shared_search(model: str) -> float:
-    path = ROOT / "mean_residual_model" / "D-value_models" / model / "metrics.json"
+    path = ROOT / "mean_residual_model" / "D-value_models" / model / "ridge" / "metrics.json"
     payload = json.loads(path.read_text(encoding="utf-8"))
     return float(payload["search_rmse"])
 

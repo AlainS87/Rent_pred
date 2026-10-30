@@ -1,0 +1,11 @@
+{
+  "best_iteration": 258,
+  "confirm_rows": 341,
+  "feature_hash": "e640d56256b7",
+  "fit_rows": 5307,
+  "mean_model": "lstm_h16_l3",
+  "model": "catboost",
+  "search_rows": 340,
+  "source_genome": "within-town flat and amenity columns",
+  "town": "toa payoh"
+}
