@@ -1,0 +1,9 @@
+{
+  "name": "rnn_h16_l3",
+  "layers": 3,
+  "epochs": 50,
+  "learning_rate": 0.01,
+  "target": "town_month_mean_rent_per_sqm",
+  "fit_through": "2025-03",
+  "holdout_scored": false
+}

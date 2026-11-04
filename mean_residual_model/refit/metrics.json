@@ -1,0 +1,144 @@
+{
+  "labeled_rows": 150000,
+  "fit_through": "2025-03",
+  "holdout_scored": false,
+  "rnn_epochs": 50,
+  "rnn_layers": 3,
+  "mlp_epochs": 8,
+  "mlp_train_rmse": 458.83572655057077,
+  "mlp_train_rmse_is_held_out": false,
+  "catboost_features_on_labeled_rows": "in_sample",
+  "towns": [
+    {
+      "n_components": 11,
+      "town": "ang mo kio",
+      "trees": 472
+    },
+    {
+      "n_components": 19,
+      "town": "bedok",
+      "trees": 261
+    },
+    {
+      "n_components": 9,
+      "town": "bishan",
+      "trees": 296
+    },
+    {
+      "n_components": 8,
+      "town": "bukit batok",
+      "trees": 522
+    },
+    {
+      "n_components": 12,
+      "town": "bukit merah",
+      "trees": 373
+    },
+    {
+      "n_components": 7,
+      "town": "bukit panjang",
+      "trees": 315
+    },
+    {
+      "n_components": 4,
+      "town": "bukit timah",
+      "trees": 30
+    },
+    {
+      "n_components": 10,
+      "town": "central",
+      "trees": 177
+    },
+    {
+      "n_components": 10,
+      "town": "choa chu kang",
+      "trees": 741
+    },
+    {
+      "n_components": 9,
+      "town": "clementi",
+      "trees": 141
+    },
+    {
+      "n_components": 7,
+      "town": "geylang",
+      "trees": 209
+    },
+    {
+      "n_components": 11,
+      "town": "hougang",
+      "trees": 188
+    },
+    {
+      "n_components": 10,
+      "town": "jurong east",
+      "trees": 210
+    },
+    {
+      "n_components": 16,
+      "town": "jurong west",
+      "trees": 119
+    },
+    {
+      "n_components": 11,
+      "town": "kallang/whampoa",
+      "trees": 200
+    },
+    {
+      "n_components": 3,
+      "town": "marine parade",
+      "trees": 45
+    },
+    {
+      "n_components": 7,
+      "town": "pasir ris",
+      "trees": 243
+    },
+    {
+      "n_components": 6,
+      "town": "punggol",
+      "trees": 638
+    },
+    {
+      "n_components": 11,
+      "town": "queenstown",
+      "trees": 428
+    },
+    {
+      "n_components": 10,
+      "town": "sembawang",
+      "trees": 163
+    },
+    {
+      "n_components": 9,
+      "town": "sengkang",
+      "trees": 448
+    },
+    {
+      "n_components": 9,
+      "town": "serangoon",
+      "trees": 152
+    },
+    {
+      "n_components": 12,
+      "town": "tampines",
+      "trees": 680
+    },
+    {
+      "n_components": 10,
+      "town": "toa payoh",
+      "trees": 196
+    },
+    {
+      "n_components": 12,
+      "town": "woodlands",
+      "trees": 341
+    },
+    {
+      "n_components": 9,
+      "town": "yishun",
+      "trees": 324
+    }
+  ],
+  "prediction": "outputs/predictions/mean_residual_multistage_refit.csv"
+}

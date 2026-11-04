@@ -9,6 +9,9 @@ models/**/final/*.pt
 models/**/final/*.joblib
 outputs/predictions/*
 !outputs/predictions/mean_residual_multistage.csv
+!outputs/predictions/mean_residual_multistage_refit.csv
+!outputs/predictions/mean_residual_aligned_preprocess.csv
+!outputs/predictions/mean_residual_catboost_head.csv
 mean_residual_model/**/*.pt
 mean_residual_model/**/*.joblib
 models/**/use_all_features/*.pt

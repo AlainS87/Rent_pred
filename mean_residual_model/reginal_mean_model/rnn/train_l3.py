@@ -36,11 +36,22 @@ LINEAR_LSTM_SEARCH = 1.9645978411632352
 LINEAR_LSTM_CONFIRM = 3.4044068287564584
 
 
-def main() -> None:
+def fit_rnn(folder, fit_end: str | None, score_holdout: bool) -> dict:
+    """Fit one three-layer RNN per town.
+
+    ``fit_end`` keeps months through that approval month. ``None`` uses every
+    labeled month. Holdout cell RMSE is written only when ``score_holdout`` is
+    true, and only for the 2024-09 cutoff.
+    """
     torch.manual_seed(SEED)
     frame = load_joined("train", ["RENT_APPROVAL_DATE", "TOWN", "floor_area_sqm", *LEVELS])
     prepared = with_month(_as_unit_rent(frame))
-    fit_rows = prepared.loc[prepared["month"].astype(str) <= FIT_END]
+    if fit_end is None:
+        fit_rows = prepared
+    else:
+        fit_rows = prepared.loc[prepared["month"].astype(str) <= fit_end]
+    if fit_rows.empty:
+        raise SystemExit("the RNN fit months have no rows")
     cells = cell_table(fit_rows)
     numeric = _numeric_params(cells, COLUMNS)
     target = cells["mean_rent"].to_numpy(dtype=np.float64)
@@ -67,41 +78,50 @@ def main() -> None:
             optimizer.step()
         states[str(town)] = {key: value.detach().cpu() for key, value in network.state_dict().items()}
         print(f"fit {town}", flush=True)
-    save_town_states(FOLDER, LAYERS, COLUMNS, numeric, center, spread, states)
-    config = load_config(FOLDER)
-    series = _history_timeline(config)
-    prediction = _predict_timeline(FOLDER, series, TownRNN)
-    labeled = cell_table(prepared)
-    labeled["prediction"] = [
-        prediction[(str(town), str(month))]
-        for town, month in zip(labeled["TOWN"], labeled["month"])
-    ]
+    save_town_states(folder, LAYERS, COLUMNS, numeric, center, spread, states)
+    months = sorted(fit_rows["month"].astype(str).unique())
     scores = {
         "name": "rnn_h16_l3",
         "layers": LAYERS,
         "epochs": EPOCHS,
         "learning_rate": LEARNING_RATE,
         "target": "town_month_mean_rent_per_sqm",
-        "linear_lstm_search_cell_rmse": LINEAR_LSTM_SEARCH,
-        "linear_lstm_confirm_cell_rmse": LINEAR_LSTM_CONFIRM,
+        "fit_through": months[-1],
+        "holdout_scored": score_holdout,
     }
-    for label, months in (("search", SEARCH_MONTHS), ("confirm", CONFIRM_MONTHS)):
-        part = labeled.loc[labeled["month"].astype(str).isin(months)]
-        scores[f"{label}_weighted_cell_rmse"] = _weighted_rmse(
-            part["mean_rent"].to_numpy(dtype=np.float64),
-            part["prediction"].to_numpy(dtype=np.float64),
-            part["rows"].to_numpy(dtype=np.float64),
-        )
-    forward = series.copy()
-    forward["prediction"] = [
-        prediction[(str(town), str(month))]
-        for town, month in zip(forward["TOWN"], forward["month"])
-    ]
-    for month in ("2025-04", "2026-07"):
-        part = forward.loc[forward["month"].astype(str) == month, "prediction"]
-        scores[f"forward_unit_{month.replace('-', '_')}"] = float(part.mean())
-    (FOLDER / "metrics.json").write_text(json.dumps(scores, indent=2) + "\n", encoding="utf-8")
+    if score_holdout:
+        config = load_config(folder)
+        series = _history_timeline(config)
+        prediction = _predict_timeline(folder, series, TownRNN)
+        labeled = cell_table(prepared)
+        labeled["prediction"] = [
+            prediction[(str(town), str(month))]
+            for town, month in zip(labeled["TOWN"], labeled["month"])
+        ]
+        scores["linear_lstm_search_cell_rmse"] = LINEAR_LSTM_SEARCH
+        scores["linear_lstm_confirm_cell_rmse"] = LINEAR_LSTM_CONFIRM
+        for label, month_list in (("search", SEARCH_MONTHS), ("confirm", CONFIRM_MONTHS)):
+            part = labeled.loc[labeled["month"].astype(str).isin(month_list)]
+            scores[f"{label}_weighted_cell_rmse"] = _weighted_rmse(
+                part["mean_rent"].to_numpy(dtype=np.float64),
+                part["prediction"].to_numpy(dtype=np.float64),
+                part["rows"].to_numpy(dtype=np.float64),
+            )
+        forward = series.copy()
+        forward["prediction"] = [
+            prediction[(str(town), str(month))]
+            for town, month in zip(forward["TOWN"], forward["month"])
+        ]
+        for month in ("2025-04", "2026-07"):
+            part = forward.loc[forward["month"].astype(str) == month, "prediction"]
+            scores[f"forward_unit_{month.replace('-', '_')}"] = float(part.mean())
+    (folder / "metrics.json").write_text(json.dumps(scores, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(scores, indent=2), flush=True)
+    return scores
+
+
+def main() -> None:
+    fit_rnn(FOLDER, FIT_END, True)
 
 
 if __name__ == "__main__":

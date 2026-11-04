@@ -24,7 +24,8 @@ class TownRNN(nn.Module):
         return self.head(output).squeeze(-1)
 
 
-def predict_saved_rnn3(frame):
-    """Town-month unit price from the saved 4-input three-layer RNN. No refit."""
-    folder = REGIONAL_DIR / "rnn" / "h16_l3"
+def predict_saved_rnn3(frame, folder=None):
+    """Town-month unit price from a saved 4-input three-layer RNN. No refit."""
+    if folder is None:
+        folder = REGIONAL_DIR / "rnn" / "h16_l3"
     return _predict_saved(folder, frame, TownRNN)

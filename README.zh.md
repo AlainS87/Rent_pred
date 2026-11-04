@@ -96,7 +96,9 @@ python -m src.pipeline.run submit --model <model>
 
 [mean_residual_model](mean_residual_model/README.md) 是单独的实验。它不替换 `models/<model>/best` 或 `final/`。
 
-当前测试文件是 `outputs/predictions/mean_residual_multistage.csv`。它用三层 RNN 预测每平方米的市镇月均，再用每个市镇的 CatBoost 和高斯混合去拟合这个每平方米差值，然后把这三项乘以面积后送进 128-64 的 MLP。MLP 的输出就是月租。搜索期 RMSE 是 451.53，停在第 8 轮。确认期 RMSE 是 468.74。
+按搜索期停下的测试文件是 `outputs/predictions/mean_residual_multistage.csv`。它用三层 RNN 预测每平方米的市镇月均，再用每个市镇的 CatBoost 和高斯混合去拟合这个每平方米差值。每平方米均值、两个差值、面积，以及原始经纬度，分开送进全岛共用的 128-64 MLP。MLP 的输出就是月租。搜索期 RMSE 是 448.24，停在第 8 轮。确认期 RMSE 是 462.87。
+
+`python -m mean_residual_model.refit.run` 把同一套模型在全部有标签月份上再拟合一次，规模沿用搜索期选定的大小，写到 `outputs/predictions/mean_residual_multistage_refit.csv`。这次没有搜索期或确认期 RMSE。150,000 行上的样本内训练 RMSE 是 458.84。
 
 更早的实验仍然写出 `outputs/predictions/mean_residual_<model>.csv`。在那一组文件里，一套房子的预测租金是市镇月均加上残差。月均是岭回归（`alpha` 1），目标是每个 `TOWN`、每个批准月里 `MONTHLY_RENT` 的平均，拟合到 2024-09 为止的格子。输入是市镇、从 2021-01 起的月份序号、`coe_c_premium_lag1`、`bank_basket_adj_close_lag1` 和 `property_basket_adj_close_lag1`。加权格子 RMSE 在搜索期是 93.36，在确认期是 103.31。
 
