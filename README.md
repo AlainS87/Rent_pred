@@ -96,7 +96,9 @@ Dated records are [logs/progress_1029.md](logs/progress_1029.md) and [logs/progr
 
 [mean_residual_model](mean_residual_model/README.md) is a separate experiment. It does not replace `models/<model>/best` or `final/`.
 
-The current test file is `outputs/predictions/mean_residual_multistage.csv`. It comes from a three-layer RNN town-month mean of rent per square metre, a per-town CatBoost gap and a per-town Gaussian mixture on that same unit gap, and a 128-64 MLP. The three per-square-metre terms are multiplied by floor area before the MLP. The MLP output is monthly rent. Search RMSE is 451.53 at epoch 8. Confirm RMSE is 468.74.
+The current test file from the search-stopped stack is `outputs/predictions/mean_residual_multistage.csv`. It comes from a three-layer RNN town-month mean of rent per square metre, a per-town CatBoost gap and a per-town Gaussian mixture on that same unit gap, and one shared 128-64 MLP. The unit mean, the two gaps, and floor area enter the MLP as separate inputs, together with raw latitude and longitude. The MLP output is monthly rent. Search RMSE is 448.24 at epoch 8. Confirm RMSE is 462.87.
+
+`python -m mean_residual_model.refit.run` fits that stack again on every labeled month through 2025-03, with those sizes frozen. It writes `outputs/predictions/mean_residual_multistage_refit.csv`. That run has no search or confirm RMSE. Its in-sample train RMSE on 150,000 rows is 458.84.
 
 An earlier experiment still writes `outputs/predictions/mean_residual_<model>.csv`. There, the rent of one flat is a town-month mean plus a residual. The mean is a ridge (`alpha` 1) of the average `MONTHLY_RENT` in each `TOWN` and approval month, fit on cells through 2024-09. Its inputs are the town, the month index since 2021-01, `coe_c_premium_lag1`, `bank_basket_adj_close_lag1`, and `property_basket_adj_close_lag1`. Weighted cell RMSE is 93.36 on the search quarter and 103.31 on the confirm quarter.
 

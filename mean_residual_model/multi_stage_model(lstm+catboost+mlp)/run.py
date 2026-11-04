@@ -51,6 +51,14 @@ CAT_FEATURES = [
     "nearest_secondary_name",
     "dist_nearest_secondary_km",
 ]
+MLP_ADDED = [
+    "log_dist_nearest_open_mrt_km",
+    "n_open_mrt_within_1km",
+    "n_mall_within_1km",
+    "n_primary_within_1km",
+    "n_secondary_within_1km",
+    "n_hdb_blocks_within_500m",
+]
 LOAD_COLUMNS = [
     "RENT_APPROVAL_DATE",
     "TOWN",
@@ -63,6 +71,11 @@ LOAD_COLUMNS = [
     "fee_amount",
     "lease_commence_year",
     *CAT_FEATURES,
+    "n_open_mrt_within_1km",
+    "n_mall_within_1km",
+    "n_primary_within_1km",
+    "n_secondary_within_1km",
+    "n_hdb_blocks_within_500m",
 ]
 PREPROCESS = {
     "categorical": "native",
@@ -244,7 +257,8 @@ def fit_mlp_saved() -> None:
         "catboost": "frozen_full_model",
         "gmm": "conditional_location_flat_per_sqm",
         "mean_model": "rnn_h16_l3_per_sqm",
-        "mlp_input": "per_sqm_terms_times_area",
+        "mlp_input": "mu_t_gmm_area_separate_raw_coordinates",
+        "mlp_added": MLP_ADDED,
         "mlp_stopped_on_search": True,
         "target": "monthly_rent",
     }
@@ -512,6 +526,35 @@ def _fit_mlp(store, rents):
     return network, best_epoch, (center, y_center), (spread, y_spread)
 
 
+def _fit_mlp_epochs(store, rents, epochs: int):
+    """Train the shared MLP for a frozen epoch count. There is no search score."""
+    if epochs < 1:
+        raise SystemExit(f"MLP epoch count must be at least 1, got {epochs}")
+    train_x, center, spread = _matrix(store["train"], fit=True)
+    torch.manual_seed(SEED)
+    y = rents["train"]
+    y_center = float(np.mean(y))
+    y_spread = float(np.std(y)) or 1.0
+    network = _MLP(train_x.shape[1])
+    optimizer = torch.optim.Adam(network.parameters(), lr=0.001)
+    features = torch.tensor(train_x, dtype=torch.float32)
+    target = torch.tensor((y - y_center) / y_spread, dtype=torch.float32)
+    generator = torch.Generator()
+    generator.manual_seed(SEED)
+    for epoch in range(1, epochs + 1):
+        network.train()
+        order = torch.randperm(features.shape[0], generator=generator)
+        for start in range(0, features.shape[0], 1024):
+            batch = order[start : start + 1024]
+            optimizer.zero_grad()
+            loss = nn.functional.mse_loss(network(features[batch]), target[batch])
+            loss.backward()
+            optimizer.step()
+        print(f"mlp epoch {epoch}/{epochs}", flush=True)
+    network.eval()
+    return network, epochs, (center, y_center), (spread, y_spread)
+
+
 class _MLP(nn.Module):
     def __init__(self, n_features: int) -> None:
         super().__init__()
@@ -541,12 +584,11 @@ def _mlp_predict(network, block, y_center, y_spread, center=None, spread=None) -
 
 
 def _matrix(block, fit=False, center=None, spread=None):
-    area = block["floor_area"]
     values = np.column_stack(
         [
-            block["mu"] * area,
-            block["t"] * area,
-            block["gmm_gap"] * area,
+            block["mu"],
+            block["t"],
+            block["gmm_gap"],
             block["floor_area"],
             block["fee"],
             block["lease"],
@@ -554,6 +596,8 @@ def _matrix(block, fit=False, center=None, spread=None):
             block["month_index"],
             block["latitude"],
             block["longitude"],
+            block["latitude_raw"],
+            block["longitude_raw"],
             block["flat_type_ord"],
             block["flat_model_ord"],
             block["max_floor"],
@@ -563,6 +607,12 @@ def _matrix(block, fit=False, center=None, spread=None):
             block["dist_mall"],
             block["dist_primary"],
             block["dist_secondary"],
+            block["log_dist_mrt"],
+            block["n_mrt_1km"],
+            block["n_mall_1km"],
+            block["n_primary_1km"],
+            block["n_secondary_1km"],
+            block["n_blocks_500m"],
         ]
     ).astype(np.float64)
     if fit:
@@ -609,9 +659,17 @@ def _empty_store(periods, test) -> dict:
             "floor_area": np.zeros(n_rows, dtype=np.float64),
             "gmm_gap": np.zeros(n_rows, dtype=np.float64),
             "latitude": np.zeros(n_rows, dtype=np.float64),
+            "latitude_raw": np.zeros(n_rows, dtype=np.float64),
             "lease": np.zeros(n_rows, dtype=np.float64),
+            "log_dist_mrt": np.zeros(n_rows, dtype=np.float64),
             "longitude": np.zeros(n_rows, dtype=np.float64),
+            "longitude_raw": np.zeros(n_rows, dtype=np.float64),
             "max_floor": np.zeros(n_rows, dtype=np.float64),
+            "n_blocks_500m": np.zeros(n_rows, dtype=np.float64),
+            "n_mall_1km": np.zeros(n_rows, dtype=np.float64),
+            "n_mrt_1km": np.zeros(n_rows, dtype=np.float64),
+            "n_primary_1km": np.zeros(n_rows, dtype=np.float64),
+            "n_secondary_1km": np.zeros(n_rows, dtype=np.float64),
             "month_index": np.zeros(n_rows, dtype=np.float64),
             "mu": np.zeros(n_rows, dtype=np.float64),
             "t": np.full(n_rows, np.nan, dtype=np.float64),
@@ -641,14 +699,27 @@ def _copy_plain(block, frame: pd.DataFrame) -> None:
     block["dist_mall"][:] = frame["dist_nearest_mall_km"].to_numpy(dtype=np.float64)
     block["dist_primary"][:] = frame["dist_nearest_primary_km"].to_numpy(dtype=np.float64)
     block["dist_secondary"][:] = frame["dist_nearest_secondary_km"].to_numpy(dtype=np.float64)
+    block["log_dist_mrt"][:] = frame["log_dist_nearest_open_mrt_km"].to_numpy(dtype=np.float64)
+    block["n_mrt_1km"][:] = frame["n_open_mrt_within_1km"].to_numpy(dtype=np.float64)
+    block["n_mall_1km"][:] = frame["n_mall_within_1km"].to_numpy(dtype=np.float64)
+    block["n_primary_1km"][:] = frame["n_primary_within_1km"].to_numpy(dtype=np.float64)
+    block["n_secondary_1km"][:] = frame["n_secondary_within_1km"].to_numpy(dtype=np.float64)
+    block["n_blocks_500m"][:] = frame["n_hdb_blocks_within_500m"].to_numpy(dtype=np.float64)
 
 
 def _write_coords(store, name, mask, frame: pd.DataFrame) -> None:
     store[name]["latitude"][mask] = frame["latitude"].to_numpy(dtype=np.float64)
     store[name]["longitude"][mask] = frame["longitude"].to_numpy(dtype=np.float64)
+    store[name]["latitude_raw"][mask] = frame["latitude_raw"].to_numpy(dtype=np.float64)
+    store[name]["longitude_raw"][mask] = frame["longitude_raw"].to_numpy(dtype=np.float64)
 
 
 def _scale_coords(fit: pd.DataFrame, others: list[pd.DataFrame]) -> None:
+    for frame in [fit, *others]:
+        if len(frame) == 0:
+            continue
+        frame["latitude_raw"] = frame["latitude"].astype(float)
+        frame["longitude_raw"] = frame["longitude"].astype(float)
     for column in ("latitude", "longitude"):
         values = fit[column].astype(float)
         center = float(values.mean())
@@ -742,7 +813,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--mlp-only",
         action="store_true",
-        help="Train the MLP on the saved CatBoost and mixture. Per-square-metre terms are multiplied by area before the network.",
+        help="Train the MLP on the saved CatBoost and mixture. mu, the CatBoost gap, the mixture gap, and floor area enter as separate inputs.",
     )
     args = parser.parse_args()
     if args.predict:

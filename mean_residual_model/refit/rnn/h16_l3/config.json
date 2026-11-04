@@ -1,0 +1,61 @@
+{
+  "columns": [
+    "month_index",
+    "coe_c_premium_lag1",
+    "bank_basket_adj_close_lag1",
+    "property_basket_adj_close_lag1"
+  ],
+  "layers": 3,
+  "numeric": {
+    "month_index": {
+      "center": 25.0,
+      "fill": 25.0,
+      "spread": 14.719601443879744
+    },
+    "coe_c_premium_lag1": {
+      "center": 68751.0,
+      "fill": 68751.0,
+      "spread": 15813.122175572993
+    },
+    "bank_basket_adj_close_lag1": {
+      "center": 19.691666666666663,
+      "fill": 19.691666666666663,
+      "spread": 3.9022829196880235
+    },
+    "property_basket_adj_close_lag1": {
+      "center": 4.9975000000000005,
+      "fill": 4.9975000000000005,
+      "spread": 0.5387862403113167
+    }
+  },
+  "target_center": 31.027255755885882,
+  "target_spread": 6.618390233465501,
+  "towns": {
+    "ang_mo_kio": "ang mo kio",
+    "bedok": "bedok",
+    "bishan": "bishan",
+    "bukit_batok": "bukit batok",
+    "bukit_merah": "bukit merah",
+    "bukit_panjang": "bukit panjang",
+    "bukit_timah": "bukit timah",
+    "central": "central",
+    "choa_chu_kang": "choa chu kang",
+    "clementi": "clementi",
+    "geylang": "geylang",
+    "hougang": "hougang",
+    "jurong_east": "jurong east",
+    "jurong_west": "jurong west",
+    "kallang_whampoa": "kallang/whampoa",
+    "marine_parade": "marine parade",
+    "pasir_ris": "pasir ris",
+    "punggol": "punggol",
+    "queenstown": "queenstown",
+    "sembawang": "sembawang",
+    "sengkang": "sengkang",
+    "serangoon": "serangoon",
+    "tampines": "tampines",
+    "toa_payoh": "toa payoh",
+    "woodlands": "woodlands",
+    "yishun": "yishun"
+  }
+}

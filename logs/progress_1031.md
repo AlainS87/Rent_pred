@@ -73,4 +73,8 @@ The town heatmaps in `src/viz/gaussian_towns/` were drawn for the earlier 3D con
 
 ## Current prediction
 
-The file `outputs/predictions/mean_residual_multistage.csv` is the three-layer per-square-metre RNN, plus the town CatBoost gap and the town mixture gap on that same unit residual, passed through the 128-64 MLP after those three terms have been multiplied by floor area. `outputs/predictions/mean_residual_<model>.csv` still comes from the earlier ridge mean plus one shared residual. Production `best` and `final` snapshots were not replaced.
+The file `outputs/predictions/mean_residual_multistage.csv` is the three-layer per-square-metre RNN, plus the town CatBoost gap and the town mixture gap on that same unit residual, passed through one shared 128-64 MLP. `mu`, the CatBoost gap, the mixture gap, and floor area enter as four separate inputs. The MLP also receives within-town z-scored coordinates, raw latitude and longitude in degrees, `log_dist_nearest_open_mrt_km`, and the five nearby counts listed in `metrics.json`. Search RMSE is 448.24 at epoch 8. Confirm RMSE is 462.87 and did not choose the epoch. `outputs/predictions/mean_residual_<model>.csv` still comes from the earlier ridge mean plus one shared residual. Production `best` and `final` snapshots were not replaced.
+
+## All-label refit
+
+`python -m mean_residual_model.refit.run` fits that same stack on every labeled month through 2025-03. The RNN still trains for 50 epochs. Each town CatBoost keeps the iteration chosen on the search quarter, with early stopping off. The MLP trains for 8 epochs. There is no search or confirm score. The in-sample train RMSE on 150,000 rows is 458.84 and did not choose the epoch. CatBoost and mixture features on those labeled rows are in-sample. Weights are under `mean_residual_model/refit/`. The test file is `outputs/predictions/mean_residual_multistage_refit.csv`. It does not replace `mean_residual_multistage.csv`.

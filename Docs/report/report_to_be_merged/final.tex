@@ -1,0 +1,29 @@
+% Overleaf: compile with pdfLaTeX (the default compiler).
+% Put this file at the Overleaf project root and upload the images/ folder beside it.
+% From Docs/report/, the same figures are also found at ../../images/.
+\documentclass[10pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}{../../images/}}
+\usepackage[font=small,skip=2pt]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\placefig}[1]{%
+  \par\vspace{0.4em}%
+  \noindent\begin{minipage}{\textwidth}%
+  \centering
+  #1%
+  \end{minipage}%
+  \par\vspace{0.5em}%
+}
+
+\title{5228 progress report}
+\date{September 2026}
+
+\begin{document}
+a
+\section{}
+\end{document}
