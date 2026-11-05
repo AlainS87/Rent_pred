@@ -1,0 +1,17 @@
+split,role,scenario,configuration,model,features,history_features,training_rows,validation_rows,seconds,rmse,mae
+development_1,development,fixed_cutoff,original_address_plus_history,catboost,41,27,49389,15588,19.71,579.2493488875939,449.30225763312023
+development_1,development,fixed_cutoff,full_aux_plus_history,catboost,481,27,49389,15588,83.32,583.3271477063328,451.7877988619707
+development_1,development,provided_lagged_aux,original_address_plus_history,catboost,41,27,49389,15588,19.53,579.2493488875939,449.30225763312023
+development_1,development,provided_lagged_aux,full_aux_plus_history,catboost,481,27,49389,15588,82.36,591.9233112992918,457.58708545964197
+development_2,development,fixed_cutoff,original_address_plus_history,catboost,41,27,64977,16947,21.37,650.4971929845175,538.7323136682448
+development_2,development,fixed_cutoff,full_aux_plus_history,catboost,481,27,64977,16947,115.29,667.0820084137717,552.0614883352478
+development_2,development,provided_lagged_aux,original_address_plus_history,catboost,41,27,64977,16947,24.54,650.4971929845175,538.7323136682448
+development_2,development,provided_lagged_aux,full_aux_plus_history,catboost,481,27,64977,16947,112.12,671.003527391424,555.1333938013374
+development_3,development,fixed_cutoff,original_address_plus_history,catboost,41,27,81924,17980,29.8,602.4126210787678,481.43513936174367
+development_3,development,fixed_cutoff,full_aux_plus_history,catboost,481,27,81924,17980,132.74,607.1828759421957,491.0120428555128
+development_3,development,provided_lagged_aux,original_address_plus_history,catboost,41,27,81924,17980,26.03,602.4126210787678,481.43513936174367
+development_3,development,provided_lagged_aux,full_aux_plus_history,catboost,481,27,81924,17980,126.29,609.9617389591587,494.80364690945953
+confirmation_17m,confirmation,fixed_cutoff,original_address_plus_history,catboost,41,27,99904,50096,27.22,498.73019843965693,366.9340016807451
+confirmation_17m,confirmation,fixed_cutoff,full_aux_plus_history,catboost,481,27,99904,50096,146.98,497.30381071788094,368.16782696641224
+confirmation_17m,confirmation,provided_lagged_aux,original_address_plus_history,catboost,41,27,99904,50096,30.38,498.73019843965693,366.9340016807451
+confirmation_17m,confirmation,provided_lagged_aux,full_aux_plus_history,catboost,481,27,99904,50096,152.65,498.28225208896635,370.6108331271698

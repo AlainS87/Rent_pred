@@ -5,18 +5,13 @@ Run from the project root:
     python -m src.pipeline.run evolve  --model mlp --features original,blocks --generations 4
     python -m src.pipeline.run train   --model xgb --features original
     python -m src.pipeline.run test    --model mlp
-    python -m src.pipeline.run predict --model mlp --out outputs/predictions/mlp.csv
-    python -m src.pipeline.run submit  --model mlp
+    python -m src.pipeline.run predict --model mlp --out artifacts/predictions/mlp.csv
     python -m src.pipeline.run use-all --model xgb
 """
 
 import argparse
 import sys
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[2]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
 
 from src.pipeline.catalog import resolve_features
 from src.pipeline.evolve import evolve_model, predict_model, test_model, train_model
@@ -27,7 +22,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Train or evolve a rental baseline.")
     parser.add_argument(
         "command",
-        choices=["train", "test", "predict", "evolve", "ablate", "finalize", "submit", "use-all"],
+        choices=["train", "test", "predict", "evolve", "ablate", "finalize", "use-all"],
     )
     parser.add_argument("--model", required=True, choices=["ridge", "xgb", "mlp", "catboost"])
     parser.add_argument("--features", default="", help="Column names and presets, comma-separated.")
@@ -49,11 +44,6 @@ def main() -> None:
         from src.pipeline.finalize import finalize_model
 
         finalize_model(args.model, args.seed)
-        return
-    if args.command == "submit":
-        from src.pipeline.submit import submit_model
-
-        submit_model(args.model, args.seed)
         return
     if args.command == "use-all":
         from src.pipeline.use_all import use_all_features

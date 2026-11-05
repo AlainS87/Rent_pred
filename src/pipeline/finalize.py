@@ -94,7 +94,7 @@ def finalize_model(model: str, seed: int = 5228) -> dict:
     )
     _copy_final(model, trained)
     refresh_design(model)
-    predict_model(model, f"outputs/predictions/{model}_final.csv", False, seed)
+    predict_model(model, f"artifacts/predictions/{model}_final.csv", False, seed)
     print(
         f"final {model} search RMSE {trained['search_rmse']:.4f} "
         f"confirm RMSE {trained.get('confirm_rmse')}"

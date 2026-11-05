@@ -27,11 +27,11 @@ from src.features.keys import norm_text
 from src.features.spatial import TRUNK_OPEN_PREFIXES, haversine_km
 
 ROOT = Path(__file__).resolve().parents[2]
-TRAIN = ROOT / "Data" / "auxiliary_features" / "train_features.csv"
-RENTALS = ROOT / "Data" / "train.csv"
-AUX = ROOT / "Data" / "auxiliary"
-OUTLINE = ROOT / "Data" / "external" / "singapore_boundary.geojson"
-TILES = ROOT / "Data" / "external" / "tiles" / "osm"
+TRAIN = ROOT / "artifacts" / "features" / "train_features.csv"
+RENTALS = ROOT / "data/raw" / "train.csv"
+AUX = ROOT / "data/raw" / "auxiliary"
+OUTLINE = ROOT / "data/raw" / "external" / "singapore_boundary.geojson"
+TILES = ROOT / "data/raw" / "external" / "tiles" / "osm"
 OUT = ROOT / "outputs" / "figures" / "maps"
 ZOOM = 12
 
@@ -104,7 +104,7 @@ def _basemap():
                 url = f"https://tile.openstreetmap.org/{ZOOM}/{x}/{y}.png"
                 request = urllib.request.Request(
                     url,
-                    headers={"User-Agent": "CS5228-HDB-rent-maps/1.0 (academic project)"},
+                    headers={"User-Agent": "Singapore-Rental-Forecasting/1.0"},
                 )
                 path.write_bytes(urllib.request.urlopen(request, timeout=30).read())
             row.append(Image.open(path).convert("RGB"))
@@ -270,4 +270,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    import argparse
+    argparse.ArgumentParser(description=__doc__).parse_args()
     main()

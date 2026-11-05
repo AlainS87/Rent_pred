@@ -14,7 +14,7 @@ MODELS = ("ridge", "xgb", "mlp", "catboost")
 
 
 def load_best_genome(root: Path, model: str) -> dict:
-    path = root / "models" / model / "best" / "genome.json"
+    path = root / "artifacts" / "models" / model / "best" / "genome.json"
     genome = json.loads(path.read_text(encoding="utf-8"))
     if not genome.get("features"):
         raise SystemExit(f"{model} best genome has no features")
@@ -64,7 +64,7 @@ def save_residual(
     bundle,
     metrics: dict,
 ) -> Path:
-    folder = root / "mean_residual_model" / "D-value_models" / model
+    folder = root / "artifacts" / "mean_residual" / "residuals" / model
     folder.mkdir(parents=True, exist_ok=True)
     load_model_module(model).save_model(bundle, folder)
     joblib.dump(preparer, folder / "preprocessor.joblib")

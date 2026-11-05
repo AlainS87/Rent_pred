@@ -27,7 +27,7 @@ from mean_residual_model.run import (
     SEED,
     _check_months,
     _columns,
-    _write_kaggle,
+    _write_predictions,
 )
 from src.pipeline.data import load_joined, time_split
 from src.pipeline.fit import load_model_module
@@ -40,7 +40,7 @@ def main() -> None:
     frame = load_joined("train", columns)
     split = time_split(frame, 3, None)
     _check_months(split)
-    regional = load_regional(REGIONAL_DIR / "ridge")
+    regional = load_regional(REGIONAL_DIR)
     periods = {"train": split.fit, "search": split.search, "confirm": split.confirm}
     level = {name: regional.predict(part) for name, part in periods.items()}
     rents = {
@@ -76,7 +76,7 @@ def main() -> None:
         )
         prediction = test_level + test_gap
         output = ROOT / "outputs" / "predictions" / f"mean_residual_by_town_{model}.csv"
-        _write_kaggle(output, prediction)
+        _write_predictions(output, prediction)
         print(f"wrote {output.relative_to(ROOT).as_posix()}")
 
 
@@ -155,7 +155,7 @@ def _towns(periods: dict[str, pd.DataFrame]) -> list[str]:
 
 
 def _town_dir(model: str, town: str) -> Path:
-    return ROOT / "mean_residual_model" / "D-value_models" / model / "ridge" / "towns" / _slug(town)
+    return ROOT / "artifacts" / "mean_residual" / "residuals" / model / "towns" / _slug(town)
 
 
 def _slug(town: str) -> str:
@@ -170,7 +170,7 @@ def _dump_preprocessor(preparer, folder: Path) -> None:
 
 
 def _save_summary(model: str, genome: dict, metrics: dict) -> None:
-    folder = ROOT / "mean_residual_model" / "D-value_models" / model / "ridge" / "towns"
+    folder = ROOT / "artifacts" / "mean_residual" / "residuals" / model / "towns"
     folder.mkdir(parents=True, exist_ok=True)
     payload = {
         "feature_hash": feature_hash(list(genome["features"])),
@@ -186,10 +186,12 @@ def _save_summary(model: str, genome: dict, metrics: dict) -> None:
 
 
 def _shared_search(model: str) -> float:
-    path = ROOT / "mean_residual_model" / "D-value_models" / model / "ridge" / "metrics.json"
+    path = ROOT / "artifacts" / "mean_residual" / "residuals" / model / "metrics.json"
     payload = json.loads(path.read_text(encoding="utf-8"))
     return float(payload["search_rmse"])
 
 
 if __name__ == "__main__":
+    import argparse
+    argparse.ArgumentParser(description=__doc__).parse_args()
     main()

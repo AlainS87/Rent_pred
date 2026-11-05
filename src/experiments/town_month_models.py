@@ -29,7 +29,7 @@ from src.experiments.partition_month_mean import (
 )
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "Data"
+DATA = ROOT / "data/raw"
 OUT = ROOT / "outputs" / "feasibility" / "town_month_models.json"
 LEVELS = [
     "coe_c_premium_lag1",
@@ -255,8 +255,8 @@ def _forward_paths(train_cells: pd.DataFrame) -> dict:
 
 
 def _future_cells(train_cells: pd.DataFrame) -> pd.DataFrame:
-    dates = pd.read_csv(DATA / "test.csv", usecols=["RENT_APPROVAL_DATE"])
-    auxiliary = pd.read_csv(DATA / "auxiliary_features" / "test_features.csv", usecols=LEVELS)
+    dates = pd.read_csv(DATA / "query.csv", usecols=["RENT_APPROVAL_DATE"])
+    auxiliary = pd.read_csv(ROOT / "artifacts" / "features" / "test_features.csv", usecols=LEVELS)
     if len(dates) != len(auxiliary):
         raise SystemExit("test and auxiliary row counts differ")
     auxiliary = auxiliary.copy()
@@ -285,4 +285,6 @@ def _score(name: str, predict, design: dict) -> dict:
 
 
 if __name__ == "__main__":
+    import argparse
+    argparse.ArgumentParser(description=__doc__).parse_args()
     main()

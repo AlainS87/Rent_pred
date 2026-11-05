@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
-TRAIN = ROOT / "Data" / "auxiliary_features" / "train_features.csv"
+TRAIN = ROOT / "artifacts" / "features" / "train_features.csv"
 OUT = ROOT / "outputs" / "figures"
 LINE_DISTANCES = [
     "dist_nearest_ns_km",
@@ -57,4 +57,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    import argparse
+    argparse.ArgumentParser(description=__doc__).parse_args()
     main()

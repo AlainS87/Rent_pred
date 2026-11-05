@@ -1,0 +1,490 @@
+{
+  "version": 1,
+  "scope": "Four prespecified new B0/C3 backtest origins plus two verified historical references; no candidate selection.",
+  "origins": [
+    "2023-09",
+    "2023-12",
+    "2024-03",
+    "2024-06",
+    "2024-09",
+    "2024-12"
+  ],
+  "new_origins": [
+    "2023-12",
+    "2024-06",
+    "2024-09",
+    "2024-12"
+  ],
+  "reused_origins": [
+    "2023-09",
+    "2024-03"
+  ],
+  "models": [
+    "B0",
+    "C3"
+  ],
+  "model_recipes": {
+    "B0": {
+      "version": 1,
+      "scope": "exploratory repeated backtest; all dates previously inspected",
+      "models": [
+        "B0",
+        "B1",
+        "B2"
+      ],
+      "origins": [
+        "2023-09",
+        "2024-03"
+      ],
+      "last_label_month": "2025-03",
+      "max_horizon": 16,
+      "inner_validation_months": 3,
+      "snapshot_horizons": [
+        1,
+        3,
+        6,
+        12,
+        16
+      ],
+      "snapshot_start": "2021-06",
+      "windows": [
+        3,
+        12,
+        "all"
+      ],
+      "strength": 20.0,
+      "seed": 5228,
+      "cpu_threads": 4,
+      "xgboost": {
+        "max_depth": 8,
+        "learning_rate": 0.05,
+        "n_estimators": 2000,
+        "early_stopping_rounds": 50,
+        "objective": "reg:squarederror",
+        "tree_method": "hist",
+        "enable_categorical": true,
+        "n_jobs": 4,
+        "random_state": 5228,
+        "device": "cuda:0"
+      },
+      "preprocess": {
+        "categorical": "native",
+        "numeric_impute": "median",
+        "rare_min_count": 30,
+        "scale": "none"
+      },
+      "hedonic": {
+        "ridge_alpha": 20.0,
+        "ridge_solver": "lsqr",
+        "ridge_tol": 1e-06,
+        "ridge_max_iter": 2000,
+        "hedonic_categorical": [
+          "TOWN",
+          "FLAT_TYPE",
+          "FLAT_MODEL",
+          "building_key",
+          "town_flat_type"
+        ],
+        "hedonic_numeric": [
+          "FLOOR_AREA_SQM",
+          "floor_area_sq",
+          "LEASE_COMMENCE_DATE",
+          "latitude",
+          "longitude",
+          "max_floor",
+          "dist_nearest_open_mrt_km",
+          "dist_to_cbd_km"
+        ]
+      },
+      "trend": {
+        "window": 12,
+        "phi": 0.9,
+        "weighting": "transaction_count"
+      },
+      "horizon_bins": [
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          15
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "prediction_floor": 0.0,
+      "price_dtype": "float32",
+      "first_batch_successful_tree_fit_limit": 12,
+      "fallback_policy": "GPU failure may retry both inner and refit on CPU4 under separate backend contract; preserve failed attempts; no silent CPU fallback"
+    },
+    "C3": {
+      "version": 1,
+      "scope": "exploratory repeated backtest on previously inspected two origins",
+      "models": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "origins": [
+        "2023-09",
+        "2024-03"
+      ],
+      "max_horizon": 16,
+      "last_label_month": "2025-03",
+      "inner_validation_months": 3,
+      "seed": 5228,
+      "cpu_threads": 4,
+      "prediction_floor": 0.0,
+      "horizon_bins": [
+        [
+          1,
+          3
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          7,
+          12
+        ],
+        [
+          13,
+          15
+        ],
+        [
+          16,
+          16
+        ]
+      ],
+      "preprocess": {
+        "categorical": "native",
+        "numeric_impute": "median",
+        "rare_min_count": 30,
+        "scale": "none"
+      },
+      "features": {
+        "C1": [
+          "RENT_APPROVAL_DATE",
+          "TOWN",
+          "STREET",
+          "FLAT_TYPE",
+          "FLAT_MODEL",
+          "FLOOR_AREA_SQM",
+          "FURNISHED",
+          "LEASE_COMMENCE_DATE",
+          "FEE",
+          "building_key"
+        ],
+        "C2": [
+          "RENT_APPROVAL_DATE",
+          "TOWN",
+          "STREET",
+          "FLAT_TYPE",
+          "FLAT_MODEL",
+          "FLOOR_AREA_SQM",
+          "FURNISHED",
+          "LEASE_COMMENCE_DATE",
+          "FEE",
+          "building_key",
+          "latitude",
+          "longitude",
+          "postal_code",
+          "max_floor",
+          "year_completed",
+          "subzone",
+          "planning_area",
+          "region",
+          "lease_vs_completion_gap",
+          "dist_nearest_open_mrt_km",
+          "nearest_open_mrt_code",
+          "nearest_open_mrt_name",
+          "nearest_open_mrt_line",
+          "dist_nearest_primary_km",
+          "nearest_primary_name",
+          "n_primary_within_1km",
+          "dist_nearest_mall_km",
+          "nearest_mall_name",
+          "nearest_ns_station_code",
+          "nearest_ns_station_name",
+          "dist_nearest_ns_km",
+          "nearest_ew_station_code",
+          "nearest_ew_station_name",
+          "dist_nearest_ew_km",
+          "nearest_ne_station_code",
+          "nearest_ne_station_name",
+          "dist_nearest_ne_km",
+          "nearest_cc_station_code",
+          "nearest_cc_station_name",
+          "dist_nearest_cc_km",
+          "nearest_dt_station_code",
+          "nearest_dt_station_name",
+          "dist_nearest_dt_km",
+          "nearest_te_station_code",
+          "nearest_te_station_name",
+          "dist_nearest_te_km",
+          "n_open_mrt_within_0_5km",
+          "n_open_mrt_within_1km",
+          "n_open_mrt_within_2km",
+          "dist_nearest_planned_mrt_km",
+          "n_planned_mrt_within_1km",
+          "n_planned_mrt_within_2km",
+          "nearest_open_mrt_is_interchange",
+          "n_primary_within_2km",
+          "dist_nearest_secondary_km",
+          "nearest_secondary_name",
+          "n_secondary_within_1km",
+          "dist_nearest_school_km",
+          "nearest_school_name",
+          "n_school_within_1km",
+          "n_mall_within_1km",
+          "n_mall_within_2km",
+          "dist_nearest_future_line_open_km",
+          "dist_nearest_future_line_planned_km",
+          "n_hdb_blocks_within_500m",
+          "dist_to_town_centroid_km",
+          "dist_to_cbd_km",
+          "log_dist_nearest_open_mrt_km",
+          "is_central_region",
+          "town_flat_type"
+        ],
+        "C3": [
+          "RENT_APPROVAL_DATE",
+          "TOWN",
+          "STREET",
+          "FLAT_TYPE",
+          "FLAT_MODEL",
+          "FLOOR_AREA_SQM",
+          "FURNISHED",
+          "LEASE_COMMENCE_DATE",
+          "FEE",
+          "building_key",
+          "latitude",
+          "longitude",
+          "postal_code",
+          "max_floor",
+          "year_completed",
+          "subzone",
+          "planning_area",
+          "region",
+          "lease_vs_completion_gap",
+          "dist_nearest_open_mrt_km",
+          "nearest_open_mrt_code",
+          "nearest_open_mrt_name",
+          "nearest_open_mrt_line",
+          "dist_nearest_primary_km",
+          "nearest_primary_name",
+          "n_primary_within_1km",
+          "dist_nearest_mall_km",
+          "nearest_mall_name",
+          "nearest_ns_station_code",
+          "nearest_ns_station_name",
+          "dist_nearest_ns_km",
+          "nearest_ew_station_code",
+          "nearest_ew_station_name",
+          "dist_nearest_ew_km",
+          "nearest_ne_station_code",
+          "nearest_ne_station_name",
+          "dist_nearest_ne_km",
+          "nearest_cc_station_code",
+          "nearest_cc_station_name",
+          "dist_nearest_cc_km",
+          "nearest_dt_station_code",
+          "nearest_dt_station_name",
+          "dist_nearest_dt_km",
+          "nearest_te_station_code",
+          "nearest_te_station_name",
+          "dist_nearest_te_km",
+          "n_open_mrt_within_0_5km",
+          "n_open_mrt_within_1km",
+          "n_open_mrt_within_2km",
+          "dist_nearest_planned_mrt_km",
+          "n_planned_mrt_within_1km",
+          "n_planned_mrt_within_2km",
+          "nearest_open_mrt_is_interchange",
+          "n_primary_within_2km",
+          "dist_nearest_secondary_km",
+          "nearest_secondary_name",
+          "n_secondary_within_1km",
+          "dist_nearest_school_km",
+          "nearest_school_name",
+          "n_school_within_1km",
+          "n_mall_within_1km",
+          "n_mall_within_2km",
+          "dist_nearest_future_line_open_km",
+          "dist_nearest_future_line_planned_km",
+          "n_hdb_blocks_within_500m",
+          "dist_to_town_centroid_km",
+          "dist_to_cbd_km",
+          "log_dist_nearest_open_mrt_km",
+          "is_central_region",
+          "town_flat_type"
+        ]
+      },
+      "features_provenance": {
+        "source_68_static_columns": [
+          "TOWN",
+          "STREET",
+          "FLAT_TYPE",
+          "FLAT_MODEL",
+          "FLOOR_AREA_SQM",
+          "FURNISHED",
+          "LEASE_COMMENCE_DATE",
+          "FEE",
+          "latitude",
+          "longitude",
+          "postal_code",
+          "max_floor",
+          "year_completed",
+          "subzone",
+          "planning_area",
+          "region",
+          "lease_vs_completion_gap",
+          "dist_nearest_open_mrt_km",
+          "nearest_open_mrt_code",
+          "nearest_open_mrt_name",
+          "nearest_open_mrt_line",
+          "dist_nearest_primary_km",
+          "nearest_primary_name",
+          "n_primary_within_1km",
+          "dist_nearest_mall_km",
+          "nearest_mall_name",
+          "nearest_ns_station_code",
+          "nearest_ns_station_name",
+          "dist_nearest_ns_km",
+          "nearest_ew_station_code",
+          "nearest_ew_station_name",
+          "dist_nearest_ew_km",
+          "nearest_ne_station_code",
+          "nearest_ne_station_name",
+          "dist_nearest_ne_km",
+          "nearest_cc_station_code",
+          "nearest_cc_station_name",
+          "dist_nearest_cc_km",
+          "nearest_dt_station_code",
+          "nearest_dt_station_name",
+          "dist_nearest_dt_km",
+          "nearest_te_station_code",
+          "nearest_te_station_name",
+          "dist_nearest_te_km",
+          "n_open_mrt_within_0_5km",
+          "n_open_mrt_within_1km",
+          "n_open_mrt_within_2km",
+          "dist_nearest_planned_mrt_km",
+          "n_planned_mrt_within_1km",
+          "n_planned_mrt_within_2km",
+          "nearest_open_mrt_is_interchange",
+          "n_primary_within_2km",
+          "dist_nearest_secondary_km",
+          "nearest_secondary_name",
+          "n_secondary_within_1km",
+          "dist_nearest_school_km",
+          "nearest_school_name",
+          "n_school_within_1km",
+          "n_mall_within_1km",
+          "n_mall_within_2km",
+          "dist_nearest_future_line_open_km",
+          "dist_nearest_future_line_planned_km",
+          "n_hdb_blocks_within_500m",
+          "dist_to_town_centroid_km",
+          "dist_to_cbd_km",
+          "log_dist_nearest_open_mrt_km",
+          "is_central_region",
+          "building_key"
+        ],
+        "additional_fixed_derived": [
+          "town_flat_type"
+        ],
+        "derived_builder": "read-only src.backtest.decomposed.static_frame",
+        "manual_target_statistics": false
+      },
+      "xgboost": {
+        "max_depth": 8,
+        "learning_rate": 0.05,
+        "n_estimators": 2000,
+        "early_stopping_rounds": 50,
+        "objective": "reg:squarederror",
+        "tree_method": "hist",
+        "enable_categorical": true,
+        "random_state": 5228,
+        "device": "cuda:0",
+        "n_jobs": 4
+      },
+      "catboost": {
+        "iterations": 2000,
+        "depth": 8,
+        "learning_rate": 0.05,
+        "loss_function": "RMSE",
+        "eval_metric": "RMSE",
+        "random_seed": 5228,
+        "thread_count": 4,
+        "task_type": "GPU",
+        "devices": "0",
+        "gpu_ram_part": 0.5,
+        "border_count": 254,
+        "bootstrap_type": "MVS",
+        "subsample": 0.8,
+        "boosting_type": "Plain",
+        "max_ctr_complexity": 1,
+        "allow_writing_files": false,
+        "early_stopping_rounds": 50
+      },
+      "baseline_reference": {
+        "root": "artifacts/backtest/round2_20261031_research12",
+        "manifest_sha256": "2de8f03ad2f4001e9cd3e22f3fbd371704102110a6177cf864a407d69b16eb89",
+        "model": "B0",
+        "retrain": false
+      },
+      "normal_tree_fit_budget": 12,
+      "same_feature_algorithm_comparison_is_not_causal": true
+    }
+  },
+  "reuse_sources": {
+    "B0": {
+      "root": "artifacts/backtest/round2_20261031_research12",
+      "manifest_sha256": "2de8f03ad2f4001e9cd3e22f3fbd371704102110a6177cf864a407d69b16eb89"
+    },
+    "C3": {
+      "root": "artifacts/backtest/round3_20261031_direct12",
+      "manifest_sha256": "5e4fb7fed7ff8a8ca6f53c5422b46cf4c9f8821ff784e0714724b43a8e836516"
+    }
+  },
+  "max_horizon": 16,
+  "horizon_bins": [
+    [
+      1,
+      3
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      7,
+      12
+    ],
+    [
+      13,
+      15
+    ],
+    [
+      16,
+      16
+    ]
+  ],
+  "last_label_month": "2025-03",
+  "cpu_threads": 4,
+  "backtest_normal_fit_budget": 16,
+  "normal_new_tree_fit_budget": 16
+}

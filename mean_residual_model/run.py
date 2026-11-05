@@ -27,11 +27,11 @@ from mean_residual_model.residual import (
     stopped_size,
 )
 from src.pipeline.data import load_joined, time_split
+from src.pipeline.predictions import write_predictions as _write_predictions
 
 ROOT = Path(__file__).resolve().parents[1]
 SEED = 5228
-TEST_ROWS = 50000
-REGIONAL_DIR = ROOT / "mean_residual_model" / "reginal_mean_model"
+REGIONAL_DIR = ROOT / "artifacts" / "mean_residual" / "regional"
 
 
 def main() -> None:
@@ -89,7 +89,7 @@ def main() -> None:
         preparer, bundle = fitted[model]
         prediction = test_level + predict_residual(model, preparer, bundle, test)
         output = ROOT / "outputs" / "predictions" / f"mean_residual_{model}.csv"
-        _write_kaggle(output, prediction)
+        _write_predictions(output, prediction)
         print(f"wrote {output.relative_to(ROOT).as_posix()}")
 
 
@@ -109,22 +109,9 @@ def _check_months(split) -> None:
         raise SystemExit(f"confirm months are {split.confirm_months}")
 
 
-def _write_kaggle(path: Path, prediction: np.ndarray) -> None:
-    values = np.asarray(prediction, dtype=np.float64)
-    if len(values) != TEST_ROWS or not np.isfinite(values).all():
-        raise SystemExit(f"test prediction has length {len(values)} and must be finite")
-    path.parent.mkdir(parents=True, exist_ok=True)
-    table = pd.DataFrame({"Id": np.arange(TEST_ROWS), "Predicted": values})
-    table.to_csv(path, index=False)
-    saved = pd.read_csv(path)
-    if list(saved.columns) != ["Id", "Predicted"]:
-        raise SystemExit(f"{path} header is {list(saved.columns)}")
-    ids = saved["Id"].to_numpy()
-    if len(saved) != TEST_ROWS or not np.array_equal(ids, np.arange(TEST_ROWS)):
-        raise SystemExit(f"{path} ids are not 0..{TEST_ROWS - 1}")
-    if not np.isfinite(pd.to_numeric(saved["Predicted"], errors="coerce")).all():
-        raise SystemExit(f"{path} has a missing or non-numeric prediction")
 
 
 if __name__ == "__main__":
+    import argparse
+    argparse.ArgumentParser(description=__doc__).parse_args()
     main()

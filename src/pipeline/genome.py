@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from src.pipeline.paths import MODELS
+from src.pipeline.paths import MODELS, MODEL_DEFINITIONS
 from src.pipeline.preprocess import COLUMN_OVERRIDES
 from src.pipeline.rules import PREPROCESS_KNOBS
 
@@ -33,7 +33,7 @@ def genome_hash(genome: dict) -> str:
 
 
 def load_default_genome(model: str) -> dict:
-    path = MODELS / model / "default_genome.json"
+    path = MODEL_DEFINITIONS / model / "default_genome.json"
     genome = json.loads(path.read_text(encoding="utf-8"))
     _require_genome(genome)
     return genome

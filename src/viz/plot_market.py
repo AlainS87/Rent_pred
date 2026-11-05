@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[2]
-TRAIN = ROOT / "Data" / "auxiliary_features" / "train_features.csv"
-RENTALS = ROOT / "Data" / "train.csv"
+TRAIN = ROOT / "artifacts" / "features" / "train_features.csv"
+RENTALS = ROOT / "data/raw" / "train.csv"
 OUT = ROOT / "outputs" / "figures"
 SERIES = [
     "coe_a_premium_lag1",
@@ -57,4 +57,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    import argparse
+    argparse.ArgumentParser(description=__doc__).parse_args()
     main()

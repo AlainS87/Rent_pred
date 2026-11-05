@@ -136,7 +136,7 @@ def ablate_model(model: str, seed: int = 5228, epochs: int | None = None) -> dic
             )
             break
         installed.append(finished["run_id"])
-        predict_model(model, f"outputs/predictions/{model}_ablation.csv", False, seed)
+        predict_model(model, f"artifacts/predictions/{model}_ablation.csv", False, seed)
         print(f"round {round_index} replaced best with {finished['run_id']}")
     summary = {"installed": installed, "rounds": rounds}
     (folder / "rounds.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")

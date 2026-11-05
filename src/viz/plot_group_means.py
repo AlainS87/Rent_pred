@@ -14,8 +14,8 @@ import pandas as pd
 from src.features.group_means import postal_district, postal_sector, smoothed_group_month_table
 
 ROOT = Path(__file__).resolve().parents[2]
-TRAIN = ROOT / "Data" / "auxiliary_features" / "train_features.csv"
-RENTALS = ROOT / "Data" / "train.csv"
+TRAIN = ROOT / "artifacts" / "features" / "train_features.csv"
+RENTALS = ROOT / "data/raw" / "train.csv"
 OUT = ROOT / "outputs" / "figures"
 
 PLOTS = (
@@ -79,4 +79,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    import argparse
+    argparse.ArgumentParser(description=__doc__).parse_args()
     main()

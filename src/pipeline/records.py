@@ -5,7 +5,7 @@ from pathlib import Path
 
 from src.pipeline.paths import MODELS, rel
 
-LOG_COMMANDS = {"train", "evolve", "submit"}
+LOG_COMMANDS = {"train", "evolve"}
 
 
 def model_dir(model: str) -> Path:
@@ -136,13 +136,10 @@ def _lineage_section(logs: list[dict]) -> str:
     ]
     for record in fit_logs:
         genome = record["genome"]
-        if record.get("command") == "submit":
-            reason = record.get("reason", "")
-        else:
-            decision = "accepted" if record.get("accepted") else "rejected"
-            reason = record.get("reason", "")
-            if not reason.lower().startswith(decision):
-                reason = f"{decision}. {reason}"
+        decision = "accepted" if record.get("accepted") else "rejected"
+        reason = record.get("reason", "")
+        if not reason.lower().startswith(decision):
+            reason = f"{decision}. {reason}"
         lines = [
             f"### `{record['run_id']}`",
             "",

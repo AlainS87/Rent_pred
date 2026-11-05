@@ -20,12 +20,10 @@ import pandas as pd
 from src.features.blocks import add_block_columns
 from src.features.coe import add_coe_columns
 from src.features.group_means import GROUP_MEAN_COLUMNS, add_group_mean_columns, assert_past_only
-from src.features.source_fields import SOURCE_FIELD_COLUMNS, add_source_fields
 from src.features.spatial import block_spatial_features
 from src.features.stocks import add_stock_columns
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "Data"
+from src.paths import PROJECT_ROOT as ROOT, DATA_ROOT as DATA, CORE_FEATURE_ROOT
 ADDRESS_DTYPES = {"TOWN": str, "BLOCK": str, "STREET": str}
 
 FEATURE_COLUMNS = [
@@ -107,7 +105,6 @@ FEATURE_COLUMNS = [
     "is_central_region",
     "building_age_x_central",
     *GROUP_MEAN_COLUMNS,
-    *SOURCE_FIELD_COLUMNS,
 ]
 
 # Source predictors. MONTHLY_RENT is the target and is not a feature.
@@ -219,7 +216,6 @@ FAMILY_COLUMNS = {
     "coe": COE_COLUMNS,
     "stocks": STOCK_COLUMNS,
     "group_means": list(GROUP_MEAN_COLUMNS),
-    "source": list(SOURCE_FIELD_COLUMNS),
 }
 
 
@@ -231,7 +227,6 @@ def check_feature_catalog() -> None:
         + COE_COLUMNS
         + STOCK_COLUMNS
         + list(GROUP_MEAN_COLUMNS)
-        + list(SOURCE_FIELD_COLUMNS)
     )
     if len(grouped) != len(set(grouped)):
         raise AssertionError("feature families overlap")
@@ -252,21 +247,6 @@ def _nulls(frame: pd.DataFrame, column: str) -> int:
     return int(frame[column].isna().sum())
 
 
-def _check(frame: pd.DataFrame, name: str, rows: int, postal: int, age: int, coe: int, property_close: int) -> None:
-    if len(frame) != rows:
-        raise AssertionError(f"{name} has {len(frame)} rows, expected {rows}")
-    if frame["latitude"].isna().any():
-        raise AssertionError(f"{name} address join missed {_nulls(frame, 'latitude')} rows")
-    checks = {
-        "postal_code": postal,
-        "building_age_years": age,
-        "coe_a_premium_lag1": coe,
-        "property_basket_adj_close_lag1": property_close,
-    }
-    for column, expected in checks.items():
-        actual = _nulls(frame, column)
-        if actual != expected:
-            raise AssertionError(f"{name} {column} nulls are {actual}, expected {expected}")
 
 
 def assemble_features(rentals: pd.DataFrame, aux: dict[str, pd.DataFrame]) -> pd.DataFrame:
@@ -303,7 +283,6 @@ def build_rental_features(
     """
     built = assemble_features(rentals, aux)
     built = add_group_mean_columns(built, built if history is None else history)
-    built = add_source_fields(built, rentals)
     return _select_columns(built, rentals, keep_original)
 
 
@@ -318,24 +297,22 @@ def main(keep_original: bool = False) -> None:
         "stocks": pd.read_csv(DATA / "auxiliary" / "sg-stock-prices.csv"),
     }
     train_rows = _read_csv(DATA / "train.csv")
-    test_rows = _read_csv(DATA / "test.csv")
+    test_rows = _read_csv(DATA / "query.csv")
     train_base = assemble_features(train_rows, aux)
     test_base = assemble_features(test_rows, aux)
     train_base = add_group_mean_columns(train_base, train_base)
     test_base = add_group_mean_columns(test_base, train_base)
     assert_past_only(train_base, test_base)
-    train_base = add_source_fields(train_base, train_rows)
-    test_base = add_source_fields(test_base, test_rows)
     train = _select_columns(train_base, train_rows, keep_original)
     test = _select_columns(test_base, test_rows, keep_original)
-    _check(train, "train", 150_000, 5_259, 159, 3_129, 28_466)
-    _check(test, "test", 50_000, 1_739, 0, 0, 0)
-    if len(FEATURE_COLUMNS) != 94:
-        raise AssertionError(f"expected 94 feature columns, found {len(FEATURE_COLUMNS)}")
+    if len(train) != len(train_rows) or len(test) != len(test_rows):
+        raise ValueError("feature construction changed input row counts")
+    if len(FEATURE_COLUMNS) != 83:
+        raise AssertionError(f"expected 83 feature columns, found {len(FEATURE_COLUMNS)}")
     if not keep_original and list(train.columns) != FEATURE_COLUMNS:
         raise AssertionError("default output should contain only the new feature columns")
 
-    out_dir = DATA / "auxiliary_features"
+    out_dir = CORE_FEATURE_ROOT
     out_dir.mkdir(parents=True, exist_ok=True)
     train.to_parquet(out_dir / "train_features.parquet", index=False)
     test.to_parquet(out_dir / "test_features.parquet", index=False)

@@ -591,7 +591,7 @@ def _rank(record: dict):
 
 
 def predict_model(model: str, out: str, refit_all: bool, seed: int) -> dict:
-    """Write Id,Predicted from the champion. This does not change the genome."""
+    """Write row_id,prediction from the champion. This does not change the genome."""
     import joblib
     from pathlib import Path
 
@@ -644,7 +644,7 @@ def predict_model(model: str, out: str, refit_all: bool, seed: int) -> dict:
     if not output.is_absolute():
         output = ROOT / output
     output.parent.mkdir(parents=True, exist_ok=True)
-    table = pd.DataFrame({"Id": np.arange(len(prediction)), "Predicted": prediction})
+    table = pd.DataFrame({"row_id": np.arange(len(prediction)), "prediction": prediction})
     table.to_csv(output, index=False)
     existing = {row["run_id"] for row in read_logs(model)}
     run_id = _new_run_id(model, "predict00", existing)

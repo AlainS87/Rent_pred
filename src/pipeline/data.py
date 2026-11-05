@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 
 from src.features.build_features import FEATURE_COLUMNS, ORIGINAL_COLUMNS
-from src.pipeline.paths import DATA
+from src.pipeline.paths import DATA, FEATURE_DATA
 
 ADDRESS_DTYPES = {"TOWN": str, "BLOCK": str, "STREET": str}
 SOURCE_COLUMNS = set(ORIGINAL_COLUMNS) | {"MONTHLY_RENT"}
@@ -28,8 +28,8 @@ def load_joined(split: str, columns: list[str]) -> pd.DataFrame:
     ``split`` is ``train`` or ``test``. The two files must have the same
     number of rows. A column that exists in both files is an error.
     """
-    source_path = DATA / f"{split}.csv"
-    feature_path = DATA / "auxiliary_features" / f"{split}_features.csv"
+    source_path = DATA / ("query.csv" if split == "test" else f"{split}.csv")
+    feature_path = FEATURE_DATA / f"{split}_features.csv"
     needed = list(dict.fromkeys([*columns, "RENT_APPROVAL_DATE"]))
     if "BLOCK" in needed:
         needed = list(dict.fromkeys([*needed, "TOWN", "STREET"]))

@@ -1,0 +1,38 @@
+{
+  "seed": 5228,
+  "development": {
+    "origin": "2023-06",
+    "end": "2023-12"
+  },
+  "evaluation": {
+    "origin": "2023-12",
+    "end": "2025-03"
+  },
+  "variants": [
+    "original_stack",
+    "expanded_residual",
+    "expanded_temporal_stack"
+  ],
+  "inner_validation_months": 3,
+  "temporal_stack_blocks": 3,
+  "temporal_stack_block_months": 4,
+  "rnn_epochs": 50,
+  "catboost_max_iterations": 1000,
+  "catboost_patience": 50,
+  "mlp_max_epochs": 100,
+  "mlp_patience": 10,
+  "cpu_threads": 8,
+  "selection": "Lowest development RMSE; freeze before evaluation; never use evaluation for selection.",
+  "covariate_policy": "Conditions on provided exogenous covariates; no future rental labels.",
+  "baseline": "Regional RNN/CatBoost/conditional-GMM/MLP with full-training stack inputs; fit fresh weights under the specified split.",
+  "shared_corrections": "Temporal inner selection; refit on all origin-permitted rows; per-fit flat-model price ranking; GPU execution.",
+  "expanded_features": [
+    "floor_area_sqm",
+    "lease_commence_year",
+    "building_age_years",
+    "max_floor",
+    "year_completed",
+    "flat_age_from_lease"
+  ],
+  "overlap": "Development (2023-07..2023-12) and evaluation (2024-01..2025-03) do not overlap. The six-month development period selects the variant; the fifteen-month evaluation tests transfer to the longer horizon."
+}

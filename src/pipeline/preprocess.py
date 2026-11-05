@@ -12,7 +12,6 @@ when the fit months have only one value.
 import numpy as np
 import pandas as pd
 
-from src.features.source_fields import flat_model_ordinal, flat_type_ordinal
 from src.pipeline.rules import PREPROCESS_KNOBS
 
 BIN_COUNT = 10
@@ -24,15 +23,12 @@ COLUMN_OVERRIDES = "date-month,block-building-target,furnished-binary"
 CATEGORICAL_NAMES = {
     "TOWN",
     "STREET",
+    "FLAT_TYPE",
     "FLAT_MODEL",
     "postal_code",
     "subzone",
     "planning_area",
     "region",
-    "town_key",
-    "block_key",
-    "street_key",
-    "flat_model_key",
 }
 
 
@@ -65,7 +61,6 @@ class TabularPreprocessor:
         self.bin_values_: dict[str, dict[str, int]] = {}
         self.unseen_bin_: int = BIN_COUNT
         self.include_building_: bool = False
-        self.include_flat_model_ord_: bool = False
         self.building_values_: dict[str, float] = {}
 
     def fit(self, frame: pd.DataFrame, target, features: list[str]) -> "TabularPreprocessor":
@@ -89,7 +84,6 @@ class TabularPreprocessor:
         self.numeric_columns_ = []
         self.categorical_columns_ = []
         self.include_building_ = False
-        self.include_flat_model_ord_ = False
         self.building_values_ = {}
         for column in self.selected_columns_:
             if column == "FURNISHED":
@@ -102,13 +96,6 @@ class TabularPreprocessor:
                 continue
             if column == "BLOCK":
                 self.include_building_ = True
-                continue
-            if column == "FLAT_TYPE":
-                self.numeric_columns_.append(column)
-                continue
-            if column == "FLAT_MODEL":
-                self.include_flat_model_ord_ = True
-                self.categorical_columns_.append(column)
                 continue
             if _is_categorical(column, frame[column]):
                 self.categorical_columns_.append(column)
@@ -159,8 +146,6 @@ class TabularPreprocessor:
             values = _model_numeric(frame, column)
             filled = np.where(np.isfinite(values), values, self.numeric_fill_[column])
             pieces.append(_apply_scale(filled, self.spec["scale"], self.numeric_center_[column], self.numeric_spread_[column]))
-        if getattr(self, "include_flat_model_ord_", False):
-            pieces.append(flat_model_ordinal(frame["FLAT_MODEL"]).to_numpy(dtype=np.float64))
         for column in self.categorical_columns_:
             text = _category_text(frame[column], column)
             if self.spec["categorical"] == "target":
@@ -197,12 +182,6 @@ class TabularPreprocessor:
             filled = np.where(np.isfinite(values), values, self.numeric_fill_[column])
             scaled = _apply_scale(filled, self.spec["scale"], self.numeric_center_[column], self.numeric_spread_[column])
             data[column] = pd.Series(scaled, index=frame.index, dtype="float64")
-        if getattr(self, "include_flat_model_ord_", False):
-            data["FLAT_MODEL__ord"] = pd.Series(
-                flat_model_ordinal(frame["FLAT_MODEL"]).to_numpy(dtype=np.float64),
-                index=frame.index,
-                dtype="float64",
-            )
         for column in self.categorical_columns_:
             text = _category_text(frame[column], column)
             data[column] = pd.Series(
@@ -319,8 +298,6 @@ def _model_numeric(frame: pd.DataFrame, column: str) -> np.ndarray:
         return _approval_months(frame[column])
     if column == "FURNISHED":
         return _furnished_bit(frame[column])
-    if column == "FLAT_TYPE":
-        return flat_type_ordinal(frame[column]).to_numpy(dtype=np.float64)
     return _numeric(frame[column])
 
 
@@ -394,8 +371,6 @@ def _category_text(series: pd.Series, column: str) -> pd.Series:
         text = series.astype("string").str.strip().str.lower()
     if column == "FLAT_TYPE":
         text = text.str.replace("-", " ", regex=False).str.replace(r"\s+", " ", regex=True).str.strip()
-    if column == "FLAT_MODEL":
-        text = text.str.replace(r"\s+", " ", regex=True).str.strip()
     return text.fillna("__MISSING__")
 
 
@@ -409,8 +384,6 @@ def _number_token(value: float) -> str:
 
 def _output_names(preprocessor: TabularPreprocessor) -> list[str]:
     names = list(preprocessor.numeric_columns_)
-    if getattr(preprocessor, "include_flat_model_ord_", False):
-        names.append("FLAT_MODEL__ord")
     for column in preprocessor.categorical_columns_:
         levels = preprocessor.levels_[column]
         if preprocessor.spec["categorical"] == "native":

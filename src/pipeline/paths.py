@@ -1,12 +1,7 @@
-"""Project paths used by the training pipeline."""
-
+"""Repository-relative source, input, and generated-artifact paths."""
 from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "Data"
-MODELS = ROOT / "models"
-
-
+from src.paths import PROJECT_ROOT as ROOT, DATA_ROOT as DATA, CORE_FEATURE_ROOT as FEATURE_DATA, ARTIFACT_ROOT, SOURCE_ROOT
+MODEL_DEFINITIONS = SOURCE_ROOT / "models"
+MODELS = ARTIFACT_ROOT / "models"
 def rel(path: Path) -> str:
-    """POSIX path relative to the project root, for logs and design notes."""
     return path.resolve().relative_to(ROOT).as_posix()

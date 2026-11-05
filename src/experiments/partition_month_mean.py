@@ -17,7 +17,7 @@ from sklearn.preprocessing import OneHotEncoder
 from src.features.group_means import postal_district, postal_sector
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "Data"
+DATA = ROOT / "data/raw"
 OUT = ROOT / "outputs" / "feasibility" / "partition_month_mean.json"
 
 ECONOMY = [
@@ -78,7 +78,7 @@ def _load() -> pd.DataFrame:
         dtype={"TOWN": str},
     )
     auxiliary = pd.read_csv(
-        DATA / "auxiliary_features" / "train_features.csv",
+        ROOT / "artifacts" / "features" / "train_features.csv",
         usecols=["postal_code", "region", "planning_area", "subzone", *ECONOMY],
     )
     if len(source) != len(auxiliary):
@@ -269,4 +269,6 @@ def _print(payload: dict) -> None:
 
 
 if __name__ == "__main__":
+    import argparse
+    argparse.ArgumentParser(description=__doc__).parse_args()
     main()

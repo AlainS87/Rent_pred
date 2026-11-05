@@ -1,9 +1,2 @@
-pandas
-numpy
-pyarrow
-matplotlib
-scikit-learn
-xgboost
-catboost
-torch
-joblib
+# Core dependencies. Model backends are installed with: pip install -e ".[models]"
+-e .
