@@ -1,0 +1,336 @@
+{
+  "status": "Post-hoc targeted exploratory diagnostic after inspecting the initial macro association screen",
+  "development_cutoff": "2023-10",
+  "development_rows": 99904,
+  "distinct_monthly_observations": 34,
+  "confirmation_labels_used": false,
+  "model_column_selection_uses_this_diagnostic": false,
+  "original_model_features_splits_parameters_changed": false,
+  "minimum_observed_months": 18,
+  "candidate_count_each_specification": 1595,
+  "specifications": [
+    {
+      "name": "linear_hac3",
+      "trend_degree": 1,
+      "hac_calendar_lags": 3
+    },
+    {
+      "name": "linear_hac6",
+      "trend_degree": 1,
+      "hac_calendar_lags": 6
+    },
+    {
+      "name": "quadratic_hac6",
+      "trend_degree": 2,
+      "hac_calendar_lags": 6
+    },
+    {
+      "name": "cubic_hac6",
+      "trend_degree": 3,
+      "hac_calendar_lags": 6
+    }
+  ],
+  "composition_controls": "Exact associations._control_design(include_month=False) and tiny Ridge0.001 residualizer: area/logarea/lease_age/flat_type/flat_model/town",
+  "annual_controls": "Same annual sin/cos in every specification",
+  "hac_policy": "Bartlett weights, score cross-products at actual calendar separation, finite-sample n/df correction; t reference remains approximate",
+  "bh_policy": "Separately across finite p values of all candidates for each specification; counts are exploratory, not feature-selection thresholds",
+  "baseline_replication_max_absolute_errors": {
+    "partial_correlation": 1.1102230246251565e-16,
+    "coefficient_sgd_per_unit": 1.4551915228366852e-11,
+    "hac_standard_error": 3.637978807091713e-12,
+    "p_value": 1.1102230246251565e-16,
+    "bh_q_value": 1.1102230246251565e-16
+  },
+  "independent_full_design_OLS_sandwich_checks": [
+    {
+      "feature": "stock_m44u_si_daily_vol_trailing_6m",
+      "specification": "linear_hac6",
+      "direct_full_ols_beta": 2847.370612718359,
+      "direct_full_ols_hac_se": 201.07940794383381,
+      "beta_absolute_difference": 8.640199666842818e-12,
+      "se_absolute_difference": 2.7853275241795927e-12,
+      "passed": true
+    },
+    {
+      "feature": "stock_m44u_si_daily_vol_trailing_6m",
+      "specification": "quadratic_hac6",
+      "direct_full_ols_beta": 2803.9649129430745,
+      "direct_full_ols_hac_se": 194.66704523517672,
+      "beta_absolute_difference": 3.001332515850663e-11,
+      "se_absolute_difference": 5.002220859751105e-12,
+      "passed": true
+    },
+    {
+      "feature": "stock_m44u_si_daily_vol_trailing_6m",
+      "specification": "cubic_hac6",
+      "direct_full_ols_beta": -55.29711803161642,
+      "direct_full_ols_hac_se": 288.963588735665,
+      "beta_absolute_difference": 1.6470380614919122e-11,
+      "se_absolute_difference": 1.028865881380625e-11,
+      "passed": true
+    },
+    {
+      "feature": "coe_a_premium_mean_trailing_6m",
+      "specification": "linear_hac6",
+      "direct_full_ols_beta": 0.026651565657582713,
+      "direct_full_ols_hac_se": 0.0023654936909151686,
+      "beta_absolute_difference": 6.938893903907228e-18,
+      "se_absolute_difference": 1.3877787807814457e-16,
+      "passed": true
+    },
+    {
+      "feature": "coe_a_premium_mean_trailing_6m",
+      "specification": "quadratic_hac6",
+      "direct_full_ols_beta": 0.026935795463830917,
+      "direct_full_ols_hac_se": 0.0020561761861778373,
+      "beta_absolute_difference": 2.0816681711721685e-17,
+      "se_absolute_difference": 2.6020852139652106e-17,
+      "passed": true
+    },
+    {
+      "feature": "coe_a_premium_mean_trailing_6m",
+      "specification": "cubic_hac6",
+      "direct_full_ols_beta": -0.00044310955251289396,
+      "direct_full_ols_hac_se": 0.0024795742927848485,
+      "beta_absolute_difference": 1.973247953923618e-17,
+      "se_absolute_difference": 8.630249292984615e-17,
+      "passed": true
+    },
+    {
+      "feature": "coe_a_premium_last_trailing_6m",
+      "specification": "linear_hac6",
+      "direct_full_ols_beta": 0.02689995816204231,
+      "direct_full_ols_hac_se": 0.0022114119680591354,
+      "beta_absolute_difference": 1.0408340855860843e-17,
+      "se_absolute_difference": 1.1188966420050406e-16,
+      "passed": true
+    },
+    {
+      "feature": "coe_a_premium_last_trailing_6m",
+      "specification": "quadratic_hac6",
+      "direct_full_ols_beta": 0.027082076867512073,
+      "direct_full_ols_hac_se": 0.0018799772070510544,
+      "beta_absolute_difference": 2.7755575615628914e-17,
+      "se_absolute_difference": 3.4911309954033243e-16,
+      "passed": true
+    },
+    {
+      "feature": "coe_a_premium_last_trailing_6m",
+      "specification": "cubic_hac6",
+      "direct_full_ols_beta": 6.677263002252274e-05,
+      "direct_full_ols_hac_se": 0.002746738520281811,
+      "beta_absolute_difference": 2.747097254535147e-17,
+      "se_absolute_difference": 1.072492789022661e-15,
+      "passed": true
+    },
+    {
+      "feature": "stock_m44u_si_daily_vol_trailing_3m",
+      "specification": "linear_hac6",
+      "direct_full_ols_beta": 2005.6820550747138,
+      "direct_full_ols_hac_se": 118.68383361019085,
+      "beta_absolute_difference": 2.2737367544323206e-12,
+      "se_absolute_difference": 1.6058265828178264e-12,
+      "passed": true
+    },
+    {
+      "feature": "stock_m44u_si_daily_vol_trailing_3m",
+      "specification": "quadratic_hac6",
+      "direct_full_ols_beta": 2172.5506907823947,
+      "direct_full_ols_hac_se": 172.03447525932688,
+      "beta_absolute_difference": 3.637978807091713e-12,
+      "se_absolute_difference": 2.6716406864579767e-12,
+      "passed": true
+    },
+    {
+      "feature": "stock_m44u_si_daily_vol_trailing_3m",
+      "specification": "cubic_hac6",
+      "direct_full_ols_beta": 299.6136504196603,
+      "direct_full_ols_hac_se": 321.80481190932727,
+      "beta_absolute_difference": 7.958078640513122e-13,
+      "se_absolute_difference": 1.0231815394945443e-12,
+      "passed": true
+    },
+    {
+      "feature": "stock_buou_si_hl_range_trailing_3m",
+      "specification": "linear_hac6",
+      "direct_full_ols_beta": 22723.80026253136,
+      "direct_full_ols_hac_se": 1993.3308430147886,
+      "beta_absolute_difference": 1.4551915228366852e-11,
+      "se_absolute_difference": 2.1600499167107046e-11,
+      "passed": true
+    },
+    {
+      "feature": "stock_buou_si_hl_range_trailing_3m",
+      "specification": "quadratic_hac6",
+      "direct_full_ols_beta": 23604.69620469865,
+      "direct_full_ols_hac_se": 1766.3543541148176,
+      "beta_absolute_difference": 4.729372449219227e-11,
+      "se_absolute_difference": 1.0231815394945443e-11,
+      "passed": true
+    },
+    {
+      "feature": "stock_buou_si_hl_range_trailing_3m",
+      "specification": "cubic_hac6",
+      "direct_full_ols_beta": 938.339227230947,
+      "direct_full_ols_hac_se": 3494.5222517049892,
+      "beta_absolute_difference": 2.148681232938543e-11,
+      "se_absolute_difference": 9.094947017729282e-13,
+      "passed": true
+    }
+  ],
+  "counts_by_specification_and_family": [
+    {
+      "specification": "linear_hac3",
+      "family": "coe",
+      "candidate_count": 164,
+      "tested": 164,
+      "bh_q_below_05": 41,
+      "positive_slopes_tested": 82,
+      "negative_slopes_tested": 82
+    },
+    {
+      "specification": "linear_hac3",
+      "family": "stocks",
+      "candidate_count": 1200,
+      "tested": 926,
+      "bh_q_below_05": 180,
+      "positive_slopes_tested": 490,
+      "negative_slopes_tested": 436
+    },
+    {
+      "specification": "linear_hac3",
+      "family": "stocks_adjusted_sensitivity",
+      "candidate_count": 231,
+      "tested": 175,
+      "bh_q_below_05": 26,
+      "positive_slopes_tested": 83,
+      "negative_slopes_tested": 92
+    },
+    {
+      "specification": "linear_hac6",
+      "family": "coe",
+      "candidate_count": 164,
+      "tested": 164,
+      "bh_q_below_05": 47,
+      "positive_slopes_tested": 82,
+      "negative_slopes_tested": 82
+    },
+    {
+      "specification": "linear_hac6",
+      "family": "stocks",
+      "candidate_count": 1200,
+      "tested": 926,
+      "bh_q_below_05": 217,
+      "positive_slopes_tested": 490,
+      "negative_slopes_tested": 436
+    },
+    {
+      "specification": "linear_hac6",
+      "family": "stocks_adjusted_sensitivity",
+      "candidate_count": 231,
+      "tested": 175,
+      "bh_q_below_05": 31,
+      "positive_slopes_tested": 83,
+      "negative_slopes_tested": 92
+    },
+    {
+      "specification": "quadratic_hac6",
+      "family": "coe",
+      "candidate_count": 164,
+      "tested": 164,
+      "bh_q_below_05": 64,
+      "positive_slopes_tested": 85,
+      "negative_slopes_tested": 79
+    },
+    {
+      "specification": "quadratic_hac6",
+      "family": "stocks",
+      "candidate_count": 1200,
+      "tested": 926,
+      "bh_q_below_05": 294,
+      "positive_slopes_tested": 486,
+      "negative_slopes_tested": 440
+    },
+    {
+      "specification": "quadratic_hac6",
+      "family": "stocks_adjusted_sensitivity",
+      "candidate_count": 231,
+      "tested": 175,
+      "bh_q_below_05": 49,
+      "positive_slopes_tested": 80,
+      "negative_slopes_tested": 95
+    },
+    {
+      "specification": "cubic_hac6",
+      "family": "coe",
+      "candidate_count": 164,
+      "tested": 164,
+      "bh_q_below_05": 9,
+      "positive_slopes_tested": 81,
+      "negative_slopes_tested": 83
+    },
+    {
+      "specification": "cubic_hac6",
+      "family": "stocks",
+      "candidate_count": 1200,
+      "tested": 926,
+      "bh_q_below_05": 49,
+      "positive_slopes_tested": 408,
+      "negative_slopes_tested": 518
+    },
+    {
+      "specification": "cubic_hac6",
+      "family": "stocks_adjusted_sensitivity",
+      "candidate_count": 231,
+      "tested": 175,
+      "bh_q_below_05": 10,
+      "positive_slopes_tested": 49,
+      "negative_slopes_tested": 126
+    }
+  ],
+  "stability_relative_to_linear_hac3": [
+    {
+      "specification": "linear_hac6",
+      "paired_tested": 1265,
+      "same_direction": 1265,
+      "direction_flipped": 0,
+      "baseline_q_below_05": 247,
+      "baseline_significant_still_q_below_05": 245,
+      "baseline_significant_same_direction": 247
+    },
+    {
+      "specification": "quadratic_hac6",
+      "paired_tested": 1265,
+      "same_direction": 1153,
+      "direction_flipped": 112,
+      "baseline_q_below_05": 247,
+      "baseline_significant_still_q_below_05": 233,
+      "baseline_significant_same_direction": 245
+    },
+    {
+      "specification": "cubic_hac6",
+      "paired_tested": 1265,
+      "same_direction": 720,
+      "direction_flipped": 545,
+      "baseline_q_below_05": 247,
+      "baseline_significant_still_q_below_05": 14,
+      "baseline_significant_same_direction": 145
+    }
+  ],
+  "examples_selected_for_diagnosis": [
+    "stock_m44u_si_daily_vol_trailing_6m",
+    "coe_a_premium_mean_trailing_6m",
+    "coe_a_premium_last_trailing_6m",
+    "stock_m44u_si_daily_vol_trailing_3m",
+    "stock_buou_si_hl_range_trailing_3m"
+  ],
+  "examples_selection_caution": "Explicit concern examples plus three smallest initial q values; selected post-hoc for illustration, never to choose models",
+  "limitations": "Polynomial trend degree and HAC bandwidth are diagnostics, not known true data-generating parameters. Overlapping windows, serial dependence, common nonlinear trends, composition-fit uncertainty, multiple dependent hypotheses and only 34 distinct months still limit inference. Neither surviving nor disappearing q values establish causality or future forecasting value.",
+  "original_association_file_hashes_unchanged": {
+    "monthly_macro_screen.csv": "70e994caf40301cf74c687b650b541976cc821a98f2dbd1ee9fe91bf4c9a278d",
+    "association_notes.json": "e81a7f954dba12455845191fbdcbc957ab2ff0bef244dd3f398d48be1f0871b1",
+    "controlled_spatial_associations.csv": "3ccf828db6c3597622a5fdb968316ecee69dc3f7db6872920662bdaaf989619a",
+    "adjusted_distance_bins.csv": "30a9c70efa0be462d54c278e23b379d32092dde0a5d0b3722557ea9ddfdbf5b8"
+  },
+  "elapsed_seconds": 4.495
+}

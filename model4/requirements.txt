@@ -1,0 +1,2 @@
+# Core dependencies. Model backends are installed with: pip install -e ".[models]"
+-e .

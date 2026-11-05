@@ -1,0 +1,5 @@
+scenario,configuration,training_rows,validation_rows,heldout_blocks,training_address_overlap,rmse,mae
+fixed_cutoff,original_address,84432,7914,1410,0,514.7560332783933,386.0250771906735
+fixed_cutoff,full_aux,84432,7914,1410,0,524.6725379941337,412.99819754334413
+provided_lagged_aux,original_address,84432,7914,1410,0,514.7560332783933,386.0250771906735
+provided_lagged_aux,full_aux,84432,7914,1410,0,541.3536925442692,431.052664510428

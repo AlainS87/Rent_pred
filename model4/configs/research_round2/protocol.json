@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "scope": "exploratory repeated backtest; all dates previously inspected",
+  "models": [
+    "B0",
+    "B1",
+    "B2"
+  ],
+  "origins": [
+    "2023-09",
+    "2024-03"
+  ],
+  "last_label_month": "2025-03",
+  "max_horizon": 16,
+  "inner_validation_months": 3,
+  "snapshot_horizons": [
+    1,
+    3,
+    6,
+    12,
+    16
+  ],
+  "snapshot_start": "2021-06",
+  "windows": [
+    3,
+    12,
+    "all"
+  ],
+  "strength": 20.0,
+  "seed": 5228,
+  "cpu_threads": 4,
+  "xgboost": {
+    "max_depth": 8,
+    "learning_rate": 0.05,
+    "n_estimators": 2000,
+    "early_stopping_rounds": 50,
+    "objective": "reg:squarederror",
+    "tree_method": "hist",
+    "enable_categorical": true,
+    "n_jobs": 4,
+    "random_state": 5228,
+    "device": "cuda:0"
+  },
+  "preprocess": {
+    "categorical": "native",
+    "numeric_impute": "median",
+    "rare_min_count": 30,
+    "scale": "none"
+  },
+  "hedonic": {
+    "ridge_alpha": 20.0,
+    "ridge_solver": "lsqr",
+    "ridge_tol": 1e-06,
+    "ridge_max_iter": 2000,
+    "hedonic_categorical": [
+      "TOWN",
+      "FLAT_TYPE",
+      "FLAT_MODEL",
+      "building_key",
+      "town_flat_type"
+    ],
+    "hedonic_numeric": [
+      "FLOOR_AREA_SQM",
+      "floor_area_sq",
+      "LEASE_COMMENCE_DATE",
+      "latitude",
+      "longitude",
+      "max_floor",
+      "dist_nearest_open_mrt_km",
+      "dist_to_cbd_km"
+    ]
+  },
+  "trend": {
+    "window": 12,
+    "phi": 0.9,
+    "weighting": "transaction_count"
+  },
+  "horizon_bins": [
+    [
+      1,
+      3
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      7,
+      12
+    ],
+    [
+      13,
+      15
+    ],
+    [
+      16,
+      16
+    ]
+  ],
+  "prediction_floor": 0.0,
+  "price_dtype": "float32",
+  "first_batch_successful_tree_fit_limit": 12,
+  "fallback_policy": "GPU failure may retry both inner and refit on CPU4 under separate backend contract; preserve failed attempts; no silent CPU fallback"
+}

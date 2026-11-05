@@ -1,0 +1,13 @@
+experiment,status,validation_rmse,confirmation_rmse
+01_regional_area,completed,452.0883136978719,
+02_regional_age,completed,451.90428349636534,
+03_area_frozen_mlp,completed,451.042648255612,465.0879862098567
+04_area_weighting,completed,451.38977051538865,
+05_rental_history,completed,455.7527042080131,
+06_global_catboost,completed,447.7752932883708,455.21281745811854
+07_categorical_statistics,completed,445.3804031850469,452.87416556913826
+08_equal_weight_blend,completed,442.9406238420111,454.36702064571455
+09_complete_address,completed,444.9106685519473,452.71911314177345
+10_rnn_residual,completed,446.3089462781467,
+11_rental_time_index,completed,444.469123087004,450.8945887042277
+12_vacancy_correction,failed,,
