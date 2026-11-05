@@ -1,0 +1,35 @@
+{
+  "configuration": {
+    "iterations": 1600,
+    "depth": 6,
+    "learning_rate": 0.055,
+    "seed": 42,
+    "threads": 4,
+    "trend_strength": 0.5,
+    "lookback": 12,
+    "decay_months": 6.0,
+    "cap_monthly": 0.012,
+    "max_neighbors": 24,
+    "radius_km": 1.2
+  },
+  "environment": {
+    "python": "3.12.5",
+    "platform": "macOS-14.8.7-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "2.3.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "catboost": "1.2.10"
+    }
+  },
+  "input_sha256": {
+    "training_reference": "6d7a417de72112361f8353659ba6fe44a442b07465b488aff1b03f7ec1ea3ba6",
+    "sg-hdb-block.csv": "e6ccc60c1f901f8f476eb6fe14c07ef5941d2afd06a081a1e4c00f717da27f83",
+    "sg-mrt-stations.csv": "899460b39fb251bd6883fffc9e6a772081f8e5217a657550afc3c49cfdcd3227",
+    "sg-schools.csv": "118c7ce8d96bbc934bd53655e73e6d0848c27853a625394ecc6a67a5af54f192",
+    "sg-shopping-malls.csv": "00e05b0176ac412695fc4ce1fc5a5338a1993593ffaffe26156dc2ea04ddf2c8"
+  },
+  "fold_preset": "strict",
+  "custom_folds": ""
+}

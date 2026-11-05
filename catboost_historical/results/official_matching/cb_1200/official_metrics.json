@@ -1,0 +1,46 @@
+{
+  "notice": "Diagnostic HDB public-record match; not the Kaggle leaderboard RMSE. Public records omit flat identifiers.",
+  "test_rows": 50000,
+  "official_input_rows": 212597,
+  "official_rows_after_training_subtraction": 72706,
+  "test_date_start": "2025-03",
+  "test_date_end": "2026-07",
+  "official_date_start": "2021-01",
+  "official_date_end": "2026-09",
+  "match_counts": {
+    "single_candidate_pair": 33198,
+    "ambiguous_multiple_rents": 12371,
+    "unmatched": 3597,
+    "one_possible_rent": 834
+  },
+  "coverage_any_official_group": 0.92806,
+  "coverage_single_candidate_pair": 0.66396,
+  "training_subtraction": {
+    "train_rows_subtracted": 139891,
+    "train_rows_not_found_in_official": 10109
+  },
+  "single_candidate_pair_vs_official": {
+    "rows": 33198,
+    "rmse": 447.2765809373205,
+    "mae": 315.3159941201007,
+    "bias_pred_minus_reference": -27.379307283051393
+  },
+  "one_possible_rent_vs_official": {
+    "rows": 34032,
+    "rmse": 443.6183503594897,
+    "mae": 312.32543012028,
+    "bias_pred_minus_reference": -29.10896451757965
+  },
+  "all_matched_vs_group_mean_PROXY_NOT_TRUE_RMSE": {
+    "rows": 46403,
+    "rmse": 409.97410527238424,
+    "mae": 288.64597923903557,
+    "bias_pred_minus_reference": -30.184654800142955
+  },
+  "ambiguous_groups_vs_group_mean_PROXY_NOT_TRUE_RMSE": {
+    "rows": 12371,
+    "rmse": 298.4555029337073,
+    "mae": 223.50499852684501,
+    "bias_pred_minus_reference": -33.14382476992666
+  }
+}

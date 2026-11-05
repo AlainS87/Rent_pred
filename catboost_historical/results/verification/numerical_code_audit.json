@@ -1,0 +1,272 @@
+{
+  "definitions_checked": 38,
+  "all_identical_after_documented_io_adaptation": true,
+  "checks": [
+    {
+      "original": "train.py",
+      "packaged": "hdb_rent/base.py",
+      "definition": "norm",
+      "ast_identical": true,
+      "permitted_adaptation": "auxiliary path lookup only"
+    },
+    {
+      "original": "train.py",
+      "packaged": "hdb_rent/base.py",
+      "definition": "geo_nearest",
+      "ast_identical": true,
+      "permitted_adaptation": "auxiliary path lookup only"
+    },
+    {
+      "original": "train.py",
+      "packaged": "hdb_rent/base.py",
+      "definition": "features",
+      "ast_identical": true,
+      "permitted_adaptation": "auxiliary path lookup only"
+    },
+    {
+      "original": "train.py",
+      "packaged": "hdb_rent/base.py",
+      "definition": "model",
+      "ast_identical": true,
+      "permitted_adaptation": "auxiliary path lookup only"
+    },
+    {
+      "original": "train.py",
+      "packaged": "hdb_rent/submission.py",
+      "definition": "make_submission",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "ablation_legacy.py",
+      "packaged": "hdb_rent/temporal.py",
+      "definition": "cyclic",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "ablation_legacy.py",
+      "packaged": "hdb_rent/temporal.py",
+      "definition": "adjusted_market_index",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "ablation_legacy.py",
+      "packaged": "hdb_rent/temporal.py",
+      "definition": "forecast_index",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "ablation_legacy.py",
+      "packaged": "hdb_rent/evaluation.py",
+      "definition": "score",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_ablation.py",
+      "packaged": "hdb_rent/temporal.py",
+      "definition": "market_multiplier",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_features.py",
+      "packaged": "hdb_rent/historical_features.py",
+      "definition": "ordinals",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_features.py",
+      "packaged": "hdb_rent/historical_features.py",
+      "definition": "GroupHistory",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_features.py",
+      "packaged": "hdb_rent/historical_features.py",
+      "definition": "_stat",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_features.py",
+      "packaged": "hdb_rent/historical_features.py",
+      "definition": "HistoricRents",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_features.py",
+      "packaged": "hdb_rent/historical_features.py",
+      "definition": "feature_columns",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "enhanced_history.py",
+      "packaged": "hdb_rent/enhanced_history.py",
+      "definition": "variant_columns",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "enhanced_history.py",
+      "packaged": "hdb_rent/enhanced_history.py",
+      "definition": "_median",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "enhanced_history.py",
+      "packaged": "hdb_rent/enhanced_history.py",
+      "definition": "AnchoredRents",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_ablation.py",
+      "packaged": "experiments/historical.py",
+      "definition": "resolve_csv",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_ablation.py",
+      "packaged": "experiments/historical.py",
+      "definition": "load",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_ablation.py",
+      "packaged": "experiments/historical.py",
+      "definition": "get_folds",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_ablation.py",
+      "packaged": "experiments/historical.py",
+      "definition": "assemble_features",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_ablation.py",
+      "packaged": "experiments/historical.py",
+      "definition": "build_history_features",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_ablation.py",
+      "packaged": "experiments/historical.py",
+      "definition": "run_validation",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "historical_ablation.py",
+      "packaged": "experiments/historical.py",
+      "definition": "run_submission",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "controlled_experiments.py",
+      "packaged": "experiments/temporal.py",
+      "definition": "parse_iterations",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "controlled_experiments.py",
+      "packaged": "experiments/temporal.py",
+      "definition": "get_folds",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "controlled_experiments.py",
+      "packaged": "experiments/temporal.py",
+      "definition": "check_folds",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "controlled_experiments.py",
+      "packaged": "experiments/temporal.py",
+      "definition": "load_inputs",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "controlled_experiments.py",
+      "packaged": "experiments/temporal.py",
+      "definition": "market_multipliers",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "controlled_experiments.py",
+      "packaged": "experiments/temporal.py",
+      "definition": "prediction_prefixes",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "controlled_experiments.py",
+      "packaged": "experiments/temporal.py",
+      "definition": "validation",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "controlled_experiments.py",
+      "packaged": "experiments/temporal.py",
+      "definition": "submission",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "validate_g.py",
+      "packaged": "experiments/enhanced.py",
+      "definition": "hist_features",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "validate_g.py",
+      "packaged": "experiments/enhanced.py",
+      "definition": "select_columns",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "validate_g.py",
+      "packaged": "experiments/enhanced.py",
+      "definition": "write_scores",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "validate_g.py",
+      "packaged": "experiments/enhanced.py",
+      "definition": "run_validate",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    },
+    {
+      "original": "validate_g.py",
+      "packaged": "experiments/enhanced.py",
+      "definition": "run_submit",
+      "ast_identical": true,
+      "permitted_adaptation": "none"
+    }
+  ]
+}

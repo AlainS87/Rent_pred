@@ -1,0 +1,38 @@
+{
+  "prediction_count": 50000,
+  "columns": [
+    "Id",
+    "Predicted"
+  ],
+  "ids_in_original_row_order": true,
+  "finite_predictions": true,
+  "model_sha256": "f0e5b3792bc1322e18bdc34d961f0bd6a0513962b04fc38294bd4de9d0e5d0bb",
+  "test_sha256": "dfc407406d957bbf7c2f005e5d9852b1bfc6546cd4186f07e6824d8e03e64cfc",
+  "matches_training_test_input": true,
+  "row_order": "Original CSV order; no test sorting or filtering.",
+  "configuration": {
+    "iterations": 1600,
+    "depth": 6,
+    "learning_rate": 0.055,
+    "seed": 42,
+    "threads": 4,
+    "trend_strength": 0.5,
+    "lookback": 12,
+    "decay_months": 6.0,
+    "cap_monthly": 0.012,
+    "max_neighbors": 24,
+    "radius_km": 1.2
+  },
+  "environment": {
+    "python": "3.12.5",
+    "platform": "macOS-14.8.7-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "2.3.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "catboost": "1.2.10"
+    }
+  },
+  "inference_seconds": 6.972042166045867
+}

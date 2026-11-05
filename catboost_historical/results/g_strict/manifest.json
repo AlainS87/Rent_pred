@@ -1,0 +1,49 @@
+{
+  "configuration": "D1600 + original F1, with incremental G features",
+  "training": {
+    "iterations": 1600,
+    "depth": 6,
+    "learning_rate": 0.055,
+    "seed": 42,
+    "threads": 4,
+    "trend_strength": 0.5
+  },
+  "variants": [
+    "F1",
+    "G1",
+    "G2",
+    "G3",
+    "G4"
+  ],
+  "folds": [
+    [
+      "dev_2023_h2",
+      "2023-07",
+      "2023-12",
+      "development"
+    ],
+    [
+      "dev_2024_h1",
+      "2024-01",
+      "2024-06",
+      "development"
+    ],
+    [
+      "dev_2024_h2",
+      "2024-07",
+      "2024-12",
+      "development"
+    ],
+    [
+      "diagnostic_2025_q1",
+      "2025-01",
+      "2025-03",
+      "diagnostic"
+    ]
+  ],
+  "history": "only training fold labels earlier than each training sample; all validation history frozen before first validation month",
+  "normalization": "flat-type monthly medians within historical training labels only",
+  "train_rows": 150000,
+  "test_rows": 0,
+  "caveat": "2025-Q1 has been inspected repeatedly; leaderboard tuning risks overfitting."
+}

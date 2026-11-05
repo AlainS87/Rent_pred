@@ -1,0 +1,7 @@
+{
+  "model": "D",
+  "iterations": 2000,
+  "trend_strength": 0.5,
+  "dev_mean_rmse": 517.884333215563,
+  "selection": "development folds only; 2025-Q1 diagnostic excluded, but previously inspected in earlier experiments"
+}

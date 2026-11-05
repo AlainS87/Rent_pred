@@ -1,0 +1,5 @@
+model,public_leaderboard_rmse,provenance
+Initial CatBoost,441.78158,user-reported Kaggle Public Leaderboard
+D1200,439.55517,user-reported Kaggle Public Leaderboard
+D1600,438.28697,user-reported Kaggle Public Leaderboard
+F1 1600,432.50394,user-reported Kaggle Public Leaderboard

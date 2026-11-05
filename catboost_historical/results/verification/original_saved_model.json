@@ -1,0 +1,20 @@
+{
+  "comparison": "Original code + archived estimator vs archived submission",
+  "prediction_count": 50000,
+  "max_absolute_difference": 1.8189894035458565e-12,
+  "mean_absolute_difference": 7.151356840040535e-14,
+  "id_order_correct": true,
+  "feature_order_matches_saved_model": true,
+  "seconds": 7.002718957955949,
+  "python": "3.12.5",
+  "platform": "macOS-14.8.7-arm64-arm-64bit",
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "catboost": "1.2.10",
+    "matplotlib": "3.11.2",
+    "requests": "2.34.2"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "variants": [
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "F4"
+  ],
+  "iterations": 1600,
+  "depth": 6,
+  "learning_rate": 0.055,
+  "seed": 42,
+  "threads": 4,
+  "trend_strength": 0.5,
+  "folds": [
+    [
+      "dev_2023_h2",
+      "2023-07",
+      "2023-12",
+      "development"
+    ],
+    [
+      "dev_2024_h1",
+      "2024-01",
+      "2024-06",
+      "development"
+    ],
+    [
+      "dev_2024_h2",
+      "2024-07",
+      "2024-12",
+      "development"
+    ],
+    [
+      "diagnostic_2025_q1",
+      "2025-01",
+      "2025-03",
+      "diagnostic"
+    ]
+  ],
+  "train_rows": 150000,
+  "test_rows": 0,
+  "asof": "only RENT_APPROVAL_DATE < query month",
+  "caveats": [
+    "No target label from current/future month may enter any feature",
+    "2025-Q1 previously seen; not independent",
+    "Official HDB rent records not used",
+    "Leaderboard tuning may overfit public leaderboard"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "fold_preset": "legacy",
+  "folds": [
+    {
+      "name": "long18",
+      "start": "2023-10",
+      "end": "2025-03",
+      "role": "development"
+    },
+    {
+      "name": "medium12",
+      "start": "2024-04",
+      "end": "2025-03",
+      "role": "development"
+    },
+    {
+      "name": "short3",
+      "start": "2025-01",
+      "end": "2025-03",
+      "role": "development"
+    }
+  ],
+  "iterations": [
+    1200,
+    1600,
+    2000
+  ],
+  "trend_strength": 0.5,
+  "depth": 6,
+  "learning_rate": 0.055,
+  "seed": 42,
+  "market_trend": {
+    "lookback_months": 12,
+    "decay_months": 6.0,
+    "cap_monthly_log_slope": 0.012
+  },
+  "train_rows": 150000,
+  "train_file": "train.csv",
+  "feature_count_base": 34,
+  "feature_count_cyclic": 36,
+  "warning": "Legacy folds overlap. Strict preset has disjoint validation months and a final 2025-Q1 diagnostic (previously inspected, not truly unseen). Even strict historical validation may not predict 2026 leaderboard performance."
+}

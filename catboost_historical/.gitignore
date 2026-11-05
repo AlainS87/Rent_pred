@@ -1,0 +1,16 @@
+_migration_source/
+cs-5228-2610-project 2/
+original_project/
+
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+outputs/
+outputs_*/
+data/
+*.cbm
+*.pkl
+*.joblib
+*.parquet
