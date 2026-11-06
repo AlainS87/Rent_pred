@@ -1,0 +1,74 @@
+[
+  {
+    "experiment": "01_regional_area",
+    "status": "completed",
+    "validation_rmse": 452.0883136978719,
+    "confirmation_rmse": null
+  },
+  {
+    "experiment": "02_regional_age",
+    "status": "completed",
+    "validation_rmse": 451.90428349636534,
+    "confirmation_rmse": null
+  },
+  {
+    "experiment": "03_area_frozen_mlp",
+    "status": "completed",
+    "validation_rmse": 451.042648255612,
+    "confirmation_rmse": 465.0879862098567
+  },
+  {
+    "experiment": "04_area_weighting",
+    "status": "completed",
+    "validation_rmse": 451.38977051538865,
+    "confirmation_rmse": null
+  },
+  {
+    "experiment": "05_rental_history",
+    "status": "completed",
+    "validation_rmse": 455.7527042080131,
+    "confirmation_rmse": null
+  },
+  {
+    "experiment": "06_global_catboost",
+    "status": "completed",
+    "validation_rmse": 447.7752932883708,
+    "confirmation_rmse": 455.21281745811854
+  },
+  {
+    "experiment": "07_categorical_statistics",
+    "status": "completed",
+    "validation_rmse": 445.3804031850469,
+    "confirmation_rmse": 452.87416556913826
+  },
+  {
+    "experiment": "08_equal_weight_blend",
+    "status": "completed",
+    "validation_rmse": 442.9406238420111,
+    "confirmation_rmse": 454.36702064571455
+  },
+  {
+    "experiment": "09_complete_address",
+    "status": "completed",
+    "validation_rmse": 444.9106685519473,
+    "confirmation_rmse": 452.71911314177345
+  },
+  {
+    "experiment": "10_rnn_residual",
+    "status": "completed",
+    "validation_rmse": 446.3089462781467,
+    "confirmation_rmse": null
+  },
+  {
+    "experiment": "11_rental_time_index",
+    "status": "completed",
+    "validation_rmse": 444.469123087004,
+    "confirmation_rmse": 450.8945887042277
+  },
+  {
+    "experiment": "12_vacancy_correction",
+    "status": "failed",
+    "validation_rmse": null,
+    "confirmation_rmse": null
+  }
+]

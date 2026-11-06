@@ -1,0 +1,27 @@
+{
+  "features": [
+    "RENT_APPROVAL_DATE",
+    "TOWN",
+    "BLOCK",
+    "STREET",
+    "FLAT_TYPE",
+    "FLAT_MODEL",
+    "FLOOR_AREA_SQM",
+    "FURNISHED",
+    "LEASE_COMMENCE_DATE",
+    "FEE"
+  ],
+  "preprocess": {
+    "numeric_impute": "median",
+    "scale": "standard",
+    "categorical": "onehot",
+    "rare_min_count": 30
+  },
+  "architecture": {
+    "hidden_sizes": [128, 64],
+    "dropout": 0.1,
+    "learning_rate": 0.001,
+    "epochs": 20,
+    "batch_size": 1024
+  }
+}

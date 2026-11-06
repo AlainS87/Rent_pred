@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "raw_data": "../../data/raw/train.csv",
+  "feature_data": "../../artifacts/features/local94/train_features.csv",
+  "origins": ["2023-05", "2022-03", "2022-10"],
+  "inner_months": 3,
+  "forecast_months": 16,
+  "expected_source_rows": 150000,
+  "expected_outer_rows": {"2023-05": 47900, "2022-03": 44388, "2022-10": 46681},
+  "budget": {"wall_seconds": 10800, "report_reserve_seconds": 600},
+  "resources": {"device": "cpu", "cpu_threads": 8}
+}

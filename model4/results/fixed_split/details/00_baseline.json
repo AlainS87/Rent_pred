@@ -1,0 +1,14 @@
+{
+  "local_frozen_control": {
+    "train_rmse": 464.1200338685706,
+    "search_rmse": 451.45286816840405,
+    "confirm_rmse": 467.11280438228,
+    "best_epoch": 2,
+    "catboost": "frozen_full_model",
+    "gmm": "conditional_location_flat_per_sqm",
+    "mean_model": "rnn_h16_l3_per_sqm",
+    "mlp_input": "per_sqm_terms_times_area",
+    "mlp_stopped_on_search": true,
+    "target": "monthly_rent"
+  }
+}

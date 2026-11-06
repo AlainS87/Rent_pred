@@ -1,0 +1,76 @@
+{
+  "analysis_type": "descriptive and exploratory; no fitting or model predictions",
+  "label_period": [
+    "2021-01",
+    "2025-03"
+  ],
+  "stock_and_coe_observations_after_label_end_used": false,
+  "rental_rows": 150000,
+  "monthly_observations": 51,
+  "rent_index_method": "chain matched town x normalised flat-type median rent/sqm; >=5 observations in both adjacent months; equal cell weights; no regression",
+  "rent_index_limits": "partly controls composition only; no fixed address/size/age adjustment; descriptive target, not official index or newly trained model",
+  "matched_cell_count_range_excluding_first_month": [
+    77,
+    89
+  ],
+  "common_trends_and_multiple_comparisons": "level correlations are not predictive proof; signal/lag tables are exploratory, not independent validation or significance tests",
+  "common_window_comparison": "compare all six fixed baskets/COE categories over identical complete months; 33 overlapping origins for h6, 27 for h12",
+  "partial_correlation_limits": "analytical 3-variable statistic controls only one linear own-rent momentum term; not causal evidence or a predictive performance measure",
+  "candidate_selection_status": "post hoc exploratory hypotheses after viewing pilot outcomes, not pre-registered or independent validation",
+  "forward_growth_windows": "6m and 12m overlap substantially; raw row counts are not independent sample sizes",
+  "historical_origin_sample_maturity": [
+    {
+      "cutoff": "2022-03",
+      "future_horizon_months": 6,
+      "mature_common_supervised_origins": 0,
+      "warning": "overlapping months, not independent training samples"
+    },
+    {
+      "cutoff": "2022-10",
+      "future_horizon_months": 6,
+      "mature_common_supervised_origins": 4,
+      "warning": "overlapping months, not independent training samples"
+    },
+    {
+      "cutoff": "2023-05",
+      "future_horizon_months": 6,
+      "mature_common_supervised_origins": 11,
+      "warning": "overlapping months, not independent training samples"
+    },
+    {
+      "cutoff": "2022-03",
+      "future_horizon_months": 12,
+      "mature_common_supervised_origins": 0,
+      "warning": "overlapping months, not independent training samples"
+    },
+    {
+      "cutoff": "2022-10",
+      "future_horizon_months": 12,
+      "mature_common_supervised_origins": 0,
+      "warning": "overlapping months, not independent training samples"
+    },
+    {
+      "cutoff": "2023-05",
+      "future_horizon_months": 12,
+      "mature_common_supervised_origins": 5,
+      "warning": "overlapping months, not independent training samples"
+    }
+  ],
+  "early_origin_limit": "2022-03 has only 15 labelled monthly macro observations; property basket begins 2021-09",
+  "as_of_limits": "calendar lag is not a release-date/vintage audit; adjusted closes may reflect later corporate-action adjustments",
+  "prohibited_actions_performed": [],
+  "inputs_sha256": {
+    "Data\\train.csv": "6d7a417de72112361f8353659ba6fe44a442b07465b488aff1b03f7ec1ea3ba6",
+    "Data\\auxiliary\\sg-stock-prices.csv": "c52fef9f33cfcb11285e2b9546124e02f32488e563af44e9fb3a505d10e2edff",
+    "Data\\auxiliary\\sg-coe-prices.csv": "e32fccd39da32780b6b7f35d069c813ed3edb0c110ea60761656bcee58d501a5"
+  },
+  "outputs": [
+    "monthly_series.csv",
+    "descriptive_correlations.csv",
+    "endpoint_changes.csv",
+    "trend_comparison.png",
+    "common_window_momentum_correlations.csv",
+    "exploratory_partial_correlations.csv",
+    "historical_origin_sample_maturity.csv"
+  ]
+}
