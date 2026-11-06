@@ -1,0 +1,222 @@
+[
+  {
+    "source": "outputs/cb_1200/metrics.json",
+    "destination": "baseline/cb_1200/metrics.json",
+    "sha256": "6c09bc9b44b37bbca0396f9885cb09ac52f6b9c06fd5ac07ec6c962bf8580aaa"
+  },
+  {
+    "source": "outputs/controlled_sweep/ablation_fixed_iterations.csv",
+    "destination": "controlled_sweep/ablation_fixed_iterations.csv",
+    "sha256": "7a07a85e8dec51326d81cb5641e72a84ac0915111c9a53a7686b9348ee218500"
+  },
+  {
+    "source": "outputs/controlled_sweep/experiment_manifest.json",
+    "destination": "controlled_sweep/experiment_manifest.json",
+    "sha256": "52dbed6573a126414bc68fe20fa1a6a13ad01c8513814ea6f40842c06d36ecdc"
+  },
+  {
+    "source": "outputs/controlled_sweep/iteration_sweep.csv",
+    "destination": "controlled_sweep/iteration_sweep.csv",
+    "sha256": "c9d83557eec6b95bd26378a53e095003728f11560c53cb54b20562354c0c3583"
+  },
+  {
+    "source": "outputs/controlled_sweep/market_index_dev_2023_h2.csv",
+    "destination": "controlled_sweep/market_index_dev_2023_h2.csv",
+    "sha256": "6f31342c42e81f195913455b74761d4753051546a8c6ef2cc66e910a566f16b6"
+  },
+  {
+    "source": "outputs/controlled_sweep/market_index_dev_2024_h1.csv",
+    "destination": "controlled_sweep/market_index_dev_2024_h1.csv",
+    "sha256": "3e9ff6cad70e946dca5b8cc778abc955bb8746b2b0b4c69b705567eaf01bbd97"
+  },
+  {
+    "source": "outputs/controlled_sweep/market_index_dev_2024_h2.csv",
+    "destination": "controlled_sweep/market_index_dev_2024_h2.csv",
+    "sha256": "1c1a197b1ba309da3e43603b566e081dc75527cf7130acb06befee3a9c649eb7"
+  },
+  {
+    "source": "outputs/controlled_sweep/market_index_holdout_2025_q1.csv",
+    "destination": "controlled_sweep/market_index_holdout_2025_q1.csv",
+    "sha256": "d5873fec2633a128fe6a7114f071d745c011bcb4347a2f1ec74d1a96b0aa16a1"
+  },
+  {
+    "source": "outputs/controlled_sweep/scores_by_fold.csv",
+    "destination": "controlled_sweep/scores_by_fold.csv",
+    "sha256": "93501b7828fe876c76397f2399c1275ee92fc4c2366f603fe777c3dfe5596f15"
+  },
+  {
+    "source": "outputs/controlled_sweep/scores_by_horizon.csv",
+    "destination": "controlled_sweep/scores_by_horizon.csv",
+    "sha256": "67882408cf10ab32f23c0a07cd8c64bb79a82f54799864a789234672717ddd24"
+  },
+  {
+    "source": "outputs/controlled_sweep/scores_by_month.csv",
+    "destination": "controlled_sweep/scores_by_month.csv",
+    "sha256": "e273d453100d493767a57c7166a83158adab662ac21f2bb5fe8ebc904997f751"
+  },
+  {
+    "source": "outputs/controlled_sweep/scores_summary.csv",
+    "destination": "controlled_sweep/scores_summary.csv",
+    "sha256": "0c0b046b1f233218370707e02b0cb7fc4cb0cd1e4639799a116a4a02195b01d7"
+  },
+  {
+    "source": "outputs/controlled_sweep/selected_config.json",
+    "destination": "controlled_sweep/selected_config.json",
+    "sha256": "6d507ca050b3d3dbf9b868843f2ffe540fc060bd68c1e1e37f273d82db778b7b"
+  },
+  {
+    "source": "outputs/g_strict/manifest.json",
+    "destination": "g_strict/manifest.json",
+    "sha256": "4d33ed26ed50223bf27ea0622e72ce39ae156717e5cb9387a5309cf0e6332b16"
+  },
+  {
+    "source": "outputs/g_strict/scores_by_fold.csv",
+    "destination": "g_strict/scores_by_fold.csv",
+    "sha256": "b3d6ceca8426d54f14531e5647c90a2d1d1931fbf5eeaf935b6245a8d4527526"
+  },
+  {
+    "source": "outputs/g_strict/scores_by_horizon.csv",
+    "destination": "g_strict/scores_by_horizon.csv",
+    "sha256": "14c91084806862379cd5b9d9b1ca6cae166ff3bc18a349982a59a4bcaa5e1053"
+  },
+  {
+    "source": "outputs/g_strict/scores_by_month.csv",
+    "destination": "g_strict/scores_by_month.csv",
+    "sha256": "5e495c286c79c496413900c13f93ab38d73f32a0404b7d9f87b6f90469245b3d"
+  },
+  {
+    "source": "outputs/g_strict/scores_summary.csv",
+    "destination": "g_strict/scores_summary.csv",
+    "sha256": "b0b1a4a894bd472cb815e2700a3b27024e1f71f95dcf84939289d39cafc53458"
+  },
+  {
+    "source": "outputs/history_strict/manifest.json",
+    "destination": "history_strict/manifest.json",
+    "sha256": "41f60ed17fe5e8a33e562a237cf18a39c16a7532e92a30393479a04d5b2bea84"
+  },
+  {
+    "source": "outputs/history_strict/scores_by_fold.csv",
+    "destination": "history_strict/scores_by_fold.csv",
+    "sha256": "1f8089de5549dfa3eaa0e3b0b865215173a02c9c9d2ab9511dcd172c7a649c58"
+  },
+  {
+    "source": "outputs/history_strict/scores_by_horizon.csv",
+    "destination": "history_strict/scores_by_horizon.csv",
+    "sha256": "1e605a512152fc929493f9b9bc4b814ef117840088eca330e81f96dc21519a6f"
+  },
+  {
+    "source": "outputs/history_strict/scores_by_month.csv",
+    "destination": "history_strict/scores_by_month.csv",
+    "sha256": "32517712afd7ddf8d5cb9fc7bb21d9225d51cbdb1ff85ba4d20652a4061f1ddd"
+  },
+  {
+    "source": "outputs/history_strict/scores_summary.csv",
+    "destination": "history_strict/scores_summary.csv",
+    "sha256": "497ad253b66cdacfb3c3cd505597c1f8ff2dc32d34db86d9bc854539ccab7758"
+  },
+  {
+    "source": "outputs/long_horizon/ablation_fixed_iterations.csv",
+    "destination": "long_horizon/ablation_fixed_iterations.csv",
+    "sha256": "4f6cbe86245fe6f53ae400d7a042f727532096dd2e6c4b378979f695b290a264"
+  },
+  {
+    "source": "outputs/long_horizon/experiment_manifest.json",
+    "destination": "long_horizon/experiment_manifest.json",
+    "sha256": "dc22564416789dffd52e926d4da38f96f33e6cf5370e96cb790c4217c59f97be"
+  },
+  {
+    "source": "outputs/long_horizon/iteration_sweep.csv",
+    "destination": "long_horizon/iteration_sweep.csv",
+    "sha256": "1797c898062f2921060181cdeb427ea1c0fab3e2147f423d5722aae6244faed1"
+  },
+  {
+    "source": "outputs/long_horizon/market_index_long18.csv",
+    "destination": "long_horizon/market_index_long18.csv",
+    "sha256": "ac24bca3514cca4c035b042e6491ba7cf41c657104d07c6559e98c2e15fb0451"
+  },
+  {
+    "source": "outputs/long_horizon/market_index_medium12.csv",
+    "destination": "long_horizon/market_index_medium12.csv",
+    "sha256": "4976c41f74581a3da0b892d2f464991116f541c5d539a02fe1291cb35da30d44"
+  },
+  {
+    "source": "outputs/long_horizon/market_index_short3.csv",
+    "destination": "long_horizon/market_index_short3.csv",
+    "sha256": "d5873fec2633a128fe6a7114f071d745c011bcb4347a2f1ec74d1a96b0aa16a1"
+  },
+  {
+    "source": "outputs/long_horizon/scores_by_fold.csv",
+    "destination": "long_horizon/scores_by_fold.csv",
+    "sha256": "5ff70a973e110f5de8f3a28d1c1628d15033b016e06927719c0c78859e2beb79"
+  },
+  {
+    "source": "outputs/long_horizon/scores_by_horizon.csv",
+    "destination": "long_horizon/scores_by_horizon.csv",
+    "sha256": "c7985a73e04db9e990d316f9559debc60904c9b33c1a885bca42434edd9741be"
+  },
+  {
+    "source": "outputs/long_horizon/scores_by_month.csv",
+    "destination": "long_horizon/scores_by_month.csv",
+    "sha256": "050626eb9a3910f12863cbaaa719ff9d0eb24a24aaf0be07e63dfb6c94a61d57"
+  },
+  {
+    "source": "outputs/long_horizon/scores_summary.csv",
+    "destination": "long_horizon/scores_summary.csv",
+    "sha256": "8dc7c4071f8b487bbb44ad113396bb6d544928be4d35c58dafd48a5195fd1b39"
+  },
+  {
+    "source": "outputs/long_horizon/selected_config.json",
+    "destination": "long_horizon/selected_config.json",
+    "sha256": "dc1fe4a2b7e5c8872980c7a888978d71434d7f02764e3170ac9a1e7fde714e67"
+  },
+  {
+    "source": "outputs/metrics.json",
+    "destination": "baseline/initial/metrics.json",
+    "sha256": "184bc55416a6a9c138c6c478ff3bb2fc7755cf194f2ab9310bc8bc485617a44b"
+  },
+  {
+    "source": "outputs/official_cb_1200/official_by_month.csv",
+    "destination": "official_matching/cb_1200/official_by_month.csv",
+    "sha256": "5c673b9c5ec51f9e275ae4e0ed155aacf2c969f683c2d33dc3662e303d281eca"
+  },
+  {
+    "source": "outputs/official_cb_1200/official_metrics.json",
+    "destination": "official_matching/cb_1200/official_metrics.json",
+    "sha256": "b7c767e3b7b3184a84d129117eaac33c4ccab9ddced401418766e8675768a916"
+  },
+  {
+    "source": "outputs/official_check/official_by_month.csv",
+    "destination": "official_matching/initial/official_by_month.csv",
+    "sha256": "bf0d236e6f56308f3592a6969ab6b42b8207a90fe597018deb60f0e61f4cb3e7"
+  },
+  {
+    "source": "outputs/official_check/official_metrics.json",
+    "destination": "official_matching/initial/official_metrics.json",
+    "sha256": "430e1a0849edf812a6843df15718a7c64f3ad260e40da2d6f3640397e73311ba"
+  },
+  {
+    "source": "outputs/submit_F1/manifest.json",
+    "destination": "final_f1/manifest.json",
+    "sha256": "372c5bf23aa44d1263899daa0ac6259e129243f2e8d0eaf6be21047750c4d3c4"
+  },
+  {
+    "source": "outputs/submit_F1/submission_info.json",
+    "destination": "final_f1/submission_info.json",
+    "sha256": "d5353365864746b9351aefc41ae87352b377dbfc301057e92dd9dda272dafd1d"
+  },
+  {
+    "source": "outputs_E1200/market_index_full_train.csv",
+    "destination": "E1200/market_index_full_train.csv",
+    "sha256": "52add584e29e8aa6d432c87f5745370c80a4da51a066d923a1838db2cb5177bd"
+  },
+  {
+    "source": "outputs_E1600/market_index_full_train.csv",
+    "destination": "E1600/market_index_full_train.csv",
+    "sha256": "52add584e29e8aa6d432c87f5745370c80a4da51a066d923a1838db2cb5177bd"
+  },
+  {
+    "source": "outputs_ablation/market_index_full_train.csv",
+    "destination": "ablation/market_index_full_train.csv",
+    "sha256": "52add584e29e8aa6d432c87f5745370c80a4da51a066d923a1838db2cb5177bd"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "tests_run": 13,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "success": true,
+  "seconds": 10.432034791097976,
+  "environment": {
+    "python": "3.12.5",
+    "platform": "macOS-14.8.7-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "2.3.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "catboost": "1.2.10"
+    }
+  },
+  "coverage": [
+    "causal history and same-month exclusions",
+    "fixed fold reference and enhanced cutoff",
+    "trend boundary and seasonality",
+    "Kaggle schema, IDs and finite predictions",
+    "four original official-matching tests",
+    "all main ablation CLIs on small synthetic inputs",
+    "train, save, reload, predict and reject changed history"
+  ]
+}

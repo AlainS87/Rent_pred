@@ -1,0 +1,40 @@
+{
+  "folds_compared": 4,
+  "max_absolute_metric_difference": 1.1368683772161603e-13,
+  "development_mean_rmse": 514.8287337550381,
+  "diagnostic_rmse": 444.2865470821469,
+  "folds": [
+    {
+      "fold": "dev_2023_h2",
+      "role": "development",
+      "rmse": 576.1308845879627,
+      "mae": 451.63359081439353,
+      "bias_pred_minus_actual": 6.991066097698873,
+      "rmse_difference": 0.0
+    },
+    {
+      "fold": "dev_2024_h1",
+      "role": "development",
+      "rmse": 512.3789583407276,
+      "mae": 384.2070998813341,
+      "bias_pred_minus_actual": 19.469230784264965,
+      "rmse_difference": 0.0
+    },
+    {
+      "fold": "dev_2024_h2",
+      "role": "development",
+      "rmse": 455.9763583364238,
+      "mae": 331.9765506558621,
+      "bias_pred_minus_actual": 0.5988527528256984,
+      "rmse_difference": 0.0
+    },
+    {
+      "fold": "diagnostic_2025_q1",
+      "role": "diagnostic",
+      "rmse": 444.2865470821469,
+      "mae": 320.0415522664858,
+      "bias_pred_minus_actual": 0.5453704345947038,
+      "rmse_difference": 0.0
+    }
+  ]
+}

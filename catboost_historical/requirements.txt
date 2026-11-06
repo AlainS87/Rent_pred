@@ -1,0 +1,2 @@
+# Use the tested dependency set for reproducibility.
+-r requirements-lock.txt

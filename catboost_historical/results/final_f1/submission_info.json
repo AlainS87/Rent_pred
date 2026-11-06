@@ -1,0 +1,11 @@
+{
+  "variant": "F1",
+  "iterations": 1600,
+  "trend_strength": 0.5,
+  "rows": 50000,
+  "pred_min": 1357.3369947335023,
+  "pred_mean": 3223.218076913866,
+  "pred_max": 5467.534108415822,
+  "output": "outputs/submit_F1/submission_F1_1600.csv",
+  "info": "Only Kaggle training labels were used for historical features; test labels are never read."
+}

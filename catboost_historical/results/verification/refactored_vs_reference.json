@@ -1,0 +1,20 @@
+{
+  "prediction_count": 50000,
+  "max_absolute_difference": 1.8189894035458565e-12,
+  "mean_absolute_difference": 4.428784450283274e-14,
+  "ids_identical": true,
+  "reference_sha256": "be70bd9b54f74cee58c115b356cd1fe6e68e275c408f449cbbd6fe2d4fca8520",
+  "candidate_sha256": "121e0bdfa0abfe3900cf32693ea6e7424455001397aaf90e7e36cf49d07a09c7",
+  "environment": {
+    "python": "3.12.5",
+    "platform": "macOS-14.8.7-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "2.3.3",
+      "scipy": "1.18.1",
+      "scikit-learn": "1.9.1",
+      "catboost": "1.2.10"
+    }
+  },
+  "order_note": "IDs are validated in CSV order. Input-test identity is recorded by final inference."
+}

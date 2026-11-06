@@ -1,0 +1,10 @@
+{
+  "preserved_reference_files": 97,
+  "preserved_reference_unchanged": true,
+  "historical_result_files": 44,
+  "all_result_copies_match_original_hashes": true,
+  "training_inputs_match_manifest": true,
+  "current_implementation_matches_trained_manifest": true,
+  "git_status": "?? ../.DS_Store\n?? ./\n",
+  "outside_subproject_note": ".DS_Store was already untracked before implementation; it was not edited."
+}

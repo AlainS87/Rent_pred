@@ -1,0 +1,28 @@
+{
+  "modules": [
+    "hdb_rent",
+    "hdb_rent.base",
+    "hdb_rent.data",
+    "hdb_rent.enhanced_history",
+    "hdb_rent.evaluation",
+    "hdb_rent.final",
+    "hdb_rent.historical_features",
+    "hdb_rent.submission",
+    "hdb_rent.temporal",
+    "experiments",
+    "experiments.baseline",
+    "experiments.enhanced",
+    "experiments.historical",
+    "experiments.legacy_temporal",
+    "experiments.temporal",
+    "diagnostics",
+    "diagnostics.official_matching",
+    "scripts",
+    "scripts.compare_submissions",
+    "scripts.plot_results",
+    "scripts.verify_original"
+  ],
+  "all_imported": true,
+  "syntax_check": "compileall completed successfully",
+  "pip_check": "No broken requirements found"
+}
